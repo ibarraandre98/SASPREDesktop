@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsFertilizantes" targetNamespace="http://tempuri.org/dsFertilizantes.xsd" xmlns:mstns="http://tempuri.org/dsFertilizantes.xsd" xmlns="http://tempuri.org/dsFertilizantes.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsFertilizantes" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsFertilizantes" msprop:Generator_UserDSName="dsFertilizantes">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Fertilizantes" msprop:Generator_TableClassName="FertilizantesDataTable" msprop:Generator_TableVarName="tableFertilizantes" msprop:Generator_TablePropName="Fertilizantes" msprop:Generator_RowDeletingName="FertilizantesRowDeleting" msprop:Generator_RowChangingName="FertilizantesRowChanging" msprop:Generator_RowEvHandlerName="FertilizantesRowChangeEventHandler" msprop:Generator_RowDeletedName="FertilizantesRowDeleted" msprop:Generator_UserTableName="Fertilizantes" msprop:Generator_RowChangedName="FertilizantesRowChanged" msprop:Generator_RowEvArgName="FertilizantesRowChangeEvent" msprop:Generator_RowClassName="FertilizantesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Plaga" msprop:Generator_ColumnVarNameInTable="columnPlaga" msprop:Generator_ColumnPropNameInRow="Plaga" msprop:Generator_ColumnPropNameInTable="PlagaColumn" msprop:Generator_UserColumnName="Plaga" type="xs:string" minOccurs="0" />
+              <xs:element name="Cultivo" msprop:Generator_ColumnVarNameInTable="columnCultivo" msprop:Generator_ColumnPropNameInRow="Cultivo" msprop:Generator_ColumnPropNameInTable="CultivoColumn" msprop:Generator_UserColumnName="Cultivo" type="xs:string" minOccurs="0" />
+              <xs:element name="Insecticida" msprop:Generator_ColumnVarNameInTable="columnInsecticida" msprop:Generator_ColumnPropNameInRow="Insecticida" msprop:Generator_ColumnPropNameInTable="InsecticidaColumn" msprop:Generator_UserColumnName="Insecticida" type="xs:string" minOccurs="0" />
+              <xs:element name="Dosis" msprop:Generator_ColumnVarNameInTable="columnDosis" msprop:Generator_ColumnPropNameInRow="Dosis" msprop:Generator_ColumnPropNameInTable="DosisColumn" msprop:Generator_UserColumnName="Dosis" type="xs:string" minOccurs="0" />
+              <xs:element name="EpocaControl" msprop:Generator_ColumnVarNameInTable="columnEpocaControl" msprop:Generator_ColumnPropNameInRow="EpocaControl" msprop:Generator_ColumnPropNameInTable="EpocaControlColumn" msprop:Generator_UserColumnName="EpocaControl" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

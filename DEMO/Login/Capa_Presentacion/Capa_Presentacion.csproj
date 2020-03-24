@@ -1,0 +1,925 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F2DE86B8-B2AD-4A53-9354-0FDA04645D1E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Capa_Presentacion</RootNamespace>
+    <AssemblyName>SASPRE</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Muski\Desktop\SASPRE2\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>\\localhost\\SASPRE\</InstallUrl>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Capa_Presentacion.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>50E45660BF10569B1ECACF7C10321F9EE03F877A</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.52, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Resources\Bunifu_UI_v1.52.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportAppServer.ClientDoc, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommLayer, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommonControls, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommonObjectModel, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.Controllers, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CubeDefModel, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.DataDefModel, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.DataSetConversion, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportAppServer.ObjectFactory, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.ObjectFactory.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.ObjectFactory.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.Prompting, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.Prompting.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.Prompting.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ReportDefModel, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.XmlSerialize, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="FSharp.Core, Version=4.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FSharp.Core.4.5.2\lib\net45\FSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.Core, Version=1.7.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.WindowsForms.1.7.5\lib\net40\GMap.NET.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsForms, Version=1.7.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.WindowsForms.1.7.5\lib\net40\GMap.NET.WindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.11.12.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.12\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Kuto, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Kuto.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MySql.Data, Version=8.0.15.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ScrapySharp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ScrapySharp.3.0.0\lib\netstandard2.0\ScrapySharp.dll</HintPath>
+    </Reference>
+    <Reference Include="ScrapySharp.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ScrapySharp.3.0.0\lib\netstandard2.0\ScrapySharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BitacoraAlmacen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BitacoraAlmacen.Designer.cs">
+      <DependentUpon>BitacoraAlmacen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cultivos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cultivos.Designer.cs">
+      <DependentUpon>Cultivos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Alarmas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alarmas.Designer.cs">
+      <DependentUpon>Alarmas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="alert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="alert.designer.cs">
+      <DependentUpon>alert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="alertCalendario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="alertCalendario.Designer.cs">
+      <DependentUpon>alertCalendario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="alertInsecticida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="alertInsecticida.Designer.cs">
+      <DependentUpon>alertInsecticida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Almacen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Almacen.Designer.cs">
+      <DependentUpon>Almacen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Calculadora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calculadora.Designer.cs">
+      <DependentUpon>Calculadora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CalculoDePlagas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalculoDePlagas.Designer.cs">
+      <DependentUpon>CalculoDePlagas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CalendarioAct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalendarioAct.Designer.cs">
+      <DependentUpon>CalendarioAct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ciudad.cs" />
+    <Compile Include="CiudadDia.cs" />
+    <Compile Include="Cosechas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cosechas.Designer.cs">
+      <DependentUpon>Cosechas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Costos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Costos.Designer.cs">
+      <DependentUpon>Costos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Datos_Atmosfericos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Datos_Atmosfericos.Designer.cs">
+      <DependentUpon>Datos_Atmosfericos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dsAlmacen.cs">
+      <DependentUpon>dsAlmacen.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsAlmacen.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsAlmacen.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsAtmosfericos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsAtmosfericos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsCalendario.cs">
+      <DependentUpon>dsCalendario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsCalendario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCalendario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsBitacoraAlmacen.cs">
+      <DependentUpon>dsBitacoraAlmacen.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsBitacoraAlmacen.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsBitacoraAlmacen.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsCosechas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCosechas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsCostos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCostos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsCultivos.cs">
+      <DependentUpon>dsCultivos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsCultivos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCultivos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsFertilizantes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsFertilizantes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsHistorialPlagas.cs">
+      <DependentUpon>dsHistorialPlagas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsHistorialPlagas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsHistorialPlagas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsUsuario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsUsuario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Envio_Correo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Envio_Correo.Designer.cs">
+      <DependentUpon>Envio_Correo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fertilizaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fertilizaciones.Designer.cs">
+      <DependentUpon>Fertilizaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fertilizantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fertilizantes.Designer.cs">
+      <DependentUpon>Fertilizantes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_FiltroCultivos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_FiltroCultivos.Designer.cs">
+      <DependentUpon>FRM_FiltroCultivos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FromUsuarioABC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FromUsuarioABC.Designer.cs">
+      <DependentUpon>FromUsuarioABC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gastos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gastos.Designer.cs">
+      <DependentUpon>Gastos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gráficos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gráficos.Designer.cs">
+      <DependentUpon>Gráficos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistorialPlagas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HistorialPlagas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InformacionAXDias.cs" />
+    <Compile Include="Insecticidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Insecticidas.Designer.cs">
+      <DependentUpon>Insecticidas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistorialDePlagas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistorialDePlagas.Designer.cs">
+      <DependentUpon>HistorialDePlagas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReporteAlmacen.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteAlmacen.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReporteCalendario.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteCalendario.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReporteCosechas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteCosechas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReporteCostos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteCostos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReporteCultivo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteCultivo.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReporteDatosAtmosfericos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteDatosAtmosfericos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReporteFertilizantes.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteFertilizantes.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes.Designer.cs">
+      <DependentUpon>Reportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReporteUsuario.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteUsuario.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rpt_BitacoraAlmacen.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_BitacoraAlmacen.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ventas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas.Designer.cs">
+      <DependentUpon>Ventas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WebScraping\ScrapperClima.cs" />
+    <EmbeddedResource Include="BitacoraAlmacen.resx">
+      <DependentUpon>BitacoraAlmacen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cultivos.resx">
+      <DependentUpon>Cultivos.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alarmas.resx">
+      <DependentUpon>Alarmas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="alert.resx">
+      <DependentUpon>alert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="alertCalendario.resx">
+      <DependentUpon>alertCalendario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="alertInsecticida.resx">
+      <DependentUpon>alertInsecticida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Almacen.resx">
+      <DependentUpon>Almacen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calculadora.resx">
+      <DependentUpon>Calculadora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalculoDePlagas.resx">
+      <DependentUpon>CalculoDePlagas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalendarioAct.resx">
+      <DependentUpon>CalendarioAct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cosechas.resx">
+      <DependentUpon>Cosechas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Costos.resx">
+      <DependentUpon>Costos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Datos_Atmosfericos.resx">
+      <DependentUpon>Datos_Atmosfericos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Envio_Correo.resx">
+      <DependentUpon>Envio_Correo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fertilizaciones.resx">
+      <DependentUpon>Fertilizaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fertilizantes.resx">
+      <DependentUpon>Fertilizantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_FiltroCultivos.resx">
+      <DependentUpon>FRM_FiltroCultivos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FromUsuarioABC.resx">
+      <DependentUpon>FromUsuarioABC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gastos.resx">
+      <DependentUpon>Gastos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gráficos.resx">
+      <DependentUpon>Gráficos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistorialPlagas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>HistorialPlagas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Insecticidas.resx">
+      <DependentUpon>Insecticidas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistorialDePlagas.resx">
+      <DependentUpon>HistorialDePlagas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="ReporteAlmacen.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteAlmacen.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteCalendario.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteCalendario.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteCosechas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteCosechas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteCostos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteCostos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteCultivo.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteCultivo.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteDatosAtmosfericos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteDatosAtmosfericos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteFertilizantes.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteFertilizantes.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes.resx">
+      <DependentUpon>Reportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteUsuario.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteUsuario.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rpt_BitacoraAlmacen.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_BitacoraAlmacen.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas.resx">
+      <DependentUpon>Ventas.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="dsAlmacen.xsc">
+      <DependentUpon>dsAlmacen.xsd</DependentUpon>
+    </None>
+    <None Include="dsAlmacen.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsAlmacen.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsAlmacen.xss">
+      <DependentUpon>dsAlmacen.xsd</DependentUpon>
+    </None>
+    <None Include="dsAtmosfericos.xsc">
+      <DependentUpon>dsAtmosfericos.xsd</DependentUpon>
+    </None>
+    <None Include="dsAtmosfericos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsAtmosfericos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsAtmosfericos.xss">
+      <DependentUpon>dsAtmosfericos.xsd</DependentUpon>
+    </None>
+    <None Include="dsCalendario.xsc">
+      <DependentUpon>dsCalendario.xsd</DependentUpon>
+    </None>
+    <None Include="dsCalendario.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCalendario.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsCalendario.xss">
+      <DependentUpon>dsCalendario.xsd</DependentUpon>
+    </None>
+    <None Include="dsBitacoraAlmacen.xsc">
+      <DependentUpon>dsBitacoraAlmacen.xsd</DependentUpon>
+    </None>
+    <None Include="dsBitacoraAlmacen.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsBitacoraAlmacen.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsBitacoraAlmacen.xss">
+      <DependentUpon>dsBitacoraAlmacen.xsd</DependentUpon>
+    </None>
+    <None Include="dsCosechas.xsc">
+      <DependentUpon>dsCosechas.xsd</DependentUpon>
+    </None>
+    <None Include="dsCosechas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCosechas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsCosechas.xss">
+      <DependentUpon>dsCosechas.xsd</DependentUpon>
+    </None>
+    <None Include="dsCostos.xsc">
+      <DependentUpon>dsCostos.xsd</DependentUpon>
+    </None>
+    <None Include="dsCostos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCostos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsCostos.xss">
+      <DependentUpon>dsCostos.xsd</DependentUpon>
+    </None>
+    <None Include="dsCultivos.xsc">
+      <DependentUpon>dsCultivos.xsd</DependentUpon>
+    </None>
+    <None Include="dsCultivos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCultivos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsCultivos.xss">
+      <DependentUpon>dsCultivos.xsd</DependentUpon>
+    </None>
+    <None Include="dsFertilizantes.xsc">
+      <DependentUpon>dsFertilizantes.xsd</DependentUpon>
+    </None>
+    <None Include="dsFertilizantes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsFertilizantes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsFertilizantes.xss">
+      <DependentUpon>dsFertilizantes.xsd</DependentUpon>
+    </None>
+    <None Include="dsHistorialPlagas.xsc">
+      <DependentUpon>dsHistorialPlagas.xsd</DependentUpon>
+    </None>
+    <None Include="dsHistorialPlagas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsHistorialPlagas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsHistorialPlagas.xss">
+      <DependentUpon>dsHistorialPlagas.xsd</DependentUpon>
+    </None>
+    <None Include="dsUsuario.xsc">
+      <DependentUpon>dsUsuario.xsd</DependentUpon>
+    </None>
+    <None Include="dsUsuario.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsUsuario.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsUsuario.xss">
+      <DependentUpon>dsUsuario.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fondo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Customer_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Privacy_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Delete_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agro-bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Delete_32px_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Bug_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Rain_Cloud_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Potted_Plant_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Services_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Long_Arrow_Left_32px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Home_32px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Partly_Cloudy_Day_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Time_Machine_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Combo_Chart_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Leaf_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Edit_Pie_Chart_Report_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Settings_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondomenu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondooficial3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MenuDerecho.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MenuIzquierdo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MenuIzquierdoVerde.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\descarga.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maíz-e1520443706756.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\54516082_831687770532189_4577809296376463360_o.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Forward_32px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Capa_Negocio\Capa_Negocio.csproj">
+      <Project>{057fbda6-8e76-43d9-8ef6-d1d104c71b38}</Project>
+      <Name>Capa_Negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\candado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\candado2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\candado3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fondo2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondoprueba2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuarioprueba.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Minimize_Window_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Horizontal_Line_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CAÑA.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CEBOLLA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MAÍZ.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SORGO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SOYA.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SOYA2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SOYA3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MAÍZFINAL.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Visual.C++.14.0.x86">
+      <Visible>False</Visible>
+      <ProductName>Bibliotecas en tiempo de ejecución de Visual C++ "14" %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="SAP.CrystalReports14.NET.2.0">
+      <Visible>False</Visible>
+      <ProductName>SAP Crystal Reports Runtime Engine for .NET Framework</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Logo.ico" />
+    <None Include="Resources\ventas.png" />
+    <None Include="Resources\AddIMG.png" />
+    <None Include="Resources\almacen.png" />
+    <None Include="Resources\alarm_30px.png" />
+    <None Include="Resources\20191108_111538.jpg" />
+    <Content Include="Resources\Alerta.png" />
+    <None Include="Resources\Alerta1.png" />
+    <Content Include="Resources\ARROW WHITE.png" />
+    <None Include="Resources\PLANT WHITE1.png" />
+    <None Include="Resources\ARROW WHITE1.png" />
+    <Content Include="Resources\BAG WHITE.png" />
+    <None Include="Resources\BAG WHITE1.png" />
+    <None Include="Resources\calendario.png" />
+    <None Include="Resources\calculator_127px.png" />
+    <Content Include="Resources\CLOCK WHITE.png" />
+    <None Include="Resources\CLOCK WHITE1.png" />
+    <Content Include="Resources\CLOUD WHITE.png" />
+    <None Include="Resources\CLOUD WHITE1.png" />
+    <Content Include="Resources\CONFIGURE WHITE.png" />
+    <None Include="Resources\CONFIGURE WHITE2.png" />
+    <None Include="Resources\cost_127px.png" />
+    <Content Include="Resources\DATOS ATMOSFERICOS WHITE.png" />
+    <None Include="Resources\DATOS ATMOSFERICOS WHITE1.png" />
+    <Content Include="Resources\FIELD WHITE.png" />
+    <None Include="Resources\FIELD WHITE1.png" />
+    <None Include="Resources\Imagen2.png" />
+    <None Include="Resources\Imagen3.png" />
+    <None Include="Resources\gastos.png" />
+    <None Include="Resources\Imagen4.png" />
+    <None Include="Resources\icons8_design_90px_1.png" />
+    <Content Include="Resources\LEAF WHITE.png" />
+    <None Include="Resources\MenuGraficosBlanco.png" />
+    <None Include="Resources\menu.png" />
+    <None Include="Resources\menuprin.png" />
+    <None Include="Resources\menuprin1.png" />
+    <Content Include="Resources\PLANT WHITE.png" />
+    <None Include="Resources\cielo.jpg" />
+    <None Include="Resources\Imagen1.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

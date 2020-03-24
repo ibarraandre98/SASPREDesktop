@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsBitacoraAlmacen" targetNamespace="http://tempuri.org/dsBitacoraAlmacen.xsd" xmlns:mstns="http://tempuri.org/dsBitacoraAlmacen.xsd" xmlns="http://tempuri.org/dsBitacoraAlmacen.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsBitacoraAlmacen" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsBitacoraAlmacen" msprop:Generator_UserDSName="dsBitacoraAlmacen">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Bitacora" msprop:Generator_TableClassName="BitacoraDataTable" msprop:Generator_TableVarName="tableBitacora" msprop:Generator_RowChangedName="BitacoraRowChanged" msprop:Generator_TablePropName="Bitacora" msprop:Generator_RowDeletingName="BitacoraRowDeleting" msprop:Generator_RowChangingName="BitacoraRowChanging" msprop:Generator_RowEvHandlerName="BitacoraRowChangeEventHandler" msprop:Generator_RowDeletedName="BitacoraRowDeleted" msprop:Generator_RowClassName="BitacoraRow" msprop:Generator_UserTableName="Bitacora" msprop:Generator_RowEvArgName="BitacoraRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IDAlmacen" msprop:Generator_ColumnVarNameInTable="columnIDAlmacen" msprop:Generator_ColumnPropNameInRow="IDAlmacen" msprop:Generator_ColumnPropNameInTable="IDAlmacenColumn" msprop:Generator_UserColumnName="IDAlmacen" type="xs:string" minOccurs="0" />
+              <xs:element name="Usuario" msprop:Generator_ColumnVarNameInTable="columnUsuario" msprop:Generator_ColumnPropNameInRow="Usuario" msprop:Generator_ColumnPropNameInTable="UsuarioColumn" msprop:Generator_UserColumnName="Usuario" type="xs:string" minOccurs="0" />
+              <xs:element name="TipodeObjeto" msprop:Generator_ColumnVarNameInTable="columnTipodeObjeto" msprop:Generator_ColumnPropNameInRow="TipodeObjeto" msprop:Generator_ColumnPropNameInTable="TipodeObjetoColumn" msprop:Generator_UserColumnName="TipodeObjeto" type="xs:string" minOccurs="0" />
+              <xs:element name="NombreObjeto" msprop:Generator_ColumnVarNameInTable="columnNombreObjeto" msprop:Generator_ColumnPropNameInRow="NombreObjeto" msprop:Generator_ColumnPropNameInTable="NombreObjetoColumn" msprop:Generator_UserColumnName="NombreObjeto" type="xs:string" minOccurs="0" />
+              <xs:element name="TipoSiembra" msprop:Generator_ColumnVarNameInTable="columnTipoSiembra" msprop:Generator_ColumnPropNameInRow="TipoSiembra" msprop:Generator_ColumnPropNameInTable="TipoSiembraColumn" msprop:Generator_UserColumnName="TipoSiembra" type="xs:string" minOccurs="0" />
+              <xs:element name="Precio" msprop:Generator_ColumnVarNameInTable="columnPrecio" msprop:Generator_ColumnPropNameInRow="Precio" msprop:Generator_ColumnPropNameInTable="PrecioColumn" msprop:Generator_UserColumnName="Precio" type="xs:string" minOccurs="0" />
+              <xs:element name="CantidadObjeto" msprop:Generator_ColumnVarNameInTable="columnCantidadObjeto" msprop:Generator_ColumnPropNameInRow="CantidadObjeto" msprop:Generator_ColumnPropNameInTable="CantidadObjetoColumn" msprop:Generator_UserColumnName="CantidadObjeto" type="xs:string" minOccurs="0" />
+              <xs:element name="FechaIngreso" msprop:Generator_ColumnVarNameInTable="columnFechaIngreso" msprop:Generator_ColumnPropNameInRow="FechaIngreso" msprop:Generator_ColumnPropNameInTable="FechaIngresoColumn" msprop:Generator_UserColumnName="FechaIngreso" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

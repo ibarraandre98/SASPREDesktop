@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsAtmosfericos" targetNamespace="http://tempuri.org/dsAtmosfericos.xsd" xmlns:mstns="http://tempuri.org/dsAtmosfericos.xsd" xmlns="http://tempuri.org/dsAtmosfericos.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsAtmosfericos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsAtmosfericos" msprop:Generator_UserDSName="dsAtmosfericos">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DatosAtmosfericos" msprop:Generator_TableClassName="DatosAtmosfericosDataTable" msprop:Generator_TableVarName="tableDatosAtmosfericos" msprop:Generator_TablePropName="DatosAtmosfericos" msprop:Generator_RowDeletingName="DatosAtmosfericosRowDeleting" msprop:Generator_RowChangingName="DatosAtmosfericosRowChanging" msprop:Generator_RowEvHandlerName="DatosAtmosfericosRowChangeEventHandler" msprop:Generator_RowDeletedName="DatosAtmosfericosRowDeleted" msprop:Generator_UserTableName="DatosAtmosfericos" msprop:Generator_RowChangedName="DatosAtmosfericosRowChanged" msprop:Generator_RowEvArgName="DatosAtmosfericosRowChangeEvent" msprop:Generator_RowClassName="DatosAtmosfericosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FechaLocal" msprop:Generator_ColumnVarNameInTable="columnFechaLocal" msprop:Generator_ColumnPropNameInRow="FechaLocal" msprop:Generator_ColumnPropNameInTable="FechaLocalColumn" msprop:Generator_UserColumnName="FechaLocal" type="xs:string" minOccurs="0" />
+              <xs:element name="Temperatura" msprop:Generator_ColumnVarNameInTable="columnTemperatura" msprop:Generator_ColumnPropNameInRow="Temperatura" msprop:Generator_ColumnPropNameInTable="TemperaturaColumn" msprop:Generator_UserColumnName="Temperatura" type="xs:string" minOccurs="0" />
+              <xs:element name="HumedadRelativa" msprop:Generator_ColumnVarNameInTable="columnHumedadRelativa" msprop:Generator_ColumnPropNameInRow="HumedadRelativa" msprop:Generator_ColumnPropNameInTable="HumedadRelativaColumn" msprop:Generator_UserColumnName="HumedadRelativa" type="xs:string" minOccurs="0" />
+              <xs:element name="PresionAtmosferica" msprop:Generator_ColumnVarNameInTable="columnPresionAtmosferica" msprop:Generator_ColumnPropNameInRow="PresionAtmosferica" msprop:Generator_ColumnPropNameInTable="PresionAtmosfericaColumn" msprop:Generator_UserColumnName="PresionAtmosferica" type="xs:string" minOccurs="0" />
+              <xs:element name="Precipitacion" msprop:Generator_ColumnVarNameInTable="columnPrecipitacion" msprop:Generator_ColumnPropNameInRow="Precipitacion" msprop:Generator_ColumnPropNameInTable="PrecipitacionColumn" msprop:Generator_UserColumnName="Precipitacion" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsCultivos" targetNamespace="http://tempuri.org/dsCultivos.xsd" xmlns:mstns="http://tempuri.org/dsCultivos.xsd" xmlns="http://tempuri.org/dsCultivos.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsCultivos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsCultivos" msprop:Generator_UserDSName="dsCultivos">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Cultivos" msprop:Generator_TableClassName="CultivosDataTable" msprop:Generator_TableVarName="tableCultivos" msprop:Generator_TablePropName="Cultivos" msprop:Generator_RowDeletingName="CultivosRowDeleting" msprop:Generator_RowChangingName="CultivosRowChanging" msprop:Generator_RowEvHandlerName="CultivosRowChangeEventHandler" msprop:Generator_RowDeletedName="CultivosRowDeleted" msprop:Generator_UserTableName="Cultivos" msprop:Generator_RowChangedName="CultivosRowChanged" msprop:Generator_RowEvArgName="CultivosRowChangeEvent" msprop:Generator_RowClassName="CultivosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Usuario" msprop:Generator_ColumnVarNameInTable="columnUsuario" msprop:Generator_ColumnPropNameInRow="Usuario" msprop:Generator_ColumnPropNameInTable="UsuarioColumn" msprop:Generator_UserColumnName="Usuario" type="xs:string" minOccurs="0" />
+              <xs:element name="Cultivo" msprop:Generator_ColumnVarNameInTable="columnCultivo" msprop:Generator_ColumnPropNameInRow="Cultivo" msprop:Generator_ColumnPropNameInTable="CultivoColumn" msprop:Generator_UserColumnName="Cultivo" type="xs:string" minOccurs="0" />
+              <xs:element name="Fecha_x0020_Plantado" msprop:Generator_ColumnVarNameInTable="columnFecha_Plantado" msprop:Generator_ColumnPropNameInRow="Fecha_Plantado" msprop:Generator_ColumnPropNameInTable="Fecha_PlantadoColumn" msprop:Generator_UserColumnName="Fecha Plantado" type="xs:string" minOccurs="0" />
+              <xs:element name="Fecha_x0020_Cosecha" msprop:Generator_ColumnVarNameInTable="columnFecha_Cosecha" msprop:Generator_ColumnPropNameInRow="Fecha_Cosecha" msprop:Generator_ColumnPropNameInTable="Fecha_CosechaColumn" msprop:Generator_UserColumnName="Fecha Cosecha" type="xs:string" minOccurs="0" />
+              <xs:element name="Cantidad" msprop:Generator_ColumnVarNameInTable="columnCantidad" msprop:Generator_ColumnPropNameInRow="Cantidad" msprop:Generator_ColumnPropNameInTable="CantidadColumn" msprop:Generator_UserColumnName="Cantidad" type="xs:string" minOccurs="0" />
+              <xs:element name="Estado" msprop:Generator_ColumnVarNameInTable="columnEstado" msprop:Generator_ColumnPropNameInRow="Estado" msprop:Generator_ColumnPropNameInTable="EstadoColumn" msprop:Generator_UserColumnName="Estado" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
