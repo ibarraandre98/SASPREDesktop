@@ -24,7 +24,6 @@ namespace Capa_Datos
                 "join cargo on usuario.idCargo = cargo.idCargo " +
                 " where nickname = '"+nickname + "' and contra = '"+contraseña+"'";
                 comando.CommandType = CommandType.Text;
-                
                 leer = comando.ExecuteReader();
 
             return leer;

@@ -205,7 +205,6 @@
             this.txtNickname.Name = "txtNickname";
             this.txtNickname.Size = new System.Drawing.Size(209, 35);
             this.txtNickname.TabIndex = 6;
-            this.txtNickname.Text = "Emiliano";
             this.txtNickname.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.toolTip1.SetToolTip(this.txtNickname, "Ingresa usuario");
             this.txtNickname.OnValueChanged += new System.EventHandler(this.txtNickname_OnValueChanged);
@@ -229,7 +228,6 @@
             this.txtContra.Name = "txtContra";
             this.txtContra.Size = new System.Drawing.Size(210, 35);
             this.txtContra.TabIndex = 7;
-            this.txtContra.Text = "admin";
             this.txtContra.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.toolTip1.SetToolTip(this.txtContra, "Ingresa contraseña");
             this.txtContra.OnValueChanged += new System.EventHandler(this.txtContra_OnValueChanged);
