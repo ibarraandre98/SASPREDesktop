@@ -22,14 +22,25 @@ namespace Capa_Datos
                 comando.Connection = conexion.AbrirConexion();
                 if (cargo == "Admin")
                 {
-                    comando.CommandText = "MostrarCosechas";
+                    //comando.CommandText = "MostrarCosechas";
+                    comando.CommandText = "SELECT cultivos.idCultivos,cultivos.fechaPlantado,cultivos.fechaCosechado,cultivos.cantidad,semillas.nombreSemilla, usuario.nombre FROM cosechas "+
+                    "JOIN cultivos ON cosechas.idCultivos = cultivos.idCultivos "+
+                    "JOIN semillas ON cultivos.idSemillas = semillas.idSemillas " +
+                    "JOIN usuario ON cultivos.idUsuario = usuario.idUsuario ";
                 }
                 else
                 {
-                    comando.CommandText = "MostrarCosechasUsuario";
-                    comando.Parameters.AddWithValue("_Usuario_Cultivo", usuario);
+                    //Aqui falta  como buscar el usuario y pasarlo a su id y despues buscarlo en la tabla cultivos
+
+                    //comando.CommandText = "MostrarCosechasUsuario";
+                    //comando.Parameters.AddWithValue("_Usuario_Cultivo", usuario);
+                    comando.CommandText = "SELECT cultivos.idCultivos,cultivos.idUsuario,cultivos.fechaPlantado,cultivos.fechaCosechado,cultivos.cantidad,semillas.nombreSemilla FROM cosechas "+
+                    "JOIN cultivos ON cosechas.idCultivos = cultivos.idCultivos "+
+                    "JOIN semillas ON cultivos.idSemillas = semillas.idSemillas "+
+                    "WHERE cultivos.idUsuario = "+ usuario;
+                    
                 }
-                comando.CommandType = CommandType.StoredProcedure;
+                comando.CommandType = CommandType.Text;
                 leer = comando.ExecuteReader();
                 tablaCosechas.Load(leer);
                 conexion.CerrarConexion();

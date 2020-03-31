@@ -7,6 +7,7 @@ using MySql.Data;
 using MySql.Data.MySqlClient;
 using System.Data;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace Capa_Datos
 {
@@ -22,26 +23,35 @@ namespace Capa_Datos
             String Rapidez_de_Viento, String Rapidez_de_Rafaga, String Temperatura, String Humedad_Relativa, String Presion_Atmosferica,
             String Precipitacion, String Radiacion_Solar)
         {
-                comando = new MySqlCommand();
-                comando.Connection = conexion.AbrirConexion();
-                comando.CommandText = "InsertarDatosClimaMes";
-                comando.CommandType = CommandType.StoredProcedure;
-                comando.Parameters.AddWithValue("_Estacion", Estacion);
-                comando.Parameters.AddWithValue("_Fecha_Local", Fecha_Local);
-                comando.Parameters.AddWithValue("_Fecha_UTC", Fecha_UTC);
-                comando.Parameters.AddWithValue("_Direccion_del_Viento", Direccion_de_Viento);
-                comando.Parameters.AddWithValue("_Direccion_de_Rafaga", Direccion_de_Rafaga);
-                comando.Parameters.AddWithValue("_Rapidez_de_Viento", Rapidez_de_Viento);
-                comando.Parameters.AddWithValue("_Rapidez_de_Rafaga", Rapidez_de_Rafaga);
-                comando.Parameters.AddWithValue("_Temperatura", Temperatura);
-                comando.Parameters.AddWithValue("_Humedad_Relativa", Humedad_Relativa);
-                comando.Parameters.AddWithValue("_Presion_Atmosferica", Presion_Atmosferica);
-                comando.Parameters.AddWithValue("_Precipitacion", Precipitacion);
-                comando.Parameters.AddWithValue("_Radiacion_Solar", Radiacion_Solar);
-                comando.ExecuteNonQuery();
-                comando.Parameters.Clear();
-                conexion.CerrarConexion();
+            DateTime fechaLocal;
+
+
+            fechaLocal = DateTime.Parse(Fecha_Local);
+            //fechaLocal = DateTime.ParseExact(Fecha_Local,"YYYY/MM/DD",CultureInfo.InvariantCulture);
+            //fechaLocal = DateTime.ParseExact(Fecha_Local,"YYYY-MM-DD hh:mm:ss",CultureInfo.InvariantCulture);
+            float direccionViento, direccionRafaga, rapidezViento, rapidezRafaga, temperatura, humedadRelativa, presionAtmosferica;
+
+            direccionViento = float.Parse(Direccion_de_Viento);
+            direccionRafaga = float.Parse(Direccion_de_Rafaga);
+            rapidezViento = float.Parse(Rapidez_de_Viento);
+            rapidezRafaga = float.Parse(Rapidez_de_Rafaga);
+            temperatura = float.Parse(Temperatura);
+            humedadRelativa = float.Parse(Humedad_Relativa);
+            presionAtmosferica = float.Parse(Presion_Atmosferica);
+
+
+            comando = new MySqlCommand();
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "INSERT INTO datosatmosfericos (estacion,fechaLocal,direccionViento,direccionRafaga,rapidezViento,rapidezRafaga,temperatura,humedadRelativa,presionAtmosferica) VALUES("+
+                Estacion+","+fechaLocal+","+direccionViento+","+direccionRafaga+","+rapidezViento+","+rapidezRafaga+","+temperatura+","+humedadRelativa+","+presionAtmosferica
+                +")";
+
+
+            comando.CommandType = CommandType.Text;
+            comando.ExecuteReader();
+            conexion.CerrarConexion();
         }
+
         public DataTable MostrarDatosClimaMes()
         {
             comando = new MySqlCommand();
@@ -81,12 +91,12 @@ namespace Capa_Datos
         {
             
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "SELECT  distinct Fecha_Local  FROM datosclimames WHERE Fecha_Local=(SELECT MAX(Fecha_local)  FROM datosclimames);";
+            comando.CommandText = "SELECT  distinct fechaLocal  FROM datosatmosfericos WHERE fechaLocal=(SELECT MAX(fechaLocal)  FROM datosatmosfericos);";
             leer = comando.ExecuteReader();
             String salida = "";
             if (leer.Read()==true)
             {
-                salida = Convert.ToString(leer["Fecha_Local"]);
+                salida = Convert.ToString(leer["fechaLocal"]);
             }
             conexion.CerrarConexion();
             return salida;

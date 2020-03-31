@@ -28,6 +28,7 @@ namespace Capa_Presentacion
         {
             try
             {
+                tablaCosechas = null;
                 CN_Cosechas _Cosechas = new CN_Cosechas();
                 tablaCosechas = _Cosechas.MostrarCosechas(Program.cargo, Program.nickname);
                 dgvCultivo.DataSource = tablaCosechas;
@@ -72,8 +73,7 @@ namespace Capa_Presentacion
                     dgvCultivo[2,i].Value.ToString(),
                     dgvCultivo[3,i].Value.ToString(),
                     dgvCultivo[4,i].Value.ToString(),
-                    dgvCultivo[5,i].Value.ToString(),
-                    dgvCultivo[6,i].Value.ToString()});
+                    dgvCultivo[5,i].Value.ToString(),});
             }
             Reportes r = new Reportes();
             r.setData(Ds);

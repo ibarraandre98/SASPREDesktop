@@ -15,6 +15,7 @@ namespace Capa_Datos
         MySqlDataReader leer;
         DataTable tablaCultivos = new DataTable();
         MySqlCommand comando;
+
         public DataTable MostrarCultivos(String cargo,String usuario)
         {
                 comando = new MySqlCommand();
@@ -22,13 +23,17 @@ namespace Capa_Datos
                 if (cargo == "Admin")
                 {
                     comando.CommandText = "MostrarCultivos";
+                    comando.CommandText = "SELECT  cultivos.idCultivos,cultivos.fechaPlantado,cultivos.cantidad,cultivos.estado,usuario.nombre,semillas.nombreSemilla " +
+                    "FROM cultivos " +
+                    "JOIN usuario ON cultivos.idUsuario = usuario.idUsuario "+
+                    "JOIN semillas ON cultivos.idSemillas = semillas.idSemillas";
                 }
                 else
                 {
                     comando.CommandText = "MostrarCultivosUsuario";
                     comando.Parameters.AddWithValue("_Usuario_Cultivo", usuario);
                 }
-                comando.CommandType = CommandType.StoredProcedure;
+                comando.CommandType = CommandType.Text;
                 leer = comando.ExecuteReader();
                 tablaCultivos.Load(leer);
                 conexion.CerrarConexion();

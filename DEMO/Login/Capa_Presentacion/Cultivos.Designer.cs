@@ -49,13 +49,6 @@
             this.cbPlanta = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvCultivo = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.IDCultivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cultivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Plantado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cosecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscarUnCultivo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -64,6 +57,13 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblDisponible = new System.Windows.Forms.Label();
             this.picCultivo = new System.Windows.Forms.PictureBox();
+            this.IDCultivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cultivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Plantado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cosecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCultivo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCultivo)).BeginInit();
             this.SuspendLayout();
@@ -295,62 +295,6 @@
             this.dgvCultivo.TabIndex = 53;
             this.dgvCultivo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bunifuCustomDataGrid1_CellContentClick);
             // 
-            // IDCultivo
-            // 
-            this.IDCultivo.DataPropertyName = "IDCultivo";
-            this.IDCultivo.HeaderText = "IDCultivo";
-            this.IDCultivo.Name = "IDCultivo";
-            this.IDCultivo.ReadOnly = true;
-            // 
-            // Usuario
-            // 
-            this.Usuario.DataPropertyName = "Usuario_Cultivo";
-            this.Usuario.HeaderText = "Usuario";
-            this.Usuario.Name = "Usuario";
-            this.Usuario.ReadOnly = true;
-            // 
-            // Cultivo
-            // 
-            this.Cultivo.DataPropertyName = "Cultivo";
-            this.Cultivo.HeaderText = "Cultivo";
-            this.Cultivo.Name = "Cultivo";
-            this.Cultivo.ReadOnly = true;
-            this.Cultivo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Plantado
-            // 
-            this.Plantado.DataPropertyName = "Fecha_Plantado";
-            dataGridViewCellStyle3.Format = "D";
-            dataGridViewCellStyle3.NullValue = null;
-            this.Plantado.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Plantado.HeaderText = "Fecha Plantado";
-            this.Plantado.Name = "Plantado";
-            this.Plantado.ReadOnly = true;
-            // 
-            // Cosecha
-            // 
-            this.Cosecha.DataPropertyName = "Fecha_Cosecha";
-            dataGridViewCellStyle4.Format = "D";
-            dataGridViewCellStyle4.NullValue = null;
-            this.Cosecha.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Cosecha.HeaderText = "Fecha Cosecha";
-            this.Cosecha.Name = "Cosecha";
-            this.Cosecha.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.DataPropertyName = "Cantidad";
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            // 
-            // Estado
-            // 
-            this.Estado.DataPropertyName = "Estado";
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            // 
             // txtBuscarUnCultivo
             // 
             this.txtBuscarUnCultivo.Font = new System.Drawing.Font("Calibri", 15.75F);
@@ -455,6 +399,62 @@
             this.picCultivo.TabIndex = 32;
             this.picCultivo.TabStop = false;
             // 
+            // IDCultivo
+            // 
+            this.IDCultivo.DataPropertyName = "idCultivos";
+            this.IDCultivo.HeaderText = "IDCultivo";
+            this.IDCultivo.Name = "IDCultivo";
+            this.IDCultivo.ReadOnly = true;
+            // 
+            // Usuario
+            // 
+            this.Usuario.DataPropertyName = "nombre";
+            this.Usuario.HeaderText = "Usuario";
+            this.Usuario.Name = "Usuario";
+            this.Usuario.ReadOnly = true;
+            // 
+            // Cultivo
+            // 
+            this.Cultivo.DataPropertyName = "nombreSemilla";
+            this.Cultivo.HeaderText = "Cultivo";
+            this.Cultivo.Name = "Cultivo";
+            this.Cultivo.ReadOnly = true;
+            this.Cultivo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Plantado
+            // 
+            this.Plantado.DataPropertyName = "fechaPlantado";
+            dataGridViewCellStyle3.Format = "D";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Plantado.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Plantado.HeaderText = "Fecha Plantado";
+            this.Plantado.Name = "Plantado";
+            this.Plantado.ReadOnly = true;
+            // 
+            // Cosecha
+            // 
+            this.Cosecha.DataPropertyName = "fechaCosechado";
+            dataGridViewCellStyle4.Format = "D";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Cosecha.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Cosecha.HeaderText = "Fecha Cosecha";
+            this.Cosecha.Name = "Cosecha";
+            this.Cosecha.ReadOnly = true;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.DataPropertyName = "cantidad";
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            // 
+            // Estado
+            // 
+            this.Estado.DataPropertyName = "estado";
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            // 
             // Cultivos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -509,13 +509,6 @@
         private System.Windows.Forms.DateTimePicker dtpCosecha;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtpPlantado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDCultivo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cultivo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Plantado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cosecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.Button btnCalcularEstado;
         private System.Windows.Forms.Button btnCosechar;
         private System.Windows.Forms.Button btnExportar;
@@ -526,5 +519,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblDisponible;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDCultivo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cultivo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Plantado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cosecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
     }
 }

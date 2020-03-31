@@ -278,6 +278,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsBitacoraAlmacen.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsCosechas.cs">
+      <DependentUpon>dsCosechas.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsCosechas.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

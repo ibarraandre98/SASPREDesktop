@@ -212,8 +212,10 @@ namespace Capa_Presentacion
         }
         private void InsertarDatosClimaMes()
         {
+            String fecha="";
             try
             {
+
                 Cursor.Current = Cursors.WaitCursor;
                 CN_DatosClimaMes _DatosClimaMes = new CN_DatosClimaMes();
                 String[] aux1 = _DatosClimaMes.top_fecha().Split(' ');
@@ -226,11 +228,12 @@ namespace Capa_Presentacion
                     aux = aux.Replace("\"", "");
                     String[] aux2 = aux.Split(' ');
                     int intervalo2 = intervalos(acomodarfecha(aux2[0]));
+                    MessageBox.Show(item.Cells["Fecha Local"].Value.ToString());
                     if (parametro > intervalo2 && intervalo2 != 0)
                     {
-                        String fecha = item.Cells["Fecha Local"].Value.ToString().Replace(@"""", "");
+                        fecha = item.Cells["Fecha Local"].Value.ToString().Replace(@"""", "");
                         String fechautc = item.Cells["Fecha UTC"].Value.ToString().Replace(@"""", "");
-                        _DatosClimaMes.InsertarDatosClimaMes(item.Cells["Estación"].Value.ToString(), fecha, fechautc, item.Cells["Dirección del Viento (grados)"].Value.ToString(), item.Cells["Dirección de ráfaga (grados)"].Value.ToString(),
+                         _DatosClimaMes.InsertarDatosClimaMes(item.Cells["Estación"].Value.ToString(), fecha, fechautc, item.Cells["Dirección del Viento (grados)"].Value.ToString(), item.Cells["Dirección de ráfaga (grados)"].Value.ToString(),
                         item.Cells["Rapidez de viento (km/h)"].Value.ToString(), item.Cells["Rapidez de ráfaga (km/h)"].Value.ToString(), item.Cells["Temperatura del Aire (°C)"].Value.ToString(), item.Cells["Humedad relativa (%)"].Value.ToString(),
                         item.Cells["Presión Atmosférica"].Value.ToString(), item.Cells["Precipitación (mm)"].Value.ToString(), item.Cells["Radiación Solar (W/m²)"].Value.ToString());
                     }
@@ -397,7 +400,7 @@ namespace Capa_Presentacion
         private void button1_Click_1(object sender, EventArgs e)
         {
             InsertarDatosClimaMes();
-            MostrarAlarmaClima();
+            //MostrarAlarmaClima(); Arreglar
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

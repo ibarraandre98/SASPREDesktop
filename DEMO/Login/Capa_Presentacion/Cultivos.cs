@@ -162,7 +162,7 @@ namespace Capa_Presentacion
             cbPlanta.SelectedIndex = 0;
             dtpCosecha.MinDate = dtpPlantado.Value;
             MostrarCultivos();
-            LlenarDataTableDatosClimaMes();
+           // LlenarDataTableDatosClimaMes(); Se arregla de rato
             CalcularPlagaAutomatico();
         }
 
@@ -729,11 +729,13 @@ namespace Capa_Presentacion
             }
         }
 
+        /* Arreglar al rato
         private void LlenarDataTableDatosClimaMes()
         {
             CN_DatosClimaMes _DatosClimaMes = new CN_DatosClimaMes();
             tablaDatosClimaMes = _DatosClimaMes.MostrarDatosClimaMes();
         }
+        */
 
         private String PlagaMaiz(double temperaturaprom, double humedad_relativaprom, double precipitacionprom,String dgvplantado,String dgvcosecha)
         {

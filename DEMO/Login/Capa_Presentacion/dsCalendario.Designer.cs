@@ -283,7 +283,7 @@ namespace Capa_Presentacion {
             
             private global::System.Data.DataColumn columnUsuario_Calendario;
             
-            private global::System.Data.DataColumn columnNombre;
+            private global::System.Data.DataColumn columnnombreSemilla;
             
             private global::System.Data.DataColumn columnDescripcion;
             
@@ -344,9 +344,9 @@ namespace Capa_Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn NombreColumn {
+            public global::System.Data.DataColumn nombreSemillaColumn {
                 get {
-                    return this.columnNombre;
+                    return this.columnnombreSemilla;
                 }
             }
             
@@ -419,12 +419,12 @@ namespace Capa_Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string idCalendario, string Usuario_Calendario, string Nombre, string Descripcion, string Fecha_Inicio, string Fecha_Fin, string DataColumn7) {
+            public DataTable1Row AddDataTable1Row(string idCalendario, string Usuario_Calendario, string nombreSemilla, string Descripcion, string Fecha_Inicio, string Fecha_Fin, string DataColumn7) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         idCalendario,
                         Usuario_Calendario,
-                        Nombre,
+                        nombreSemilla,
                         Descripcion,
                         Fecha_Inicio,
                         Fecha_Fin,
@@ -453,7 +453,7 @@ namespace Capa_Presentacion {
             internal void InitVars() {
                 this.columnidCalendario = base.Columns["idCalendario"];
                 this.columnUsuario_Calendario = base.Columns["Usuario_Calendario"];
-                this.columnNombre = base.Columns["Nombre"];
+                this.columnnombreSemilla = base.Columns["nombreSemilla"];
                 this.columnDescripcion = base.Columns["Descripcion"];
                 this.columnFecha_Inicio = base.Columns["Fecha_Inicio"];
                 this.columnFecha_Fin = base.Columns["Fecha_Fin"];
@@ -467,8 +467,8 @@ namespace Capa_Presentacion {
                 base.Columns.Add(this.columnidCalendario);
                 this.columnUsuario_Calendario = new global::System.Data.DataColumn("Usuario_Calendario", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUsuario_Calendario);
-                this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNombre);
+                this.columnnombreSemilla = new global::System.Data.DataColumn("nombreSemilla", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnombreSemilla);
                 this.columnDescripcion = new global::System.Data.DataColumn("Descripcion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescripcion);
                 this.columnFecha_Inicio = new global::System.Data.DataColumn("Fecha_Inicio", typeof(string), null, global::System.Data.MappingType.Element);
@@ -651,17 +651,17 @@ namespace Capa_Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Nombre {
+            public string nombreSemilla {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.NombreColumn]));
+                        return ((string)(this[this.tableDataTable1.nombreSemillaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Nombre\' de la tabla \'DataTable1\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'nombreSemilla\' de la tabla \'DataTable1\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.NombreColumn] = value;
+                    this[this.tableDataTable1.nombreSemillaColumn] = value;
                 }
             }
             
@@ -755,14 +755,14 @@ namespace Capa_Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsNombreNull() {
-                return this.IsNull(this.tableDataTable1.NombreColumn);
+            public bool IsnombreSemillaNull() {
+                return this.IsNull(this.tableDataTable1.nombreSemillaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetNombreNull() {
-                this[this.tableDataTable1.NombreColumn] = global::System.Convert.DBNull;
+            public void SetnombreSemillaNull() {
+                this[this.tableDataTable1.nombreSemillaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

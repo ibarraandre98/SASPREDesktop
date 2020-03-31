@@ -200,21 +200,21 @@
             // 
             // IDCultivo
             // 
-            this.IDCultivo.DataPropertyName = "IDCultivo";
+            this.IDCultivo.DataPropertyName = "idCultivos";
             this.IDCultivo.HeaderText = "IDCultivo";
             this.IDCultivo.Name = "IDCultivo";
             this.IDCultivo.ReadOnly = true;
             // 
             // Usuario
             // 
-            this.Usuario.DataPropertyName = "Usuario_Cultivo";
+            this.Usuario.DataPropertyName = "nombre";
             this.Usuario.HeaderText = "Usuario";
             this.Usuario.Name = "Usuario";
             this.Usuario.ReadOnly = true;
             // 
             // Cultivo
             // 
-            this.Cultivo.DataPropertyName = "Cultivo";
+            this.Cultivo.DataPropertyName = "nombreSemilla";
             this.Cultivo.HeaderText = "Cultivo";
             this.Cultivo.Name = "Cultivo";
             this.Cultivo.ReadOnly = true;
@@ -222,7 +222,7 @@
             // 
             // Plantado
             // 
-            this.Plantado.DataPropertyName = "Fecha_Plantado";
+            this.Plantado.DataPropertyName = "fechaPlantado";
             dataGridViewCellStyle3.Format = "D";
             dataGridViewCellStyle3.NullValue = null;
             this.Plantado.DefaultCellStyle = dataGridViewCellStyle3;
@@ -232,7 +232,7 @@
             // 
             // Cosecha
             // 
-            this.Cosecha.DataPropertyName = "Fecha_Cosecha";
+            this.Cosecha.DataPropertyName = "fechaCosechado";
             dataGridViewCellStyle4.Format = "D";
             dataGridViewCellStyle4.NullValue = null;
             this.Cosecha.DefaultCellStyle = dataGridViewCellStyle4;
@@ -242,14 +242,14 @@
             // 
             // Cantidad
             // 
-            this.Cantidad.DataPropertyName = "Cantidad";
+            this.Cantidad.DataPropertyName = "cantidad";
             this.Cantidad.HeaderText = "Cantidad";
             this.Cantidad.Name = "Cantidad";
             this.Cantidad.ReadOnly = true;
             // 
             // Estado
             // 
-            this.Estado.DataPropertyName = "Estado";
+            this.Estado.DataPropertyName = "estado";
             this.Estado.HeaderText = "Estado";
             this.Estado.Name = "Estado";
             this.Estado.ReadOnly = true;
