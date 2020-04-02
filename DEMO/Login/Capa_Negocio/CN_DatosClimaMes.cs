@@ -14,11 +14,11 @@ namespace Capa_Negocio
         DataTable tablaDatosClimaMes = new DataTable();
         DataTable tablaDatosClima = new DataTable();
 
-        public void InsertarDatosClimaMes(String Estacion,String Fecha_Local,String Fecha_UTC, String Direccion_de_Viento, String Direccion_de_Rafaga,
+        public void InsertarDatosClimaMes(String Estacion,String Fecha_Local, String Direccion_de_Viento, String Direccion_de_Rafaga,
             String Rapidez_de_Viento, String Rapidez_de_Rafaga, String Temperatura, String Humedad_Relativa, String Presion_Atmosferica,
             String Precipitacion, String Radiacion_Solar)
         {
-            _DatosClimaMes.InsertarDatosClimaMes(Estacion,Fecha_Local,Fecha_UTC,Direccion_de_Viento, Direccion_de_Rafaga,
+            _DatosClimaMes.InsertarDatosClimaMes(Estacion,Fecha_Local,Direccion_de_Viento, Direccion_de_Rafaga,
                 Rapidez_de_Viento,Rapidez_de_Rafaga,Temperatura,
                 Humedad_Relativa,Presion_Atmosferica,Precipitacion,Radiacion_Solar);
         }

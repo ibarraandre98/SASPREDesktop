@@ -47,7 +47,6 @@
             this.Plantado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cosecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCultivo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,8 +123,7 @@
             this.Cultivo,
             this.Plantado,
             this.Cosecha,
-            this.Cantidad,
-            this.Estado});
+            this.Cantidad});
             this.dgvCultivo.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
@@ -247,14 +245,6 @@
             this.Cantidad.Name = "Cantidad";
             this.Cantidad.ReadOnly = true;
             // 
-            // Estado
-            // 
-            this.Estado.DataPropertyName = "estado";
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            this.Estado.Visible = false;
-            // 
             // Cosechas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -293,6 +283,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Plantado;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cosecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
     }
 }

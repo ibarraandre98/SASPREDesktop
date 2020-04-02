@@ -73,7 +73,7 @@ namespace Capa_Presentacion
                     dgvCultivo[2,i].Value.ToString(),
                     dgvCultivo[3,i].Value.ToString(),
                     dgvCultivo[4,i].Value.ToString(),
-                    dgvCultivo[5,i].Value.ToString(),});
+                    dgvCultivo[5,i].Value.ToString()});
             }
             Reportes r = new Reportes();
             r.setData(Ds);

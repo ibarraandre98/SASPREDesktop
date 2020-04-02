@@ -19,17 +19,11 @@ namespace Capa_Datos
         DataTable tablaDatosClima = new DataTable();
         MySqlDataReader leer;
 
-        public void InsertarDatosClimaMes(String Estacion,String Fecha_Local,String Fecha_UTC, String Direccion_de_Viento, String Direccion_de_Rafaga,
+        public void InsertarDatosClimaMes(String Estacion,String Fecha_Local, String Direccion_de_Viento, String Direccion_de_Rafaga,
             String Rapidez_de_Viento, String Rapidez_de_Rafaga, String Temperatura, String Humedad_Relativa, String Presion_Atmosferica,
             String Precipitacion, String Radiacion_Solar)
         {
-            DateTime fechaLocal;
-
-
-            fechaLocal = DateTime.Parse(Fecha_Local);
-            //fechaLocal = DateTime.ParseExact(Fecha_Local,"YYYY/MM/DD",CultureInfo.InvariantCulture);
-            //fechaLocal = DateTime.ParseExact(Fecha_Local,"YYYY-MM-DD hh:mm:ss",CultureInfo.InvariantCulture);
-            float direccionViento, direccionRafaga, rapidezViento, rapidezRafaga, temperatura, humedadRelativa, presionAtmosferica;
+            float direccionViento, direccionRafaga, rapidezViento, rapidezRafaga, temperatura, humedadRelativa, presionAtmosferica,precipitacion;
 
             direccionViento = float.Parse(Direccion_de_Viento);
             direccionRafaga = float.Parse(Direccion_de_Rafaga);
@@ -38,14 +32,14 @@ namespace Capa_Datos
             temperatura = float.Parse(Temperatura);
             humedadRelativa = float.Parse(Humedad_Relativa);
             presionAtmosferica = float.Parse(Presion_Atmosferica);
+            precipitacion = float.Parse(Precipitacion);
 
 
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "INSERT INTO datosatmosfericos (estacion,fechaLocal,direccionViento,direccionRafaga,rapidezViento,rapidezRafaga,temperatura,humedadRelativa,presionAtmosferica) VALUES("+
-                Estacion+","+fechaLocal+","+direccionViento+","+direccionRafaga+","+rapidezViento+","+rapidezRafaga+","+temperatura+","+humedadRelativa+","+presionAtmosferica
-                +")";
-
+            comando.CommandText = "INSERT INTO datosatmosfericos (estacion,fechaLocal,direccionViento,direccionRafaga,rapidezViento,rapidezRafaga,temperatura,humedadRelativa,presionAtmosferica,precipitacion)  VALUES('"+
+                Estacion+"','"+Fecha_Local+"' , "+direccionViento+" , "+direccionRafaga+" , "+rapidezViento+" , "+rapidezRafaga+" , "+temperatura+" , "+humedadRelativa+" , "+presionAtmosferica
+                +","+precipitacion+");";
 
             comando.CommandType = CommandType.Text;
             comando.ExecuteReader();
@@ -56,8 +50,10 @@ namespace Capa_Datos
         {
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "MostrarDatosClimaMes";
-            comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandText = "SELECT * FROM datosatmosfericos ORDER BY fechaLocal DESC";
+            //comando.CommandText = "MostrarDatosClimaMes";
+            //comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandType = CommandType.Text;
             leer = comando.ExecuteReader();
             tablaDatosClimaMes.Load(leer);
             conexion.CerrarConexion();

@@ -162,7 +162,7 @@ namespace Capa_Presentacion
             cbPlanta.SelectedIndex = 0;
             dtpCosecha.MinDate = dtpPlantado.Value;
             MostrarCultivos();
-           // LlenarDataTableDatosClimaMes(); Se arregla de rato
+           LlenarDataTableDatosClimaMes(); //Se arregla de rato
             CalcularPlagaAutomatico();
         }
 
@@ -653,12 +653,12 @@ namespace Capa_Presentacion
                 estadocebolla = null;
                 estadomaiz = null;
                 var query = from row in tablaDatosClimaMes.AsEnumerable()
-                            where row.Field<DateTime>("Fecha_Local") >= Convert.ToDateTime(item.Cells["Plantado"].Value.ToString()) && row.Field<DateTime>("Fecha_Local") <= DateTime.Now
+                            where row.Field<DateTime>("fechaLocal") >= Convert.ToDateTime(item.Cells["Plantado"].Value.ToString()) && row.Field<DateTime>("fechaLocal") <= DateTime.Now
                             select row;
 
 
-                //0.- Estacion, 1.- Fecha Local, 2.- Fecha UTC, 3.- Direccion del viento, 4.-Direccion de rafaga, 5.- Rapidez de viento, 
-                //6.- Rapidez de rafaga, 7.- Temperatura, 8.- Humedad Relativa, 9.- Presion Atmosferica, 10.- Precipitacion, 11.- Radiacion Solar
+                //0.- idDatosAtmosfericos, 1.- estacion, 2.- fechaLocal, 3.- direccionViento, 4.-direccionRafaga, 5.- rapidezViento, 
+                //6.- repidezRafaga, 7.- temperatura, 8.- humedadRelativa, 9.- presionAtmosferica, 10.- precipitacion
                 double temperaturaprom = 0;
                 double humedad_relativaprom = 0;
                 double precipitacionprom = 0;
@@ -729,13 +729,13 @@ namespace Capa_Presentacion
             }
         }
 
-        /* Arreglar al rato
+        
         private void LlenarDataTableDatosClimaMes()
         {
             CN_DatosClimaMes _DatosClimaMes = new CN_DatosClimaMes();
             tablaDatosClimaMes = _DatosClimaMes.MostrarDatosClimaMes();
         }
-        */
+        
 
         private String PlagaMaiz(double temperaturaprom, double humedad_relativaprom, double precipitacionprom,String dgvplantado,String dgvcosecha)
         {

@@ -283,7 +283,7 @@ namespace Capa_Presentacion {
             
             private global::System.Data.DataColumn columnUsuario;
             
-            private global::System.Data.DataColumn columnCultivo;
+            private global::System.Data.DataColumn columnCultivos;
             
             private global::System.Data.DataColumn columnFecha_Plantado;
             
@@ -342,9 +342,9 @@ namespace Capa_Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CultivoColumn {
+            public global::System.Data.DataColumn CultivosColumn {
                 get {
-                    return this.columnCultivo;
+                    return this.columnCultivos;
                 }
             }
             
@@ -409,12 +409,12 @@ namespace Capa_Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string IDCultivo, string Usuario, string Cultivo, string Fecha_Plantado, string Fecha_Cosecha, string Cantidad) {
+            public DataTable1Row AddDataTable1Row(string IDCultivo, string Usuario, string Cultivos, string Fecha_Plantado, string Fecha_Cosecha, string Cantidad) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         IDCultivo,
                         Usuario,
-                        Cultivo,
+                        Cultivos,
                         Fecha_Plantado,
                         Fecha_Cosecha,
                         Cantidad};
@@ -442,7 +442,7 @@ namespace Capa_Presentacion {
             internal void InitVars() {
                 this.columnIDCultivo = base.Columns["IDCultivo"];
                 this.columnUsuario = base.Columns["Usuario"];
-                this.columnCultivo = base.Columns["Cultivo"];
+                this.columnCultivos = base.Columns["Cultivos"];
                 this.columnFecha_Plantado = base.Columns["Fecha Plantado"];
                 this.columnFecha_Cosecha = base.Columns["Fecha Cosecha"];
                 this.columnCantidad = base.Columns["Cantidad"];
@@ -455,8 +455,8 @@ namespace Capa_Presentacion {
                 base.Columns.Add(this.columnIDCultivo);
                 this.columnUsuario = new global::System.Data.DataColumn("Usuario", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUsuario);
-                this.columnCultivo = new global::System.Data.DataColumn("Cultivo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCultivo);
+                this.columnCultivos = new global::System.Data.DataColumn("Cultivos", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCultivos);
                 this.columnFecha_Plantado = new global::System.Data.DataColumn("Fecha Plantado", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFecha_Plantado);
                 this.columnFecha_Cosecha = new global::System.Data.DataColumn("Fecha Cosecha", typeof(string), null, global::System.Data.MappingType.Element);
@@ -637,17 +637,17 @@ namespace Capa_Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Cultivo {
+            public string Cultivos {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.CultivoColumn]));
+                        return ((string)(this[this.tableDataTable1.CultivosColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Cultivo\' de la tabla \'DataTable1\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Cultivos\' de la tabla \'DataTable1\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.CultivoColumn] = value;
+                    this[this.tableDataTable1.CultivosColumn] = value;
                 }
             }
             
@@ -725,14 +725,14 @@ namespace Capa_Presentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCultivoNull() {
-                return this.IsNull(this.tableDataTable1.CultivoColumn);
+            public bool IsCultivosNull() {
+                return this.IsNull(this.tableDataTable1.CultivosColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCultivoNull() {
-                this[this.tableDataTable1.CultivoColumn] = global::System.Convert.DBNull;
+            public void SetCultivosNull() {
+                this[this.tableDataTable1.CultivosColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

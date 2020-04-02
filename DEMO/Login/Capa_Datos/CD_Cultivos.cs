@@ -22,7 +22,7 @@ namespace Capa_Datos
                 comando.Connection = conexion.AbrirConexion();
                 if (cargo == "Admin")
                 {
-                    comando.CommandText = "MostrarCultivos";
+                    //comando.CommandText = "MostrarCultivos";
                     comando.CommandText = "SELECT  cultivos.idCultivos,cultivos.fechaPlantado,cultivos.cantidad,cultivos.estado,usuario.nombre,semillas.nombreSemilla " +
                     "FROM cultivos " +
                     "JOIN usuario ON cultivos.idUsuario = usuario.idUsuario "+
