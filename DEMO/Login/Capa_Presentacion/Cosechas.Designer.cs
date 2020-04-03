@@ -43,10 +43,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.IDCultivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cultivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Plantado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cosecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cultivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCultivo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,10 +120,10 @@
             this.dgvCultivo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDCultivo,
             this.Usuario,
-            this.Cultivo,
             this.Plantado,
             this.Cosecha,
-            this.Cantidad});
+            this.Cantidad,
+            this.Cultivo});
             this.dgvCultivo.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
@@ -210,14 +210,6 @@
             this.Usuario.Name = "Usuario";
             this.Usuario.ReadOnly = true;
             // 
-            // Cultivo
-            // 
-            this.Cultivo.DataPropertyName = "nombreSemilla";
-            this.Cultivo.HeaderText = "Cultivo";
-            this.Cultivo.Name = "Cultivo";
-            this.Cultivo.ReadOnly = true;
-            this.Cultivo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
             // Plantado
             // 
             this.Plantado.DataPropertyName = "fechaPlantado";
@@ -244,6 +236,14 @@
             this.Cantidad.HeaderText = "Cantidad";
             this.Cantidad.Name = "Cantidad";
             this.Cantidad.ReadOnly = true;
+            // 
+            // Cultivo
+            // 
+            this.Cultivo.DataPropertyName = "nombreSemilla";
+            this.Cultivo.HeaderText = "Cultivo";
+            this.Cultivo.Name = "Cultivo";
+            this.Cultivo.ReadOnly = true;
+            this.Cultivo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Cosechas
             // 
@@ -279,9 +279,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDCultivo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cultivo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Plantado;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cosecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cultivo;
     }
 }
