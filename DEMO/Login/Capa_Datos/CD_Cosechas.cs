@@ -47,20 +47,20 @@ namespace Capa_Datos
             return tablaCosechas;
         }
 
-        public void AgregarCosechas(String Usuario_Cultivo, String Cultivo, String Fecha_Plantado, String Fecha_Cosecha, String Cantidad, String Estado)
+        public void AgregarCosechas(int idCultivo, float cantidad)
         {
                 comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
-                comando.CommandText = "AgregarCosechas";
-                comando.CommandType = CommandType.StoredProcedure;
-                comando.Parameters.AddWithValue("_Usuario_Cultivo", Usuario_Cultivo);
-                comando.Parameters.AddWithValue("_Cultivo", Cultivo);
-                comando.Parameters.AddWithValue("_Fecha_Plantado", Fecha_Plantado);
-                comando.Parameters.AddWithValue("_Fecha_Cosecha", Fecha_Cosecha);
-                comando.Parameters.AddWithValue("_Cantidad", Cantidad);
-                comando.Parameters.AddWithValue("_Estado", Estado);
-                comando.ExecuteNonQuery();
-                comando.Parameters.Clear();
+                comando.CommandText = "INSERT INTO cosechas (idCultivos) VALUES('"+idCultivo+"');";
+                comando.CommandType = CommandType.Text;
+                comando.ExecuteReader();
+                conexion.CerrarConexion();
+
+                comando = new MySqlCommand();
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandText = "UPDATE cultivos SET cosechado = " + "'" + cantidad + "'" + " WHERE idCultivos = " + "'" + idCultivo + "'" + ";";
+                comando.CommandType = CommandType.Text;
+                comando.ExecuteReader();
                 conexion.CerrarConexion();
         }
 

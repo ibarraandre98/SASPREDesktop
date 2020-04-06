@@ -25,8 +25,8 @@ namespace Capa_Presentacion
         {
             InitializeComponent();
             BloquearCampos();
-            CargarNombresCultivos();
-            MostrarAlarmas();
+            //CargarNombresCultivos();
+            //MostrarAlarmas();
         }
 
         private void CargarNombresCultivos()

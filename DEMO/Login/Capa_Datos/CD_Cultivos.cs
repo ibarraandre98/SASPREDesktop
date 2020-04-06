@@ -23,7 +23,7 @@ namespace Capa_Datos
                 if (cargo == "Admin")
                 {
                     //comando.CommandText = "MostrarCultivos";
-                    comando.CommandText = "SELECT  cultivos.idCultivos,cultivos.fechaPlantado,cultivos.cantidad,cultivos.estado,usuario.nombre,semillas.nombreSemilla " +
+                    comando.CommandText = "SELECT  cultivos.idCultivos,cultivos.fechaPlantado,cultivos.fechaCosechado,cultivos.cantidad,cultivos.estado,usuario.nombre,semillas.nombreSemilla " +
                     "FROM cultivos " +
                     "JOIN usuario ON cultivos.idUsuario = usuario.idUsuario "+
                     "JOIN semillas ON cultivos.idSemillas = semillas.idSemillas";
@@ -71,13 +71,18 @@ namespace Capa_Datos
         {
                 comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
-                comando.CommandText = "EditarCultivos";
-                comando.CommandType = CommandType.StoredProcedure;
-                comando.Parameters.AddWithValue("_IDCultivo", IDCultivo);
-                comando.Parameters.AddWithValue("_Estado", Estado);
-                comando.ExecuteNonQuery();
-                comando.Parameters.Clear();
-                conexion.CerrarConexion();
+
+
+            comando.CommandText = "UPDATE cultivos SET estado = "+"'"+Estado+"'"+" WHERE idCultivos = "+"'"+IDCultivo+"'"+";";
+                //comando.CommandText = "EditarCultivos";
+                //comando.CommandType = CommandType.StoredProcedure;
+                //comando.Parameters.AddWithValue("_IDCultivo", IDCultivo);
+                //comando.Parameters.AddWithValue("_Estado", Estado);
+                //comando.ExecuteNonQuery();
+            //omando.Parameters.Clear();
+            comando.CommandType = CommandType.Text;
+            comando.ExecuteReader();
+            conexion.CerrarConexion();
         }
     }
 }

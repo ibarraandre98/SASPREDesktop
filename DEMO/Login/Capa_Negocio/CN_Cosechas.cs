@@ -19,10 +19,10 @@ namespace Capa_Negocio
             return tablaCosechas;
         }
 
-        public void AgregarCosechas(String Usuario_Cultivo, String Cultivo, String Fecha_Plantado, String Fecha_Cosecha, String Cantidad, String Estado)
+        public void AgregarCosechas(int idCultivo,float cantidad)
         {
-            _Cosechas.AgregarCosechas(Usuario_Cultivo, Cultivo, Fecha_Plantado, Fecha_Cosecha, 
-                Convert.ToString(Cantidad), Estado);
+            _Cosechas.AgregarCosechas(idCultivo,cantidad);
+            
         }
 
         public void EditarCosechas(String id, String estado)

@@ -803,7 +803,7 @@ namespace Capa_Presentacion
 
 
 
-            ActivarAlarmas();
+            //ActivarAlarmas(); Arreglar este
             Cursor.Current = Cursors.Default;
         }
         private void myPanel1_Paint(object sender, PaintEventArgs e)
@@ -954,7 +954,7 @@ namespace Capa_Presentacion
             if (Convert.ToInt32(DateTime.Now.Minute.ToString()) == 00 && Convert.ToInt32(DateTime.Now.Second.ToString()) == 0)
             {
                 MostrarClima();
-                AlarmaPorHora();
+                //AlarmaPorHora(); Arreglar
             }
             //navegador.Navigate("https://www.google.com/search?q=clima+ciudad+mante&rlz=1C1NHXL_esMX696MX697&oq=clima+ciudad+mante&aqs=chrome..69i57j69i60l2j0l3.4208j1j7&sourceid=chrome&ie=UTF-8");
         }
@@ -1537,7 +1537,7 @@ namespace Capa_Presentacion
                                 String alarmaActivada = "Sobrepaso la temperatura maxima";
                                 String fechaActivada = DateTime.Now.ToString("dd/MM/yy");
 
-                                InsertarReportesAlarmas(nombreAlarma, limiteTemperaturaMax, limiteTemperaturaMin, fechaInicial, fechaFinal, fechaActivada, alarmaActivada);
+                                //Arreglar estoInsertarReportesAlarmas(nombreAlarma, limiteTemperaturaMax, limiteTemperaturaMin, fechaInicial, fechaFinal, fechaActivada, alarmaActivada);
                             }
                         }
                     }
@@ -1582,7 +1582,7 @@ namespace Capa_Presentacion
                                 String alarmaActivada = "Disminuyo la temperatura limite";
                                 String fechaActivada = DateTime.Now.ToString("dd/MM/yy");
 
-                                InsertarReportesAlarmas(nombreAlarma, limiteTemperaturaMax, limiteTemperaturaMin, fechaInicial, fechaFinal, fechaActivada, alarmaActivada);
+                                //Arreglar esto InsertarReportesAlarmas(nombreAlarma, limiteTemperaturaMax, limiteTemperaturaMin, fechaInicial, fechaFinal, fechaActivada, alarmaActivada);
                             }
                         }
                     }

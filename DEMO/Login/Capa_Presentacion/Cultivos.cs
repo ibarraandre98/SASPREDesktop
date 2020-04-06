@@ -162,7 +162,7 @@ namespace Capa_Presentacion
             cbPlanta.SelectedIndex = 0;
             dtpCosecha.MinDate = dtpPlantado.Value;
             MostrarCultivos();
-           LlenarDataTableDatosClimaMes(); //Se arregla de rato
+            LlenarDataTableDatosClimaMes(); //Se arregla de rato
             CalcularPlagaAutomatico();
         }
 
@@ -209,6 +209,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
+                MessageBox.Show("Este es el primer error");
                 MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
@@ -309,8 +310,8 @@ namespace Capa_Presentacion
                             else
                             {
                                 AgregarCosecha(Cantidad);
-                                EliminarCultivo();
-                                MostrarCultivos();
+                                //EliminarCultivo();
+                                //MostrarCultivos();
                                 MessageBox.Show("¡Cultivo cosechado con exito!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
@@ -341,8 +342,10 @@ namespace Capa_Presentacion
             try
             {
                 DateTime fechaplantado;
-                String Usuario_Cultivo, Cultivo, fechacosecha,estado;
-
+                float cantidad;
+                String Usuario_Cultivo, Cultivo, fechacosecha, estado;
+                int idCultivo;
+                /*
                 Usuario_Cultivo = dgvCultivo.CurrentRow.Cells["Usuario"].Value.ToString();
                 Cultivo = dgvCultivo.CurrentRow.Cells["Cultivo"].Value.ToString();
                 fechaplantado = Convert.ToDateTime(dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString());
@@ -350,6 +353,13 @@ namespace Capa_Presentacion
                 //Cantidad = dgvCultivo.CurrentRow.Cells["Cantidad"].Value.ToString();
                 estado = dgvCultivo.CurrentRow.Cells["Estado"].Value.ToString();
                 _Cosechas.AgregarCosechas(Usuario_Cultivo, Cultivo, fechaplantado.ToString("yy-MM-dd"), fechacosecha, Cantidad, estado);
+                */
+                cantidad = float.Parse(Cantidad);
+                idCultivo = int.Parse( dgvCultivo.CurrentRow.Cells["IDCultivo"].Value.ToString());
+                //MessageBox.Show(idCultivo);
+                _Cosechas.AgregarCosechas(idCultivo,cantidad);
+                
+                
             }
             catch (Exception a)
             {
@@ -357,7 +367,7 @@ namespace Capa_Presentacion
             }
 
         }
-        public String[] obtenercultivo()
+        public String[] obtenercultivo() //REGRERAS
         {
             String[] cultivos = new String[dgvCultivo.Rows.Count];
             for (int i = 0; i < dgvCultivo.Rows.Count; i++)
@@ -538,7 +548,7 @@ namespace Capa_Presentacion
             estadocebolla = null;
             estadomaiz = null;
             var query = from row in tablaDatosClimaMes.AsEnumerable()
-                        where row.Field<DateTime>("Fecha_Local") >= Convert.ToDateTime(dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString()) && row.Field<DateTime>("Fecha_Local") <= DateTime.Now
+                        where row.Field<DateTime>("fechaLocal") >= Convert.ToDateTime(dgvCultivo.CurrentRow.Cells["Plantado"].Value.ToString()) && row.Field<DateTime>("fechaLocal") <= DateTime.Now
                         select row;
 
 
