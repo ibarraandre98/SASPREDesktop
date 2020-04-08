@@ -41,29 +41,34 @@ namespace Capa_Datos
         }
         public void AgregarCultivo(String Usuario_Cultivo,String Cultivo, String Fecha_Plantado,String Fecha_Cosecha,String Cantidad,String Estado)
         {
+            MessageBox.Show(Cultivo);
+            MessageBox.Show(Usuario_Cultivo);
                 comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
-                comando.CommandText = "AgregarCultivos";
-                comando.CommandType = CommandType.StoredProcedure;
-                comando.Parameters.AddWithValue("_Usuario_Cultivo", Usuario_Cultivo);
-                comando.Parameters.AddWithValue("_Cultivo", Cultivo);
-                comando.Parameters.AddWithValue("_Fecha_Plantado", Fecha_Plantado);
-                comando.Parameters.AddWithValue("_Fecha_Cosecha", Fecha_Cosecha);
-                comando.Parameters.AddWithValue("_Cantidad", Cantidad);
-                comando.Parameters.AddWithValue("_Estado", Estado);
-                comando.ExecuteNonQuery();
-                comando.Parameters.Clear();
+                comando.CommandText =
+                //"SET idSemilla = (SELECT idSemillas FROM semillas WHERE nombreSemilla = '" + Cultivo + "');SET idUsuarios = (SELECT idUsuario FROM usuario WHERE nickname = '" + Usuario_Cultivo + "');" +
+                //"SELECT idSemillas FROM semillas WHERE nombreSemilla = '"+Cultivo+"';" +
+                //"SELECT idUsuario INTO @v_idUsuarios FROM usuario WHERE nickname = '"+Usuario_Cultivo+"';" +
+                "INSERT INTO cultivos(idSemillas,idUsuario,fechaPlantado,fechaCosechado,cantidad,estado,cosechado) VALUES('SELECT idSemillas FROM semillas WHERE nombreSemilla =" + Cultivo + ";','SELECT idUsuario FROM usuario WHERE nickname = " + Usuario_Cultivo + ";','" + Fecha_Plantado+"','"+Fecha_Cosecha+"','"+Cantidad+"','"+Estado+"','0');";
+                comando.CommandType = CommandType.Text;
+                comando.ExecuteReader();
                 conexion.CerrarConexion();
         }
         public void EliminarCultivo(String IDCultivo)
         {
+                int idCultivos = int.Parse(IDCultivo);
                 comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
-                comando.CommandText = "EliminarCultivos";
-                comando.CommandType = CommandType.StoredProcedure;
-                comando.Parameters.AddWithValue("_IDCultivo", IDCultivo);
-                comando.ExecuteNonQuery();
-                comando.Parameters.Clear();
+                comando.CommandText = "DELETE FROM cosechas WHERE idCultivos = '" + idCultivos + "';";
+                comando.CommandType = CommandType.Text;
+                comando.ExecuteReader();
+                conexion.CerrarConexion();
+
+                comando = new MySqlCommand();
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandText = "DELETE FROM cultivos WHERE idCultivos = '"+idCultivos+"';";
+                comando.CommandType = CommandType.Text;
+                comando.ExecuteReader();
                 conexion.CerrarConexion();
         }
 
