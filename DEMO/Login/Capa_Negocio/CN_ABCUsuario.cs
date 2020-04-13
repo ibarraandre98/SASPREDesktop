@@ -15,10 +15,11 @@ namespace Capa_Negocio
         private CD_ABCUsuario _ABCUsuario = new CD_ABCUsuario();
         string key = "mikey";
         DataTable tablaUsuarios = new DataTable();
+        DataTable tablaEmpresas = new DataTable();
         
-        public void RegistrarUsuario(String nombre, String apellidos, String contra, String cargo, String nickname, String correo)
+        public void RegistrarUsuario(String nombre, String apellidos, String contra, String cargo, String nickname, String correo, String empresa)
         {
-            _ABCUsuario.RegistrarUsuario(nombre,apellidos,contra,cargo,nickname,correo);
+            _ABCUsuario.RegistrarUsuario(nombre,apellidos,contra,cargo,nickname,correo,empresa);
         }
 
         public DataTable ObtenerContra(string correo)
@@ -26,18 +27,23 @@ namespace Capa_Negocio
             return _ABCUsuario.ObtenerContra(correo);
         }
 
-        public void EditarUsuario(int id, String nombre, String apellidos, String contra, String cargo, String nickname, String correo)
+        public void EditarUsuario(int id, String nombre, String apellidos, String contra, String cargo, String nickname, String correo, String empresa)
         {
-            _ABCUsuario.EditarUsuario(id, nombre, apellidos, contra, cargo, nickname, correo);
+            _ABCUsuario.EditarUsuario(id, nombre, apellidos, contra, cargo, nickname, correo, empresa);
         }
-        public void EliminarUsuario( String NickName)
+        public void EliminarUsuario( int id)
         {
-            _ABCUsuario.EliminarUsuario(NickName);
+            _ABCUsuario.EliminarUsuario(id);
         }
         public DataTable MostrarUsuarios()
         {
             tablaUsuarios = _ABCUsuario.MostrarUsuarios();
             return tablaUsuarios;
+        }
+        public DataTable MostrarEmpresas()
+        {
+            tablaEmpresas = _ABCUsuario.MostrarEmpresas();
+            return tablaEmpresas;
         }
         public string Encriptar(string texto)
         {

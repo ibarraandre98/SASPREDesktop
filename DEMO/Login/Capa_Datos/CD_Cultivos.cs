@@ -46,10 +46,20 @@ namespace Capa_Datos
                 comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
                 comando.CommandText =
-                //"SET idSemilla = (SELECT idSemillas FROM semillas WHERE nombreSemilla = '" + Cultivo + "');SET idUsuarios = (SELECT idUsuario FROM usuario WHERE nickname = '" + Usuario_Cultivo + "');" +
-                //"SELECT idSemillas FROM semillas WHERE nombreSemilla = '"+Cultivo+"';" +
-                //"SELECT idUsuario INTO @v_idUsuarios FROM usuario WHERE nickname = '"+Usuario_Cultivo+"';" +
-                "INSERT INTO cultivos(idSemillas,idUsuario,fechaPlantado,fechaCosechado,cantidad,estado,cosechado) VALUES('SELECT idSemillas FROM semillas WHERE nombreSemilla =" + Cultivo + ";','SELECT idUsuario FROM usuario WHERE nickname = " + Usuario_Cultivo + ";','" + Fecha_Plantado+"','"+Fecha_Cosecha+"','"+Cantidad+"','"+Estado+"','0');";
+
+
+                "INSERT into cultivos(idSemillas, idUsuario, fechaPlantado, fechaCosechado, cantidad, estado, cosechado)"+
+                "VALUES"+
+                "((select idsemillas from semillas where nombreSemilla = '"+Cultivo+"'),"+
+                "(select idUsuario from usuario WHERE nickname = '"+Usuario_Cultivo+"'),"+
+                "'"+Fecha_Plantado+"',"+
+                "'"+Fecha_Cosecha+"',"+
+                ""+Cantidad+","+
+                "'"+Estado+"',"+
+                "0"+
+                ")";
+
+                //"INSERT INTO cultivos(idSemillas,idUsuario,fechaPlantado,fechaCosechado,cantidad,estado,cosechado) VALUES('SELECT idSemillas FROM semillas WHERE nombreSemilla =Maíz','SELECT idUsuario FROM usuario WHERE nickname = " + Usuario_Cultivo + ";','" + Fecha_Plantado + "','" + Fecha_Cosecha + "','" + Cantidad + "','" + Estado + "','0');";
                 comando.CommandType = CommandType.Text;
                 comando.ExecuteReader();
                 conexion.CerrarConexion();
@@ -57,16 +67,10 @@ namespace Capa_Datos
         public void EliminarCultivo(String IDCultivo)
         {
                 int idCultivos = int.Parse(IDCultivo);
-                comando = new MySqlCommand();
-                comando.Connection = conexion.AbrirConexion();
-                comando.CommandText = "DELETE FROM cosechas WHERE idCultivos = '" + idCultivos + "';";
-                comando.CommandType = CommandType.Text;
-                comando.ExecuteReader();
-                conexion.CerrarConexion();
 
                 comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
-                comando.CommandText = "DELETE FROM cultivos WHERE idCultivos = '"+idCultivos+"';";
+                comando.CommandText = "DELETE FROM cosechas WHERE idCultivos = '" + idCultivos + "';DELETE FROM cultivos WHERE idCultivos = '" + idCultivos + "';";
                 comando.CommandType = CommandType.Text;
                 comando.ExecuteReader();
                 conexion.CerrarConexion();
@@ -79,12 +83,6 @@ namespace Capa_Datos
 
 
             comando.CommandText = "UPDATE cultivos SET estado = "+"'"+Estado+"'"+" WHERE idCultivos = "+"'"+IDCultivo+"'"+";";
-                //comando.CommandText = "EditarCultivos";
-                //comando.CommandType = CommandType.StoredProcedure;
-                //comando.Parameters.AddWithValue("_IDCultivo", IDCultivo);
-                //comando.Parameters.AddWithValue("_Estado", Estado);
-                //comando.ExecuteNonQuery();
-            //omando.Parameters.Clear();
             comando.CommandType = CommandType.Text;
             comando.ExecuteReader();
             conexion.CerrarConexion();

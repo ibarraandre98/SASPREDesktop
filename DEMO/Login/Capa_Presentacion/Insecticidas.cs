@@ -58,7 +58,7 @@ namespace Capa_Presentacion
                 }
                 else
                 {
-                    _Insecticidas.AgregarInsecticida(Program.nickname, nombre.Text, precio.Text, comboBox1.Text);
+                    _Insecticidas.AgregarInsecticida(Program.nickname, nombre.Text, precio.Text, comboBox1.Text,desc.Text);
                     MostrarInsecticidas();
                     limpiar();
                     agregar.Enabled = true;
@@ -91,7 +91,7 @@ namespace Capa_Presentacion
                 }
                 else
                 {
-                    _Insecticidas.EditarInsecticida(nombre.Text, precio.Text, comboBox1.Text, idInsecticida.Text);
+                    _Insecticidas.EditarInsecticida(nombre.Text, precio.Text, comboBox1.Text, idInsecticida.Text,desc.Text);
                     MostrarInsecticidas();
                     limpiar();
                     agregar.Enabled = true;
@@ -103,10 +103,11 @@ namespace Capa_Presentacion
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            idInsecticida.Text = dataGridView1.CurrentRow.Cells["idInsecticida"].Value.ToString();
-            nombre.Text = dataGridView1.CurrentRow.Cells["Nombre"].Value.ToString();
-            precio.Text = dataGridView1.CurrentRow.Cells["Precio"].Value.ToString();
-            comboBox1.Text =dataGridView1.CurrentRow.Cells["NombrePlaga"].Value.ToString();
+            idInsecticida.Text = dataGridView1.CurrentRow.Cells["idInsecticidas"].Value.ToString();
+            nombre.Text = dataGridView1.CurrentRow.Cells["nombreInsecticida"].Value.ToString();
+            precio.Text = dataGridView1.CurrentRow.Cells["precio"].Value.ToString();
+            comboBox1.Text =dataGridView1.CurrentRow.Cells["nombrePlaga"].Value.ToString();
+            desc.Text = dataGridView1.CurrentRow.Cells["descripcion"].Value.ToString();
             agregar.Enabled = false;
             eliminar.Enabled = true;
             editar.Enabled = true;

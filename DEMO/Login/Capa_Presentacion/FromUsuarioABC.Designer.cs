@@ -51,6 +51,9 @@
             this.pbImagen = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvUsers = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.label2 = new System.Windows.Forms.Label();
+            this.empresas = new System.Windows.Forms.ComboBox();
+            this.txtID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.SuspendLayout();
@@ -102,7 +105,7 @@
             this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Location = new System.Drawing.Point(487, 229);
+            this.btnAgregar.Location = new System.Drawing.Point(487, 256);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(145, 40);
             this.btnAgregar.TabIndex = 74;
@@ -117,7 +120,7 @@
             this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(638, 229);
+            this.btnEditar.Location = new System.Drawing.Point(638, 256);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(145, 40);
             this.btnEditar.TabIndex = 73;
@@ -132,7 +135,7 @@
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(789, 229);
+            this.btnCancelar.Location = new System.Drawing.Point(789, 256);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(145, 40);
             this.btnCancelar.TabIndex = 89;
@@ -316,7 +319,7 @@
             this.dgvUsers.EnableHeadersVisualStyles = false;
             this.dgvUsers.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(164)))), ((int)(((byte)(46)))));
             this.dgvUsers.HeaderForeColor = System.Drawing.Color.White;
-            this.dgvUsers.Location = new System.Drawing.Point(36, 290);
+            this.dgvUsers.Location = new System.Drawing.Point(36, 302);
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.ReadOnly = true;
             this.dgvUsers.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -325,6 +328,38 @@
             this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsers.Size = new System.Drawing.Size(898, 310);
             this.dgvUsers.TabIndex = 100;
+            this.dgvUsers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Modificar);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 15.75F);
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Location = new System.Drawing.Point(255, 207);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(85, 26);
+            this.label2.TabIndex = 101;
+            this.label2.Text = "Empresa";
+            // 
+            // empresas
+            // 
+            this.empresas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.empresas.Font = new System.Drawing.Font("Calibri", 15.75F);
+            this.empresas.FormattingEnabled = true;
+            this.empresas.Location = new System.Drawing.Point(352, 204);
+            this.empresas.Name = "empresas";
+            this.empresas.Size = new System.Drawing.Size(217, 34);
+            this.empresas.TabIndex = 102;
+            // 
+            // txtID
+            // 
+            this.txtID.Enabled = false;
+            this.txtID.Location = new System.Drawing.Point(717, 213);
+            this.txtID.Multiline = true;
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(100, 33);
+            this.txtID.TabIndex = 103;
+            this.txtID.Visible = false;
             // 
             // FromUsuarioABC
             // 
@@ -332,6 +367,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(969, 681);
+            this.Controls.Add(this.txtID);
+            this.Controls.Add(this.empresas);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvUsers);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAgregar);
@@ -384,5 +422,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgvUsers;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox empresas;
+        private System.Windows.Forms.TextBox txtID;
     }
 }

@@ -23,6 +23,7 @@ namespace Capa_Presentacion
         private void FromUsuarioABC_Load(object sender, EventArgs e)
         {
             Mostrar();
+            MostrarEmpresas();
             txtCargo.SelectedIndex = 0;
         }
 
@@ -94,7 +95,7 @@ namespace Capa_Presentacion
                 {
                     if((txtNombre.Text != "" && txtApellidos.Text != "" && txtContra.Text != "" && txtCargo.Text != "" && txtNick.Text != "" && txtCorreo.Text != "") && (txtNombre.Text != "" || txtApellidos.Text != "" || txtContra.Text != "" || txtCargo.Text != "" || txtNick.Text != "" || txtCorreo.Text != ""))
                     {
-                        _ABCUsuario.RegistrarUsuario(txtNombre.Text, txtApellidos.Text, txtContra.Text, txtCargo.Text, txtNick.Text, txtCorreo.Text);
+                        _ABCUsuario.RegistrarUsuario(txtNombre.Text, txtApellidos.Text, txtContra.Text, txtCargo.Text, txtNick.Text, txtCorreo.Text,empresas.Text);
                         MessageBox.Show("Usuario registrado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         VaciarCampos();
                         Mostrar();
@@ -127,8 +128,9 @@ namespace Capa_Presentacion
 
                     else
                     {
+                        id = Convert.ToInt32(txtID.Text);
                         _ABCUsuario.EditarUsuario(id, txtNombre.Text, txtApellidos.Text,
-                    txtContra.Text, txtCargo.Text, txtNick.Text, txtCorreo.Text);
+                    txtContra.Text, txtCargo.Text, txtNick.Text, txtCorreo.Text,empresas.Text);
                         MessageBox.Show("Usuario actualizado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         IsEditar(isEditar = false);
                     }
@@ -140,6 +142,16 @@ namespace Capa_Presentacion
                 MessageBox.Show("Ha ocurrido un error " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        public void Modificar(object sender, DataGridViewCellEventArgs e)
+        {
+            txtID.Text = dgvUsers.CurrentRow.Cells["idUsuario"].Value.ToString();
+            txtNombre.Text = dgvUsers.CurrentRow.Cells["nombre"].Value.ToString();
+            txtApellidos.Text = dgvUsers.CurrentRow.Cells["apellidos"].Value.ToString();
+            txtNick.Text = dgvUsers.CurrentRow.Cells["nickname"].Value.ToString();
+            txtContra.Text = dgvUsers.CurrentRow.Cells["contra"].Value.ToString();
+            txtCorreo.Text = dgvUsers.CurrentRow.Cells["correo"].Value.ToString();
         }
 
         private void Eliminar()
@@ -155,7 +167,8 @@ namespace Capa_Presentacion
                         continue;
                     else
                     {
-                        _ABCUsuario.EliminarUsuario(row.Cells["NickName"].Value.ToString());
+                        id = Convert.ToInt32(txtID.Text);
+                        _ABCUsuario.EliminarUsuario(id);
                         MessageBox.Show("Usuario eliminado correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
@@ -178,6 +191,15 @@ namespace Capa_Presentacion
             {
                 MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        public void MostrarEmpresas()
+        {
+            DataTable tablaEmpresas = new DataTable();
+            tablaEmpresas = _ABCUsuario.MostrarEmpresas();
+            empresas.DataSource = tablaEmpresas;
+            empresas.DisplayMember = "nombreEmpresa";
+            empresas.ValueMember = "idEmpresa";
         }
 
         private void IsEditar(bool isEditar)

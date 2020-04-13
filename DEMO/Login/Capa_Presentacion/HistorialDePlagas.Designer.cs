@@ -35,14 +35,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnExportar = new System.Windows.Forms.Button();
             this.dgvHistorial = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cultivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Plaga = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaEncontrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cultivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Plaga = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaEncontrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistorial)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,35 +133,6 @@
             this.dgvHistorial.Size = new System.Drawing.Size(906, 437);
             this.dgvHistorial.TabIndex = 62;
             // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Cultivo
-            // 
-            this.Cultivo.DataPropertyName = "Cultivo";
-            this.Cultivo.HeaderText = "Cultivo";
-            this.Cultivo.Name = "Cultivo";
-            this.Cultivo.ReadOnly = true;
-            // 
-            // Plaga
-            // 
-            this.Plaga.DataPropertyName = "Plaga";
-            this.Plaga.HeaderText = "Plaga";
-            this.Plaga.Name = "Plaga";
-            this.Plaga.ReadOnly = true;
-            // 
-            // FechaEncontrada
-            // 
-            this.FechaEncontrada.DataPropertyName = "FechaEncontrada";
-            this.FechaEncontrada.HeaderText = "Fecha de predicción";
-            this.FechaEncontrada.Name = "FechaEncontrada";
-            this.FechaEncontrada.ReadOnly = true;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -206,6 +177,35 @@
             this.label4.TabIndex = 100;
             this.label4.Text = "Historial de plagas";
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "idHistorialPlagas";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Cultivo
+            // 
+            this.Cultivo.DataPropertyName = "nombreSemilla";
+            this.Cultivo.HeaderText = "Cultivo";
+            this.Cultivo.Name = "Cultivo";
+            this.Cultivo.ReadOnly = true;
+            // 
+            // Plaga
+            // 
+            this.Plaga.DataPropertyName = "nombrePlaga";
+            this.Plaga.HeaderText = "Plaga";
+            this.Plaga.Name = "Plaga";
+            this.Plaga.ReadOnly = true;
+            // 
+            // FechaEncontrada
+            // 
+            this.FechaEncontrada.DataPropertyName = "fechaprediccion";
+            this.FechaEncontrada.HeaderText = "Fecha de predicción";
+            this.FechaEncontrada.Name = "FechaEncontrada";
+            this.FechaEncontrada.ReadOnly = true;
+            // 
             // HistorialDePlagas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,13 +234,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnExportar;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgvHistorial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cultivo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Plaga;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaEncontrada;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cultivo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Plaga;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaEncontrada;
     }
 }

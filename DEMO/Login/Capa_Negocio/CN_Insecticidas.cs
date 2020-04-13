@@ -20,14 +20,14 @@ namespace Capa_Negocio
             return tablaInsecticida;
         }
 
-        public void AgregarInsecticida(String Usuario, String Nombre, String Precio, String Plaga)
+        public void AgregarInsecticida(String Usuario, String Nombre, String Precio, String Plaga,String Descripcion)
         {
-            _Insecticidas.AgregarInsecticida(Usuario, Nombre,Convert.ToInt32(Precio),Convert.ToString(Plaga));
+            _Insecticidas.AgregarInsecticida(Usuario, Nombre,float.Parse(Precio),Convert.ToString(Plaga),Descripcion);
         }
 
-        public void EditarInsecticida(String Nombre, String Precio, String Plaga, String idInsecticida)
+        public void EditarInsecticida(String Nombre, String Precio, String Plaga, String idInsecticida, String Descripcion)
         {
-            _Insecticidas.EditarInsecticida(Nombre,Convert.ToInt32(Precio),Plaga,Convert.ToInt32(idInsecticida));
+            _Insecticidas.EditarInsecticida(Nombre,float.Parse(Precio),Plaga,Convert.ToInt32(idInsecticida), Descripcion);
         }
 
         public void EliminarInsecticida(String idInsecticida)

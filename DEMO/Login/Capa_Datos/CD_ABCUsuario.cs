@@ -14,21 +14,23 @@ namespace Capa_Datos
         private CD_ConexionBD conexion = new CD_ConexionBD();
         MySqlDataReader leer;
         DataTable tablaUsuarios = new DataTable();
+        DataTable tablaEmpresas = new DataTable();
 
-        public void RegistrarUsuario(String nombre, String apellidos, String contra, String cargo, String nickname, String correo)
+        public void RegistrarUsuario(String nombre, String apellidos, String contra, String cargo, String nickname, String correo,String empresa)
         {
                 var comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
-                comando.CommandText = "RegistrarUsuario";
-                comando.CommandType = CommandType.StoredProcedure;
-                comando.Parameters.AddWithValue("_Nombre", nombre);
-                comando.Parameters.AddWithValue("_Apellidos", apellidos);
-                comando.Parameters.AddWithValue("_Contra", contra);
-                comando.Parameters.AddWithValue("_Cargo", cargo);
-                comando.Parameters.AddWithValue("_Nickname", nickname);
-                comando.Parameters.AddWithValue("_Correo", correo);
-                comando.ExecuteNonQuery();
-                comando.Parameters.Clear();
+                comando.CommandText = "INSERT INTO usuario (idCargo,idEmpresa,nombre,apellidos,contra,nickname,correo) VALUES (" +
+                "(SELECT idCargo FROM cargo WHERE nombreCargo = '"+cargo+"')," +
+                "(SELECT idEmpresa FROM empresa WHERE nombreEmpresa = '"+empresa+"')," +
+                "'"+nombre+"'," +
+                "'"+apellidos+"'," +
+                "'"+contra+"'," +
+                "'"+nickname+"'," +
+                "'"+correo+"'" +
+                ");";
+                comando.CommandType = CommandType.Text;
+                comando.ExecuteReader();
                 conexion.CerrarConexion();
         }
 
@@ -45,32 +47,31 @@ namespace Capa_Datos
             return tablaUsuarios;
         }
 
-        public void EditarUsuario(int id, String nombre, String apellidos, String contra, String cargo, String nickname, String correo)
+        public void EditarUsuario(int id, String nombre, String apellidos, String contra, String cargo, String nickname, String correo, String empresa)
         {
                 var comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
-                comando.CommandText = "EditarUsuario";
-                comando.CommandType = CommandType.StoredProcedure;
-                comando.Parameters.AddWithValue("_Idusuario", id);
-                comando.Parameters.AddWithValue("_Nombre", nombre);
-                comando.Parameters.AddWithValue("_Apellidos", apellidos);
-                comando.Parameters.AddWithValue("_Contra", contra);
-                comando.Parameters.AddWithValue("_Cargo", cargo);
-                comando.Parameters.AddWithValue("_Nickname", nickname);
-                comando.Parameters.AddWithValue("_Correo", correo);
-                comando.ExecuteNonQuery();
+                comando.CommandText = "UPDATE usuario SET " +
+                "idCargo = (SELECT idCargo FROM cargo WHERE nombreCargo = '" + cargo + "')," +
+                "idEmpresa = (SELECT idEmpresa FROM empresa WHERE nombreEmpresa = '" + empresa + "')," +
+                "nombre = '"+nombre+"'," +
+                "apellidos = '"+apellidos+"'," +
+                "contra = '"+contra+"'," +
+                "nickname = '"+nickname+"'," +
+                "correo = '"+correo+"' " +
+                "WHERE idUsuario = "+id+";";
+                comando.CommandType = CommandType.Text;
+                comando.ExecuteReader();
                 comando.Parameters.Clear();
                 conexion.CerrarConexion();
         }
-        public void EliminarUsuario(String NickName)
+        public void EliminarUsuario(int id)
         {
                 var comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
-                comando.CommandText = "EliminarUsuario";
-                comando.CommandType = CommandType.StoredProcedure;
-                comando.Parameters.AddWithValue("_nickname", NickName);
-                comando.ExecuteNonQuery();
-                comando.Parameters.Clear();
+                comando.CommandText = "DELETE FROM usuario WHERE idUsuario = "+id+";";
+                comando.CommandType = CommandType.Text;
+                comando.ExecuteReader();
                 conexion.CerrarConexion();
         }
 
@@ -78,12 +79,24 @@ namespace Capa_Datos
         {
                 var comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
-                comando.CommandText = "MostrarUsuarios";
-                comando.CommandType = CommandType.StoredProcedure;
+                comando.CommandText = "SELECT * FROM usuario;";
+                comando.CommandType = CommandType.Text;
                 leer = comando.ExecuteReader();
                 tablaUsuarios.Load(leer);
                 conexion.CerrarConexion();
             return tablaUsuarios;
+        }
+
+        public DataTable MostrarEmpresas()
+        {
+            var comando = new MySqlCommand();
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "SELECT idEmpresa,nombreEmpresa FROM empresa;";
+            comando.CommandType = CommandType.Text;
+            leer = comando.ExecuteReader();
+            tablaEmpresas.Load(leer);
+            conexion.CerrarConexion();
+            return tablaEmpresas;
         }
     }
 }

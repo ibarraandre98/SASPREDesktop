@@ -28,8 +28,8 @@ namespace Capa_Presentacion
             try
             {
                 MostrarFertilizantes();
-                LlenarComboCultivo();
-                LlenarComboPlaga();
+                //LlenarComboCultivo();
+                //LlenarComboPlaga();
                 loaded = true;
                 comboPlaga.SelectedIndex = 0;
                 comboCultivo.SelectedIndex = 0;

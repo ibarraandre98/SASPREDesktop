@@ -311,7 +311,7 @@ namespace Capa_Presentacion
                             {
                                 AgregarCosecha(Cantidad);
                                 //EliminarCultivo();
-                                //MostrarCultivos();
+                                MostrarCultivos();
                                 MessageBox.Show("¡Cultivo cosechado con exito!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
@@ -616,7 +616,7 @@ namespace Capa_Presentacion
                     String[] plagaarreglo = estadoprincipal.Split(',');
                     for (int i = 0; i < plagaarreglo.Length; i++)
                     {
-                        _Plagas.AgregarPlagas(dgvCultivo.CurrentRow.Cells["Cultivo"].Value.ToString(), plagaarreglo[i].TrimStart(' '), fechadehoy.ToString("yy-MM-dd"));
+                        _Plagas.AgregarPlagas(dgvCultivo.CurrentRow.Cells["IDCultivo"].Value.ToString(), plagaarreglo[i].TrimStart(' '), fechadehoy.ToString("yy-MM-dd"));
                     }
 
                 }

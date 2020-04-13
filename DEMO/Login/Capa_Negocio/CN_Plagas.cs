@@ -19,9 +19,9 @@ namespace Capa_Negocio
             return tablaPlagas;
         }
 
-        public void AgregarPlagas(String cultivo, String Plaga, String fecha)
+        public void AgregarPlagas(String IDCultivo, String Plaga, String fecha)
         {
-            _Plagas.AgregarPlaga(cultivo,Plaga,fecha);
+            _Plagas.AgregarPlaga(Convert.ToInt32(IDCultivo),Plaga,fecha);
         }
     }
 }

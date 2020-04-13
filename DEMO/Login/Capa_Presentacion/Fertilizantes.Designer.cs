@@ -34,6 +34,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvFertilizantes = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.comboCultivo = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboPlaga = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.IDCultivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cultivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Plaga = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,13 +49,6 @@
             this.NombreComercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DosisComercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EpocadeControl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.comboCultivo = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboPlaga = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFertilizantes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,69 +105,6 @@
             this.dgvFertilizantes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFertilizantes.Size = new System.Drawing.Size(897, 454);
             this.dgvFertilizantes.TabIndex = 56;
-            // 
-            // IDCultivo
-            // 
-            this.IDCultivo.DataPropertyName = "Id";
-            this.IDCultivo.HeaderText = "ID";
-            this.IDCultivo.Name = "IDCultivo";
-            this.IDCultivo.ReadOnly = true;
-            // 
-            // Cultivo
-            // 
-            this.Cultivo.DataPropertyName = "Cultivo";
-            this.Cultivo.HeaderText = "Cultivo";
-            this.Cultivo.Name = "Cultivo";
-            this.Cultivo.ReadOnly = true;
-            // 
-            // Plaga
-            // 
-            this.Plaga.DataPropertyName = "Plaga";
-            this.Plaga.HeaderText = "Plaga";
-            this.Plaga.Name = "Plaga";
-            this.Plaga.ReadOnly = true;
-            this.Plaga.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Insecticida
-            // 
-            this.Insecticida.DataPropertyName = "Insecticida";
-            dataGridViewCellStyle3.Format = "D";
-            dataGridViewCellStyle3.NullValue = null;
-            this.Insecticida.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Insecticida.HeaderText = "Insecticida";
-            this.Insecticida.Name = "Insecticida";
-            this.Insecticida.ReadOnly = true;
-            // 
-            // Dosis
-            // 
-            this.Dosis.DataPropertyName = "Dosis";
-            dataGridViewCellStyle4.Format = "D";
-            dataGridViewCellStyle4.NullValue = null;
-            this.Dosis.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Dosis.HeaderText = "Dosis";
-            this.Dosis.Name = "Dosis";
-            this.Dosis.ReadOnly = true;
-            // 
-            // NombreComercial
-            // 
-            this.NombreComercial.DataPropertyName = "Nombre Comercial";
-            this.NombreComercial.HeaderText = "Nombre Comercial";
-            this.NombreComercial.Name = "NombreComercial";
-            this.NombreComercial.ReadOnly = true;
-            // 
-            // DosisComercial
-            // 
-            this.DosisComercial.DataPropertyName = "Dosis Comercial";
-            this.DosisComercial.HeaderText = "Dosis Comercial";
-            this.DosisComercial.Name = "DosisComercial";
-            this.DosisComercial.ReadOnly = true;
-            // 
-            // EpocadeControl
-            // 
-            this.EpocadeControl.DataPropertyName = "Epoca de Control";
-            this.EpocadeControl.HeaderText = "Epoca de Control";
-            this.EpocadeControl.Name = "EpocadeControl";
-            this.EpocadeControl.ReadOnly = true;
             // 
             // txtBuscar
             // 
@@ -255,6 +192,69 @@
             this.label1.TabIndex = 65;
             this.label1.Text = "Fertilizantes";
             // 
+            // IDCultivo
+            // 
+            this.IDCultivo.DataPropertyName = "idFertilizantes";
+            this.IDCultivo.HeaderText = "ID";
+            this.IDCultivo.Name = "IDCultivo";
+            this.IDCultivo.ReadOnly = true;
+            // 
+            // Cultivo
+            // 
+            this.Cultivo.DataPropertyName = "nombreSemilla";
+            this.Cultivo.HeaderText = "Cultivo";
+            this.Cultivo.Name = "Cultivo";
+            this.Cultivo.ReadOnly = true;
+            // 
+            // Plaga
+            // 
+            this.Plaga.DataPropertyName = "nombrePlaga";
+            this.Plaga.HeaderText = "Plaga";
+            this.Plaga.Name = "Plaga";
+            this.Plaga.ReadOnly = true;
+            this.Plaga.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Insecticida
+            // 
+            this.Insecticida.DataPropertyName = "nombreInsecticida";
+            dataGridViewCellStyle3.Format = "D";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Insecticida.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Insecticida.HeaderText = "Insecticida";
+            this.Insecticida.Name = "Insecticida";
+            this.Insecticida.ReadOnly = true;
+            // 
+            // Dosis
+            // 
+            this.Dosis.DataPropertyName = "descripcion";
+            dataGridViewCellStyle4.Format = "D";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Dosis.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Dosis.HeaderText = "Dosis";
+            this.Dosis.Name = "Dosis";
+            this.Dosis.ReadOnly = true;
+            // 
+            // NombreComercial
+            // 
+            this.NombreComercial.DataPropertyName = "nombreFertilizante";
+            this.NombreComercial.HeaderText = "Nombre Comercial";
+            this.NombreComercial.Name = "NombreComercial";
+            this.NombreComercial.ReadOnly = true;
+            // 
+            // DosisComercial
+            // 
+            this.DosisComercial.DataPropertyName = "dosis";
+            this.DosisComercial.HeaderText = "Dosis Comercial";
+            this.DosisComercial.Name = "DosisComercial";
+            this.DosisComercial.ReadOnly = true;
+            // 
+            // EpocadeControl
+            // 
+            this.EpocadeControl.DataPropertyName = "descripcionAplicacion";
+            this.EpocadeControl.HeaderText = "Epoca de Control";
+            this.EpocadeControl.Name = "EpocadeControl";
+            this.EpocadeControl.ReadOnly = true;
+            // 
             // Fertilizantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -282,6 +282,13 @@
         #endregion
 
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgvFertilizantes;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.ComboBox comboCultivo;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboPlaga;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDCultivo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cultivo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Plaga;
@@ -290,12 +297,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreComercial;
         private System.Windows.Forms.DataGridViewTextBoxColumn DosisComercial;
         private System.Windows.Forms.DataGridViewTextBoxColumn EpocadeControl;
-        private System.Windows.Forms.TextBox txtBuscar;
-        private System.Windows.Forms.ComboBox comboCultivo;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboPlaga;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
     }
 }
