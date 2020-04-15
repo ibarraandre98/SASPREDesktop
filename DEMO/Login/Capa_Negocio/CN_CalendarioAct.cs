@@ -27,12 +27,12 @@ namespace Capa_Negocio
 
         public void EditarCalendario(String Nombre, String Descripcion, String FechaInicio, String FechaFin, String idCalendario)
         {
-            _Calendario.EditarCalendario(Nombre, Descripcion, FechaInicio, FechaFin,idCalendario);
+            _Calendario.EditarCalendario(Nombre, Descripcion, FechaInicio, FechaFin,Convert.ToInt32(idCalendario));
         }
 
         public void EliminarCalendario(String idCalendario)
         {
-            _Calendario.EliminarCalendario(idCalendario);
+            _Calendario.EliminarCalendario(Convert.ToInt32(idCalendario));
         }
     }
 }

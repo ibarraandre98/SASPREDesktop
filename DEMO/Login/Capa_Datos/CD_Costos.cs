@@ -17,16 +17,17 @@ namespace Capa_Datos
 
         MySqlDataReader leer;
         //Da de alta las alarmas a la base de datos
-        public void InsertarCostos(String cultivo, double precio)
+        public void InsertarCostos(String cultivo, double precio, String descripcion)
         {
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "altaCostos";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("_nombreCultivoCostos", cultivo);
-            comando.Parameters.AddWithValue("_precioCultivoXtonelada", precio);
-            comando.ExecuteNonQuery();
-            comando.Parameters.Clear();
+            comando.CommandText = "INSERT INTO costos (idSemillas,precio,descripcion) VALUES (" +
+                "(SELECT idSemillas FROM semillas WHERE nombreSemilla = '"+cultivo+"')," +
+                ""+precio+"," +
+                "'"+descripcion+"'" +
+                ");";
+            comando.CommandType = CommandType.Text;
+            comando.ExecuteReader();
             conexion.CerrarConexion();
         }
 
@@ -35,25 +36,23 @@ namespace Capa_Datos
         {
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "bajaCostos";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("_nombreCultivoCostos", cultivo);
-            comando.ExecuteNonQuery();
-            comando.Parameters.Clear();
+            comando.CommandText = "DELETE FROM costos WHERE idSemillas = (SELECT idSemillas FROM semillas WHERE nombreSemilla = '" + cultivo + "')";
+            comando.CommandType = CommandType.Text;
+            comando.ExecuteReader();
             conexion.CerrarConexion();
         }
 
         //Modifica una alarma
-        public void ModificarCostos(String cultivo, double precio)
+        public void ModificarCostos(String cultivo, double precio, String descripcion)
         {
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "cambioCostos";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("_nombreCultivoCostos", cultivo);
-            comando.Parameters.AddWithValue("_precioCultivoXtonelada", precio);
-            comando.ExecuteNonQuery();
-            comando.Parameters.Clear();
+            comando.CommandText = "UPDATE costos SET " +
+                "precio = "+precio+"," +
+                "descripcion = '"+descripcion+"' " +
+                "WHERE idSemillas = (SELECT idSemillas FROM semillas WHERE nombreSemilla = '" + cultivo + "')";
+            comando.CommandType = CommandType.Text;
+            comando.ExecuteReader();
             conexion.CerrarConexion();
         }
 
@@ -61,8 +60,13 @@ namespace Capa_Datos
         {
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "verCostos";
-            comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandText = "SELECT costos.idCostos," +
+                "semillas.nombreSemilla, " +
+                "costos.precio, " +
+                "costos.descripcion " +
+                "FROM costos " +
+                "INNER JOIN semillas ON costos.idSemillas = semillas.idSemillas;";
+            comando.CommandType = CommandType.Text;
             leer = comando.ExecuteReader();
             tablaCostos.Load(leer);
             conexion.CerrarConexion();
@@ -74,8 +78,18 @@ namespace Capa_Datos
         {
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "verCultivo";
-            comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandText = "SELECT cultivos.idCultivos," +
+                "semillas.nombreSemilla," +
+                "usuario.nombre," +
+                "cultivos.fechaPlantado," +
+                "cultivos.fechaCosechado," +
+                "cultivos.cantidad," +
+                "cultivos.estado," +
+                "cultivos.cosechado" +
+                " FROM cultivos " +
+                "INNER JOIN semillas ON cultivos.idSemillas = semillas.idSemillas " +
+                "INNER JOIN usuario ON cultivos.idUsuario = usuario.idUsuario;";
+            comando.CommandType = CommandType.Text;
             leer = comando.ExecuteReader();
             tablaCultivo.Load(leer);
             conexion.CerrarConexion();

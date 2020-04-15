@@ -36,7 +36,7 @@ namespace Capa_Datos
                     "JOIN cultivos ON cosechas.idCultivos = cultivos.idCultivos " +
                     "JOIN semillas ON cultivos.idSemillas = semillas.idSemillas " +
                     "JOIN usuario ON cultivos.idUsuario = usuario.idUsuario " +
-                    "WHERE cultivos.idUsuario = (SELECT idUsuario FROM usuarios WHERE nickname = '" + usuario + "');";
+                    "WHERE cultivos.idUsuario = (SELECT idUsuario FROM usuario WHERE nickname = '" + usuario + "');";
 
                 }
                 comando.CommandType = CommandType.Text;

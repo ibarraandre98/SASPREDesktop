@@ -17,24 +17,24 @@ namespace Capa_Presentacion
         DataTable tablaNombresCultivos = new DataTable();
         DataTable tablaNombresAlarmas = new DataTable();
         DataTable tablaAlarmas = new DataTable();
-        String nombreAlarma, nombrePlanta,opcion="";
+        String nombreAlarma, nombrePlanta,opcion="",descripcion;
         double tempMaxAlarma, tempMinAlarma;
-        int lapsoDias;
+        int lapsoDias,id;
 
         public Alarmas()
         {
             InitializeComponent();
             BloquearCampos();
-            //CargarNombresCultivos();
-            //MostrarAlarmas();
+            CargarNombresCultivos();
+            MostrarAlarmas();
         }
 
         private void CargarNombresCultivos()
         {
             tablaNombresCultivos = _Alarmas.MostrarNombresCultivos();
             txtCultivo.DataSource = tablaNombresCultivos;
-            txtCultivo.ValueMember = "IDplanta";
-            txtCultivo.DisplayMember = "NombreComun";
+            txtCultivo.ValueMember = "idCultivos";
+            txtCultivo.DisplayMember = "nombreSemilla";
         }
 
         private void BloquearCampos()
@@ -127,7 +127,7 @@ namespace Capa_Presentacion
             {
                 case "Alta":
                     nombreAlarma = txtNombre.Text;
-                    if (Evaluar(nombreAlarma) == true)
+                    if (Evaluar(nombreAlarma) == false)
                     {
 
                         nombreAlarma = txtNombre.Text;
@@ -135,8 +135,9 @@ namespace Capa_Presentacion
                         tempMaxAlarma = Convert.ToDouble(txtMax.Text);
                         tempMinAlarma = Convert.ToDouble(txtMin.Text);
                         lapsoDias = Convert.ToInt32(txtDias.Text);
+                        descripcion = txtDesc.Text;
 
-                        _Alarmas.InsertarAlarma(nombreAlarma,nombrePlanta,tempMaxAlarma,tempMinAlarma,lapsoDias);
+                        _Alarmas.InsertarAlarma(nombreAlarma,nombrePlanta,tempMaxAlarma,tempMinAlarma,lapsoDias,descripcion);
                         alert.Show("Se agrego exitosamente la alarma", Alertype.succes);
                         Limpiar();
                     }
@@ -152,7 +153,8 @@ namespace Capa_Presentacion
                     nombreAlarma = txtNombre.Text;
                     if (Evaluar(nombreAlarma) == false)
                     {
-                        _Alarmas.EliminarAlarma(nombreAlarma);
+                        id = Convert.ToInt32(txtId.Text);
+                        _Alarmas.EliminarAlarma(id);
                         alert.Show("Se ha eliminado la alarma", Alertype.succes);
                         Limpiar();
                     }
@@ -165,15 +167,17 @@ namespace Capa_Presentacion
 
                 case "Cambio":
                     nombreAlarma = txtNombre.Text;
-                    if (Evaluar(nombreAlarma) == false)
+                    if (Evaluar(nombreAlarma) == true)
                     {
                         nombreAlarma = txtNombre.Text;
                         nombrePlanta = txtCultivo.Text;
                         tempMaxAlarma = Convert.ToDouble(txtMax.Text);
                         tempMinAlarma = Convert.ToDouble(txtMin.Text);
                         lapsoDias = Convert.ToInt32(txtDias.Text);
+                        descripcion = txtDesc.Text;
+                        id = Convert.ToInt32(txtId.Text);
 
-                        _Alarmas.ModificarAlarma(nombreAlarma, nombrePlanta, tempMaxAlarma, tempMinAlarma, lapsoDias);
+                        _Alarmas.ModificarAlarma(nombreAlarma, nombrePlanta, tempMaxAlarma, tempMinAlarma, lapsoDias, descripcion,id);
 
                         alert.Show("Se ha modificado la alarma", Alertype.succes);
                         Limpiar();
@@ -194,6 +198,7 @@ namespace Capa_Presentacion
             txtMax.Text = "";
             txtMin.Text = "";
             txtDias.Text = "";
+            txtDesc.Text = "";
 
             btnAgregar.Enabled = true;
             btnEditar.Enabled = true;
@@ -222,6 +227,8 @@ namespace Capa_Presentacion
             txtDias.Text = dgvAlmacen.CurrentRow.Cells["lapsoDias"].Value.ToString();
             txtMax.Text = dgvAlmacen.CurrentRow.Cells["tempMaxAlarma"].Value.ToString();
             txtMin.Text = dgvAlmacen.CurrentRow.Cells["tempMinAlarma"].Value.ToString();
+            txtDesc.Text = dgvAlmacen.CurrentRow.Cells["descripcion"].Value.ToString();
+            txtId.Text = dgvAlmacen.CurrentRow.Cells["idAlarmas"].Value.ToString();
         }
 
         private void dgvAlarmas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

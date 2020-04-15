@@ -21,14 +21,13 @@ namespace Capa_Datos
             comando.Connection = conexion.AbrirConexion();
             if (cargo == "Admin")
             {
-                comando.CommandText = "MostrarCalendario";
+                comando.CommandText = "SELECT * FROM calendarioactividades;";
             }
             else
             {
-                comando.CommandText = "MostrarCalendarioUsuarios";
-                comando.Parameters.AddWithValue("nombre_usuario", usuario);
+                comando.CommandText = "SELECT * FROM calendarioactividades WHERE idUsuario = (SELECT idUsuario FROM usuario WHERE nickname = '"+usuario+"');";
             }
-            comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandType = CommandType.Text;
             leer = comando.ExecuteReader();
             tablaCalendario.Load(leer);
             conexion.CerrarConexion();
@@ -39,42 +38,39 @@ namespace Capa_Datos
         {
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "AgregarCalendario";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("nombre_usuario", Usuario_Calendario);
-            comando.Parameters.AddWithValue("nombre_actividad", Nombre);
-            comando.Parameters.AddWithValue("descripcion_act", Descripcion);
-            comando.Parameters.AddWithValue("fecha_inicio", FechaInicio);
-            comando.Parameters.AddWithValue("fecha_fin", FechaFin);
-            comando.ExecuteNonQuery();
-            comando.Parameters.Clear();
+            comando.CommandText = "INSERT INTO calendarioactividades (idUsuario,nombreActividad,descripcion,fechaInicio,fechaFin) VALUES (" +
+                "(SELECT idUsuario FROM usuario WHERE nickname = '"+Usuario_Calendario+"')," +
+                "'"+Nombre+"'," +
+                "'"+Descripcion+"'," +
+                "'"+FechaInicio+"'," +
+                "'"+FechaFin+"'" +
+                ");";
+            comando.CommandType = CommandType.Text;
+            comando.ExecuteReader();
             conexion.CerrarConexion();
         }
-        public void EliminarCalendario(String idCalendario)
+        public void EliminarCalendario(int idCalendario)
         {
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "EliminarCalendario";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("id_calendario", idCalendario);
-            comando.ExecuteNonQuery();
-            comando.Parameters.Clear();
+            comando.CommandText = "DELETE FROM calendarioactividades WHERE idCalendarioActividades = "+idCalendario+";";
+            comando.CommandType = CommandType.Text;
+            comando.ExecuteReader();
             conexion.CerrarConexion();
         }
 
-        public void EditarCalendario(String Nombre,String Descripcion,String FechaInicio,String FechaFin, String idCalendario)
+        public void EditarCalendario(String Nombre,String Descripcion,String FechaInicio,String FechaFin, int idCalendario)
         {
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "EditarCalendario";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("nombre_actividad", Nombre);
-            comando.Parameters.AddWithValue("descripcion_act", Descripcion);
-            comando.Parameters.AddWithValue("fecha_inicio", FechaInicio);
-            comando.Parameters.AddWithValue("fecha_fin", FechaFin);
-            comando.Parameters.AddWithValue("id_calendario", idCalendario);
-            comando.ExecuteNonQuery();
-            comando.Parameters.Clear();
+            comando.CommandText = "UPDATE calendarioactividades SET " +
+                "nombreActividad = '"+Nombre+"'," +
+                "descripcion = '"+Descripcion+"'," +
+                "fechaInicio = '"+FechaInicio+"'," +
+                "fechaFin = '"+FechaFin+"' " +
+                "WHERE idCalendarioActividades = "+idCalendario+" ";
+            comando.CommandType = CommandType.Text;
+            comando.ExecuteReader();
             conexion.CerrarConexion();
         }
     }

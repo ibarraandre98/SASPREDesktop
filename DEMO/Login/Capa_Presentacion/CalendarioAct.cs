@@ -78,7 +78,7 @@ namespace Capa_Presentacion
             dataGridView1.DataSource = tablaCalendario;
             if (Program.cargo != "Admin")
             {
-                dataGridView1.Columns["Usuario_Calendario"].Visible = false;
+                dataGridView1.Columns["idCalendarioActividades"].Visible = false;
             }
 
         }
@@ -126,11 +126,11 @@ namespace Capa_Presentacion
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            nombre.Text = dataGridView1.CurrentRow.Cells["Nombre"].Value.ToString();
-            descripcion.Text = dataGridView1.CurrentRow.Cells["Descripcion"].Value.ToString();
+            nombre.Text = dataGridView1.CurrentRow.Cells["nombreActividad"].Value.ToString();
+            descripcion.Text = dataGridView1.CurrentRow.Cells["descripcion"].Value.ToString();
             //fechaInicio.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["FechaInicio"].Value.ToString());
             //fechaFin.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["FechaFin"].Value.ToString());
-            id.Text = dataGridView1.CurrentRow.Cells["idCalendario"].Value.ToString();
+            id.Text = dataGridView1.CurrentRow.Cells["idCalendarioActividades"].Value.ToString();
             editar.Enabled = true;
             eliminar.Enabled = true;
             agregar.Enabled = false;

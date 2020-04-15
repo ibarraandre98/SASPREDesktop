@@ -16,19 +16,19 @@ namespace Capa_Negocio
         DataTable tablaReportesAlarmas = new DataTable();
         private CD_Alarmas _Alarmas = new CD_Alarmas();
 
-        public void InsertarAlarma(String nombreAlarma, String nombrePlanta, double tempMaxAlarma, double tempMinAlarma, int lapsoDias)
+        public void InsertarAlarma(String nombreAlarma, String nombrePlanta, double tempMaxAlarma, double tempMinAlarma, int lapsoDias, String descripcion)
         {
-            _Alarmas.InsertarAlarma(nombreAlarma, nombrePlanta, tempMaxAlarma, tempMinAlarma, lapsoDias);
+            _Alarmas.InsertarAlarma(nombreAlarma, nombrePlanta, tempMaxAlarma, tempMinAlarma, lapsoDias, descripcion);
         }
 
-        public void EliminarAlarma(String nombreAlarma)
+        public void EliminarAlarma(int id)
         {
-            _Alarmas.EliminarAlarma(nombreAlarma);
+            _Alarmas.EliminarAlarma(id);
         }
 
-        public void ModificarAlarma(String nombreAlarma, String nombrePlanta, double tempMaxAlarma, double tempMinAlarma, int lapsoDias)
+        public void ModificarAlarma(String nombreAlarma, String nombrePlanta, double tempMaxAlarma, double tempMinAlarma, int lapsoDias, String descripcion,int id)
         {
-            _Alarmas.ModificarAlarma(nombreAlarma, nombrePlanta, tempMaxAlarma, tempMinAlarma, lapsoDias);
+            _Alarmas.ModificarAlarma(nombreAlarma, nombrePlanta, tempMaxAlarma, tempMinAlarma, lapsoDias, descripcion, id);
         }
 
         public DataTable MostrarNombresCultivos()

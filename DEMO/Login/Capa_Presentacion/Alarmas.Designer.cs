@@ -50,6 +50,9 @@
             this.txtCultivo = new System.Windows.Forms.ComboBox();
             this.lbTem = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtDesc = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlmacen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -203,7 +206,7 @@
             this.lbMax.Enabled = false;
             this.lbMax.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.lbMax.ForeColor = System.Drawing.Color.DimGray;
-            this.lbMax.Location = new System.Drawing.Point(383, 548);
+            this.lbMax.Location = new System.Drawing.Point(383, 506);
             this.lbMax.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbMax.Name = "lbMax";
             this.lbMax.Size = new System.Drawing.Size(81, 26);
@@ -215,7 +218,7 @@
             this.txtMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtMax.Enabled = false;
             this.txtMax.Font = new System.Drawing.Font("Calibri", 15.75F);
-            this.txtMax.Location = new System.Drawing.Point(481, 548);
+            this.txtMax.Location = new System.Drawing.Point(471, 503);
             this.txtMax.Name = "txtMax";
             this.txtMax.Size = new System.Drawing.Size(217, 33);
             this.txtMax.TabIndex = 155;
@@ -227,7 +230,7 @@
             this.lbMin.Enabled = false;
             this.lbMin.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.lbMin.ForeColor = System.Drawing.Color.DimGray;
-            this.lbMin.Location = new System.Drawing.Point(383, 587);
+            this.lbMin.Location = new System.Drawing.Point(383, 545);
             this.lbMin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbMin.Name = "lbMin";
             this.lbMin.Size = new System.Drawing.Size(78, 26);
@@ -239,7 +242,7 @@
             this.txtMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtMin.Enabled = false;
             this.txtMin.Font = new System.Drawing.Font("Calibri", 15.75F);
-            this.txtMin.Location = new System.Drawing.Point(481, 587);
+            this.txtMin.Location = new System.Drawing.Point(471, 545);
             this.txtMin.Name = "txtMin";
             this.txtMin.Size = new System.Drawing.Size(217, 33);
             this.txtMin.TabIndex = 157;
@@ -306,7 +309,7 @@
             this.lbTem.Enabled = false;
             this.lbTem.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.lbTem.ForeColor = System.Drawing.Color.DimGray;
-            this.lbTem.Location = new System.Drawing.Point(483, 509);
+            this.lbTem.Location = new System.Drawing.Point(695, 548);
             this.lbTem.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTem.Name = "lbTem";
             this.lbTem.Size = new System.Drawing.Size(120, 26);
@@ -328,12 +331,47 @@
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 15.75F);
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Location = new System.Drawing.Point(374, 584);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(111, 26);
+            this.label2.TabIndex = 166;
+            this.label2.Text = "Descripcion";
+            // 
+            // txtDesc
+            // 
+            this.txtDesc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtDesc.Font = new System.Drawing.Font("Calibri", 15.75F);
+            this.txtDesc.Location = new System.Drawing.Point(514, 584);
+            this.txtDesc.Multiline = true;
+            this.txtDesc.Name = "txtDesc";
+            this.txtDesc.Size = new System.Drawing.Size(230, 33);
+            this.txtDesc.TabIndex = 167;
+            // 
+            // txtId
+            // 
+            this.txtId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtId.Enabled = false;
+            this.txtId.Location = new System.Drawing.Point(576, 638);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(100, 20);
+            this.txtId.TabIndex = 168;
+            this.txtId.Visible = false;
+            // 
             // Alarmas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(969, 681);
+            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.txtDesc);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.lbTem);
             this.Controls.Add(this.txtCultivo);
@@ -382,5 +420,8 @@
         private System.Windows.Forms.ComboBox txtCultivo;
         private System.Windows.Forms.Label lbTem;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtDesc;
+        private System.Windows.Forms.TextBox txtId;
     }
 }

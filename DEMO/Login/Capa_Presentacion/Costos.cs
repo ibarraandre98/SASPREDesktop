@@ -13,7 +13,7 @@ namespace Capa_Presentacion
 {
     public partial class Costos : Form
     {
-        String cultivo, opcion = "";
+        String cultivo, opcion = "", descripcio;
         double precio;
         int id;
         DataTable tablaCostos = new DataTable();
@@ -30,10 +30,12 @@ namespace Capa_Presentacion
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             cultivo = cbCultivo.Text;
+            descripcio = descripcion.Text;
             if (Evaluar(cultivo) == true)
             {
                 precio = Convert.ToDouble(tbPrecio.Text);
-                _Costos.InsertarCostos(cultivo, precio);
+                
+                _Costos.InsertarCostos(cultivo, precio,descripcio);
                 alert.Show("Se agrego exitosamente el costo", Alertype.succes);
             }
             else
@@ -52,8 +54,8 @@ namespace Capa_Presentacion
             {
 
                 precio = Convert.ToDouble(tbPrecio.Text);
-
-                _Costos.ModificarCostos(cultivo, precio);
+                descripcio = descripcion.Text;
+                _Costos.ModificarCostos(cultivo, precio, descripcio);
 
                 alert.Show("Se ha modificado el costo", Alertype.succes);
             }
@@ -88,7 +90,7 @@ namespace Capa_Presentacion
 
             foreach (DataRow row in tablaCostos.Rows)
             {
-                nombre = row["nombreCultivoCostos"].ToString();
+                nombre = row["nombreSemilla"].ToString();
                 if (nombre == cultivo)
                 {
                     return false;
@@ -118,7 +120,7 @@ namespace Capa_Presentacion
             {
                 foreach(var item in cbCultivo.Items)
                 {
-                    if (item.ToString().Equals(row["Cultivo"].ToString()))
+                    if (item.ToString().Equals(row["nombreSemilla"].ToString()))
                     {
                         ban1 = true;
                     }
@@ -126,7 +128,7 @@ namespace Capa_Presentacion
 
                 if (ban1 == false)
                 {
-                    cbCultivo.Items.Add(row["Cultivo"].ToString());
+                    cbCultivo.Items.Add(row["nombreSemilla"].ToString());
                     ban1 = false;
                 }
                 else
@@ -141,8 +143,9 @@ namespace Capa_Presentacion
         private void dgvCultivo_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            cbCultivo.Text = dgvCultivo.CurrentRow.Cells["nombreCultivoCostos"].Value.ToString();
-            tbPrecio.Text = dgvCultivo.CurrentRow.Cells["precioCultivoXtonelada"].Value.ToString();
+            cbCultivo.Text = dgvCultivo.CurrentRow.Cells["nombreSemilla"].Value.ToString();
+            tbPrecio.Text = dgvCultivo.CurrentRow.Cells["precio"].Value.ToString();
+            descripcion.Text = dgvCultivo.CurrentRow.Cells["descripcion"].Value.ToString();
 
             tbPrecio.Enabled = true;
             btnEditar.Enabled = true;

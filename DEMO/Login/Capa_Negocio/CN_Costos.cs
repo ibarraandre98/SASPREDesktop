@@ -15,9 +15,9 @@ namespace Capa_Negocio
 
         private CD_Costos _Costos = new CD_Costos();
 
-        public void InsertarCostos(String cultivo, double precio)
+        public void InsertarCostos(String cultivo, double precio, String descripcion)
         {
-            _Costos.InsertarCostos(cultivo, precio);
+            _Costos.InsertarCostos(cultivo, precio, descripcion);
         }
 
         public void ElimiarCostos(String cultivo)
@@ -25,9 +25,9 @@ namespace Capa_Negocio
             _Costos.ELimiarCostos(cultivo);
         }
 
-        public void ModificarCostos(String cultivo, double precio)
+        public void ModificarCostos(String cultivo, double precio, String descripcion)
         {
-            _Costos.ModificarCostos(cultivo, precio);
+            _Costos.ModificarCostos(cultivo, precio, descripcion);
         }
 
         public DataTable MostrarCostos()

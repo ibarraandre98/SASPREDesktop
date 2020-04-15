@@ -44,6 +44,8 @@
             this.lbCultivo = new System.Windows.Forms.Label();
             this.tbPrecio = new System.Windows.Forms.TextBox();
             this.BtnExp = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.descripcion = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCultivo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -234,12 +236,34 @@
             this.BtnExp.UseVisualStyleBackColor = false;
             this.BtnExp.Click += new System.EventHandler(this.BtnExportar);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 15.75F);
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Location = new System.Drawing.Point(375, 509);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(111, 26);
+            this.label2.TabIndex = 144;
+            this.label2.Text = "Descripcion";
+            // 
+            // descripcion
+            // 
+            this.descripcion.Font = new System.Drawing.Font("Calibri", 15.75F);
+            this.descripcion.Location = new System.Drawing.Point(511, 507);
+            this.descripcion.Multiline = true;
+            this.descripcion.Name = "descripcion";
+            this.descripcion.Size = new System.Drawing.Size(196, 33);
+            this.descripcion.TabIndex = 145;
+            // 
             // Costos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(969, 681);
+            this.Controls.Add(this.descripcion);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.BtnExp);
             this.Controls.Add(this.lbPrecio);
             this.Controls.Add(this.cbCultivo);
@@ -274,5 +298,7 @@
         private System.Windows.Forms.Label lbCultivo;
         private System.Windows.Forms.TextBox tbPrecio;
         private System.Windows.Forms.Button BtnExp;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox descripcion;
     }
 }

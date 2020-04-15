@@ -19,60 +19,64 @@ namespace Capa_Datos
         DataTable tablaReportesAlarmas = new DataTable();
         MySqlDataReader leer;
         //Da de alta las alarmas a la base de datos
-        public void InsertarAlarma(String nombreAlarma, String nombrePlanta, double tempMaxAlarma, double tempMinAlarma, int lapsoDias)
+        public void InsertarAlarma(String nombreAlarma, String nombrePlanta, double tempMaxAlarma, double tempMinAlarma, int lapsoDias, String descripcion)
         {
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "altaAlarmaCultivos";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("_nombreAlarma", nombreAlarma);
-            comando.Parameters.AddWithValue("_nombrePlanta", nombrePlanta);
-            comando.Parameters.AddWithValue("_tempMaxAlarma", tempMaxAlarma);
-            comando.Parameters.AddWithValue("_tempMinAlarma", tempMinAlarma);
-            comando.Parameters.AddWithValue("_lapsoDias", lapsoDias);
-            comando.ExecuteNonQuery();
-            comando.Parameters.Clear();
+            comando.CommandText = "INSERT INTO alarmas (idSemillas,nombreAlarma,tempMaxAlarma,tempMinAlarma,lapsoDias,descripcion) VALUES (" +
+                "(SELECT idSemillas FROM semillas WHERE nombreSemilla = '"+nombrePlanta+"'), " +
+                "'"+nombreAlarma+"', " +
+                ""+tempMaxAlarma+", " +
+                ""+tempMinAlarma+", " +
+                ""+lapsoDias+", " +
+                "'"+descripcion+"'" +
+                ");";
+            comando.CommandType = CommandType.Text;
+            comando.ExecuteReader();
             conexion.CerrarConexion();
         }
 
         //Elimina Alarma 
-        public void EliminarAlarma(String nombreAlarma)
+        public void EliminarAlarma(int id)
         {
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "bajaAlarmaCultivos";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("_nombreAlarma", nombreAlarma);
-            comando.ExecuteNonQuery();
-            comando.Parameters.Clear();
+            comando.CommandText = "DELETE FROM alarmas WHERE idAlarmas = "+id+";";
+            comando.CommandType = CommandType.Text;
+            comando.ExecuteReader();
             conexion.CerrarConexion();
         }
 
         //Modifica una alarma
-        public void ModificarAlarma(String nombreAlarma, String nombrePlanta, double tempMaxAlarma, double tempMinAlarma, int lapsoDias)
+        public void ModificarAlarma(String nombreAlarma, String nombrePlanta, double tempMaxAlarma, double tempMinAlarma, int lapsoDias, String descripcion, int id)
         {
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "cambioAlarmaCultivos";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("_nombreAlarma", nombreAlarma);
-            comando.Parameters.AddWithValue("_nombrePlanta", nombrePlanta);
-            comando.Parameters.AddWithValue("_tempMaxAlarma", tempMaxAlarma);
-            comando.Parameters.AddWithValue("_tempMinAlarma", tempMinAlarma);
-            comando.Parameters.AddWithValue("_lapsoDias", lapsoDias);
-            comando.ExecuteNonQuery();
-            comando.Parameters.Clear();
+            comando.CommandText = "UPDATE alarmas SET " +
+                "idSemillas = (SELECT idSemillas FROM semillas WHERE nombreSemilla = '"+nombrePlanta+"')," +
+                "nombreAlarma = '"+nombreAlarma+"'," +
+                "tempMaxAlarma = "+tempMaxAlarma+", " +
+                "tempMinAlarma = "+tempMinAlarma+", " +
+                "lapsoDias = "+lapsoDias+"," +
+                "descripcion = '"+descripcion+"' " +
+                "WHERE idAlarmas = "+id+";";
+            comando.CommandType = CommandType.Text;
+            comando.ExecuteReader();
             conexion.CerrarConexion();
         }
 
         public DataTable MostrarNombreCultivos()
         {
-            comando = new MySqlCommand("mostrarNombreCultivos",conexion.AbrirConexion());
-            comando.CommandType = CommandType.StoredProcedure;
-
-            MySqlDataAdapter da = new MySqlDataAdapter(comando);
-            da.Fill(tablaNombresCultivos);
-
+            comando = new MySqlCommand();
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "SELECT cultivos.idCultivos," +
+                "semillas.nombreSemilla " +
+                "FROM cultivos " +
+                "INNER JOIN semillas ON cultivos.idSemillas = semillas.idSemillas;";
+            comando.CommandType = CommandType.Text;
+            leer = comando.ExecuteReader();
+            tablaNombresCultivos.Load(leer);
+            conexion.CerrarConexion();
 
             conexion.CerrarConexion();
 
@@ -83,8 +87,15 @@ namespace Capa_Datos
         {
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "mostrarAlarmas";
-            comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandText = "SELECT alarmas.idAlarmas," +
+                "semillas.nombreSemilla," +
+                "alarmas.nombreAlarma," +
+                "alarmas.tempMaxAlarma," +
+                "alarmas.tempMinAlarma," +
+                "alarmas.lapsoDias," +
+                "alarmas.descripcion FROM alarmas " +
+                "INNER JOIN semillas ON alarmas.idSemillas = semillas.idSemillas;";
+            comando.CommandType = CommandType.Text;
             leer = comando.ExecuteReader();
             tablaAlarmas.Load(leer);
             conexion.CerrarConexion();
@@ -96,8 +107,8 @@ namespace Capa_Datos
         {
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "mostrarNombreAlarmas";
-            comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandText = "SELECT nombreAlarma FROM alarmas;";
+            comando.CommandType = CommandType.Text;
             leer = comando.ExecuteReader();
             tablaNombresAlarmas.Load(leer);
             conexion.CerrarConexion();
