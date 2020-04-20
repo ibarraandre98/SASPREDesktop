@@ -79,7 +79,17 @@ namespace Capa_Datos
         {
                 var comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
-                comando.CommandText = "SELECT * FROM usuario;";
+                comando.CommandText = "SELECT usuario.idUsuario, " +
+                "cargo.nombreCargo, " +
+                "empresa.nombreEmpresa, " +
+                "usuario.nombre, " +
+                "usuario.apellidos, " +
+                "usuario.contra," +
+                "usuario.nickname, " +
+                "usuario.correo " +
+                "FROM usuario " +
+                "INNER JOIN cargo ON usuario.idCargo = cargo.idCargo " +
+                "INNER JOIN empresa ON usuario.idEmpresa = empresa.idEmpresa;";
                 comando.CommandType = CommandType.Text;
                 leer = comando.ExecuteReader();
                 tablaUsuarios.Load(leer);

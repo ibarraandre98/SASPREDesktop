@@ -320,7 +320,8 @@ namespace Capa_Presentacion
                     dgvUsers[3,i].Value.ToString(),
                     dgvUsers[4,i].Value.ToString(),
                     dgvUsers[5,i].Value.ToString(),
-                    dgvUsers[6,i].Value.ToString()});
+                    dgvUsers[6,i].Value.ToString(),
+                    dgvUsers[7,i].Value.ToString()});
             }
             Reportes r = new Reportes();
             r.setData(Ds);

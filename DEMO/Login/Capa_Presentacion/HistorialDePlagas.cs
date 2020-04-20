@@ -54,7 +54,7 @@ namespace Capa_Presentacion
             try
             {
                 DataView dv = tablaPlagas.DefaultView;
-                dv.RowFilter = string.Format("Cultivo like '%{0}%' or Plaga like '%{0}%'", textBox1.Text);
+                dv.RowFilter = string.Format("nombreSemilla like '%{0}%' or nombrePlaga like '%{0}%'", textBox1.Text);
                 dgvHistorial.DataSource = dv.ToTable();
             }
             catch (Exception a)

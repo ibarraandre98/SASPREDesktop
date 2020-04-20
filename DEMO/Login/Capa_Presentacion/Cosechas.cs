@@ -45,7 +45,7 @@ namespace Capa_Presentacion
         {
             try { 
             DataView dv = tablaCosechas.DefaultView;
-            dv.RowFilter = string.Format("Cultivo like '%{0}%'", txtBuscarUnCultivo.Text);
+            dv.RowFilter = string.Format("nombreSemilla like '%{0}%'", txtBuscarUnCultivo.Text);
             dgvCultivo.DataSource = dv.ToTable();
         }
             catch (Exception a)

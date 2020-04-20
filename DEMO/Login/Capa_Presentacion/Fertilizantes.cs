@@ -28,8 +28,8 @@ namespace Capa_Presentacion
             try
             {
                 MostrarFertilizantes();
-                //LlenarComboCultivo();
-                //LlenarComboPlaga();
+                LlenarComboCultivo();
+                LlenarComboPlaga();
                 loaded = true;
                 comboPlaga.SelectedIndex = 0;
                 comboCultivo.SelectedIndex = 0;
@@ -63,7 +63,7 @@ namespace Capa_Presentacion
                 DataTable tablaControlPlagas = CN_Fertilizantes.MostrarFertilizantes();
                 foreach (DataRow row in tablaControlPlagas.Rows)
                 {
-                    var valor = row["Plaga"].ToString();
+                    var valor = row["nombrePlaga"].ToString();
                     if (!_plagas.Contains(valor))
                     {
                         _plagas.Add(valor);
@@ -90,7 +90,7 @@ namespace Capa_Presentacion
                 DataTable tablaControlPlagas = CN_Fertilizantes.MostrarFertilizantes();
                 foreach (DataRow row in tablaControlPlagas.Rows)
                 {
-                    var valor = row["Cultivo"].ToString();
+                    var valor = row["nombreSemilla"].ToString();
                     if (!_cultivos.Contains(valor))
                     {
                         _cultivos.Add(valor);
@@ -234,7 +234,7 @@ namespace Capa_Presentacion
                     dgvFertilizantes[1,i].Value.ToString(),
                     dgvFertilizantes[2,i].Value.ToString(),
                     dgvFertilizantes[3,i].Value.ToString(),
-                    dgvFertilizantes[4,i].Value.ToString(),
+                    dgvFertilizantes[6,i].Value.ToString(),
                 dgvFertilizantes[7,i].Value.ToString()});
             }
             Reportes r = new Reportes();
