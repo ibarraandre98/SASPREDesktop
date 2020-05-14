@@ -75,7 +75,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error muski1" + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -162,8 +162,11 @@ namespace Capa_Presentacion
             cbPlanta.SelectedIndex = 0;
             dtpCosecha.MinDate = dtpPlantado.Value;
             MostrarCultivos();
-            LlenarDataTableDatosClimaMes(); //Se arregla de rato
+            
+            LlenarDataTableDatosClimaMes();
+            //Error aqui
             CalcularPlagaAutomatico();
+            
         }
 
         public void MostrarCultivos()
@@ -185,14 +188,14 @@ namespace Capa_Presentacion
                 if (cbPlanta.SelectedItem.ToString() == "Sorgo")
                 {
                     picCultivo.Image = imageListPlantas.Images[1];
-                    lectorDisp = _CN_Almacen.DisponibleCultivo("Sorgo");
-                    calcularDisponible();
+                    //lectorDisp = _CN_Almacen.DisponibleCultivo("Sorgo");
+                    //calcularDisponible();
                 }
                 else if (cbPlanta.SelectedItem.ToString() == "Maíz")
                 {
                     picCultivo.Image = imageListPlantas.Images[0];
-                    lectorDisp = _CN_Almacen.DisponibleCultivo("Maíz");
-                    calcularDisponible();
+                    //lectorDisp = _CN_Almacen.DisponibleCultivo("Maíz");
+                    //calcularDisponible();
                 }
                 else if (cbPlanta.SelectedItem.ToString() == "Soya")
                 {
@@ -209,8 +212,9 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
+                //Error esto falla debido a que manda llamar la tabla almacén la cual aun no existe
                 MessageBox.Show("Este es el primer error");
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error " + a, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -279,7 +283,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error muski2" + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -320,7 +324,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error muski3" + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -363,7 +367,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error muski4" + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
         }
@@ -665,7 +669,7 @@ namespace Capa_Presentacion
                 var query = from row in tablaDatosClimaMes.AsEnumerable()
                             where row.Field<DateTime>("fechaLocal") >= Convert.ToDateTime(item.Cells["Plantado"].Value.ToString()) && row.Field<DateTime>("fechaLocal") <= DateTime.Now
                             select row;
-
+                
 
                 //0.- idDatosAtmosfericos, 1.- estacion, 2.- fechaLocal, 3.- direccionViento, 4.-direccionRafaga, 5.- rapidezViento, 
                 //6.- repidezRafaga, 7.- temperatura, 8.- humedadRelativa, 9.- presionAtmosferica, 10.- precipitacion
@@ -676,7 +680,7 @@ namespace Capa_Presentacion
                 if (query.Any())
                 {
                     DataTable resultados = query.CopyToDataTable();
-
+                    
                     foreach (DataRow row in resultados.Rows)
                     {
                         if (cont <= 360)

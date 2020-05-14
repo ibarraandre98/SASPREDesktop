@@ -240,7 +240,7 @@ namespace Capa_Presentacion
             //Guardar informacion
             DownloadGamefile DGF = new DownloadGamefile();
 
-            DGF.DescargAsincrona("https://smn.cna.gob.mx/tools/PHP/sivea/siveaEsri2/php/manejador_descargas_csv_estaciones.php?estacion=CIUDADMANTE&organismo=SMN&variable=temperatura%27&fbclid=IwAR3lT8srywft8Sy7OVAHDQ9_6ePUYm-am6ZzcN-zSsdCOVxGGMy0aa_guDQ", rutadirectorio);
+            DGF.DescargAsincrona("https://smn.conagua.gob.mx/tools/PHP/sivea/siveaEsri2/php/get_reporteEstacion.php?tipo=3&estacion=CIUDADMANTE", rutadirectorio);
             //aqui es donde te dice si ya se descargo 
             //while (DGF.DownloadCompleted == false)
             //{

@@ -45,9 +45,9 @@ namespace Capa_Presentacion
                 leercsv(rutadirectorio);
                 if(dtgDatosElMante.Columns.Count != 0)
                 {
-                    dtgDatosElMante.Columns[2].Visible = false;
+                    dtgDatosElMante.Columns[1].Visible = false;
+                    dtgDatosElMante.Columns[9].Visible = false;
                     dtgDatosElMante.Columns[10].Visible = false;
-                    dtgDatosElMante.Columns[11].Visible = false;
                 }
                 
                 _DatosClimaMes.AgregarDiario(DateTime.Now.ToString("yy-MM-dd"));
@@ -79,7 +79,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error muski3" + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         //metodo para crear carpeta donde se almacenara el documento descargado
@@ -95,7 +95,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error muski4" + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         //lectura del archivo con datos atmosfericos
@@ -113,7 +113,7 @@ namespace Capa_Presentacion
                     String[] lines = System.IO.File.ReadAllLines(filepath);
                     if (lines.Length > Filtro_dia)
                     {
-                        String firsline = "Estación,Fecha Local,Fecha UTC,Dirección del Viento (grados),Dirección de ráfaga (grados),Rapidez de viento (km/h),Rapidez de ráfaga (km/h),Temperatura del Aire (°C),Humedad relativa (%),Presión Atmosférica,Precipitación (mm),Radiación Solar (W/m²)";
+                        String firsline = "Fecha Local,Fecha UTC,Dirección del Viento (grados),Dirección de ráfaga (grados),Rapidez de viento (km/h),Rapidez de ráfaga (km/h),Temperatura del Aire (°C),Humedad relativa (%),Presión Atmosférica,Precipitación (mm),Radiación Solar (W/m²)";
                         String[] headerlabels = firsline.Split(',');
                         foreach (String headerword in headerlabels)
                         {
@@ -121,7 +121,7 @@ namespace Capa_Presentacion
                         }
                         //for data
                         int columnindex = 0;
-                        for (int r = 5; r < lines.Length; r++)
+                        for (int r = 12; r < lines.Length; r++)
                         {
                             //separa el csv utilizando las comas
                             String[] dataword = lines[r].Split(','
@@ -245,7 +245,7 @@ namespace Capa_Presentacion
                     {
                         fecha = item.Cells["Fecha Local"].Value.ToString().Replace(@"""", "");
                         String fechautc = item.Cells["Fecha UTC"].Value.ToString().Replace(@"""", "");
-                        _DatosClimaMes.InsertarDatosClimaMes(item.Cells["Estación"].Value.ToString(), fecha, item.Cells["Dirección del Viento (grados)"].Value.ToString(), item.Cells["Dirección de ráfaga (grados)"].Value.ToString(),
+                        _DatosClimaMes.InsertarDatosClimaMes("CIUDADMANTE",fecha, item.Cells["Dirección del Viento (grados)"].Value.ToString(), item.Cells["Dirección de ráfaga (grados)"].Value.ToString(),
                         item.Cells["Rapidez de viento (km/h)"].Value.ToString(), item.Cells["Rapidez de ráfaga (km/h)"].Value.ToString(), item.Cells["Temperatura del Aire (°C)"].Value.ToString(), item.Cells["Humedad relativa (%)"].Value.ToString(),
                         item.Cells["Presión Atmosférica"].Value.ToString(), item.Cells["Precipitación (mm)"].Value.ToString(), item.Cells["Radiación Solar (W/m²)"].Value.ToString());
                     }
@@ -279,7 +279,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error muski1" + a, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 Cursor.Current = Cursors.Default;
             }
         }
@@ -413,7 +413,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error muski2" + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         public void MOstrardatosatmosfericos(){

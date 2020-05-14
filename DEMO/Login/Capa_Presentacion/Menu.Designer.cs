@@ -677,6 +677,7 @@
             this.bunifuFlatButtonGastos.ButtonText = "   Administrar gastos";
             this.bunifuFlatButtonGastos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bunifuFlatButtonGastos.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButtonGastos.Enabled = false;
             this.bunifuFlatButtonGastos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButtonGastos.ForeColor = System.Drawing.Color.White;
             this.bunifuFlatButtonGastos.Iconcolor = System.Drawing.Color.Transparent;
@@ -715,6 +716,7 @@
             this.bunifuFlatButtonAlmacen.ButtonText = "   Administra almacén";
             this.bunifuFlatButtonAlmacen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bunifuFlatButtonAlmacen.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButtonAlmacen.Enabled = false;
             this.bunifuFlatButtonAlmacen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButtonAlmacen.ForeColor = System.Drawing.Color.White;
             this.bunifuFlatButtonAlmacen.Iconcolor = System.Drawing.Color.Transparent;

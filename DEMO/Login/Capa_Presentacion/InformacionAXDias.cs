@@ -21,7 +21,7 @@ namespace Capa_Presentacion
         {
             try { 
             var query = from row in tablaDatosClimaMes.AsEnumerable()
-                        where row.Field<DateTime>("Fecha_Local") >= Convert.ToDateTime(fechacultivo) && row.Field<DateTime>("Fecha_Local") <= DateTime.Now
+                        where row.Field<DateTime>("fechaLocal") >= Convert.ToDateTime(fechacultivo) && row.Field<DateTime>("fechaLocal") <= DateTime.Now
                         select row;
 
 

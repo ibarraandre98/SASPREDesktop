@@ -24,7 +24,6 @@ namespace Capa_Datos
             String Precipitacion, String Radiacion_Solar)
         {
             float direccionViento, direccionRafaga, rapidezViento, rapidezRafaga, temperatura, humedadRelativa, presionAtmosferica,precipitacion;
-
             direccionViento = float.Parse(Direccion_de_Viento);
             direccionRafaga = float.Parse(Direccion_de_Rafaga);
             rapidezViento = float.Parse(Rapidez_de_Viento);
@@ -37,8 +36,8 @@ namespace Capa_Datos
 
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "INSERT INTO datosatmosfericos (estacion,fechaLocal,direccionViento,direccionRafaga,rapidezViento,rapidezRafaga,temperatura,humedadRelativa,presionAtmosferica,precipitacion)  VALUES('"+
-                Estacion+"','"+Fecha_Local+"' , "+direccionViento+" , "+direccionRafaga+" , "+rapidezViento+" , "+rapidezRafaga+" , "+temperatura+" , "+humedadRelativa+" , "+presionAtmosferica
+            comando.CommandText = "INSERT INTO datosatmosfericos (estacion,fechaLocal,direccionViento,direccionRafaga,rapidezViento,rapidezRafaga,temperatura,humedadRelativa,presionAtmosferica,precipitacion)  VALUES('"+Estacion+"','"
+                +Fecha_Local+"' , "+direccionViento+" , "+direccionRafaga+" , "+rapidezViento+" , "+rapidezRafaga+" , "+temperatura+" , "+humedadRelativa+" , "+presionAtmosferica
                 +","+precipitacion+");";
 
             comando.CommandType = CommandType.Text;
