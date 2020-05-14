@@ -18,7 +18,16 @@ namespace Capa_Datos
         {
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "MostrarFertilizaciones";
+            comando.CommandText = "SELECT fertilizaciones.idFertilizaciones, " +
+                "semillas.nombreSemilla," +
+                "fertilizantes.nombreFertilizante, " +
+                "usuario.nickname, " +
+                "fertilizaciones.fecha " +
+                "FROM fertilizaciones " +
+                "INNER JOIN cultivos ON fertilizaciones.idCultivos = cultivos.idCultivos " +
+                "INNER JOIN semillas ON cultivos.idSemillas = semillas.idSemillas " +
+                "INNER JOIN fertilizantes ON fertilizaciones.idFertilizantes = fertilizantes.idFertilizantes " +
+                "INNER JOIN usuario ON fertilizaciones.idUsuario = usuario.idUsuario";
             comando.CommandType = CommandType.StoredProcedure;
             leer = comando.ExecuteReader();
             tablaFertilizaciones.Load(leer);

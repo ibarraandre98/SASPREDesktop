@@ -188,7 +188,7 @@ namespace Capa_Presentacion
             try
             {
                 DataView dv = tablaFertilizantes.DefaultView;
-                var query = "Plaga like '%{0}%'";
+                var query = "nombrePlaga like '%{0}%'";
                 var index = comboPlaga.SelectedIndex;
                 if (index != -1)
                 {
@@ -209,7 +209,7 @@ namespace Capa_Presentacion
             try
             {
                 DataView dv = tablaFertilizantes.DefaultView;
-                var query = "Cultivo like '%{0}%'";
+                var query = "nombreSemilla like '%{0}%'";
                 var index = comboCultivo.SelectedIndex;
                 if (index != -1)
                 {

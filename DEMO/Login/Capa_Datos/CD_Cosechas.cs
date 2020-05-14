@@ -50,14 +50,8 @@ namespace Capa_Datos
         {
                 comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
-                comando.CommandText = "INSERT INTO cosechas (idCultivos) VALUES('"+idCultivo+"');";
-                comando.CommandType = CommandType.Text;
-                comando.ExecuteReader();
-                conexion.CerrarConexion();
-
-                comando = new MySqlCommand();
-                comando.Connection = conexion.AbrirConexion();
-                comando.CommandText = "UPDATE cultivos SET cosechado = " + "'" + cantidad + "'" + " WHERE idCultivos = " + "'" + idCultivo + "'" + ";";
+                comando.CommandText = "INSERT INTO cosechas (idCultivos) VALUES('"+idCultivo+ "'); " +
+                "UPDATE cultivos SET cosechado = " + "'" + cantidad + "'" + " WHERE idCultivos = " + "'" + idCultivo + "'" + ";";
                 comando.CommandType = CommandType.Text;
                 comando.ExecuteReader();
                 conexion.CerrarConexion();

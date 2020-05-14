@@ -23,14 +23,26 @@ namespace Capa_Datos
                 if (cargo == "Admin")
                 {
                     //comando.CommandText = "MostrarCultivos";
-                    comando.CommandText = "SELECT  cultivos.idCultivos,cultivos.fechaPlantado,cultivos.fechaCosechado,cultivos.cantidad,cultivos.estado,usuario.nombre,semillas.nombreSemilla " +
+                    comando.CommandText = "SELECT  cultivos.idCultivos," +
+                    "cultivos.fechaPlantado," +
+                    "cultivos.fechaCosechado," +
+                    "cultivos.cantidad," +
+                    "cultivos.estado," +
+                    "usuario.nombre," +
+                    "semillas.nombreSemilla " +
                     "FROM cultivos " +
                     "JOIN usuario ON cultivos.idUsuario = usuario.idUsuario "+
                     "JOIN semillas ON cultivos.idSemillas = semillas.idSemillas";
                 }
                 else
                     {
-                    comando.CommandText = "SELECT  cultivos.idCultivos,cultivos.fechaPlantado,cultivos.fechaCosechado,cultivos.cantidad,cultivos.estado,usuario.nombre,semillas.nombreSemilla " +
+                    comando.CommandText = "SELECT  cultivos.idCultivos," +
+                    "cultivos.fechaPlantado," +
+                    "cultivos.fechaCosechado," +
+                    "cultivos.cantidad," +
+                    "cultivos.estado," +
+                    "usuario.nombre," +
+                    "semillas.nombreSemilla " +
                     "FROM cultivos " +
                     "JOIN usuario ON cultivos.idUsuario = usuario.idUsuario " +
                     "JOIN semillas ON cultivos.idSemillas = semillas.idSemillas " +
@@ -61,8 +73,6 @@ namespace Capa_Datos
                 "'"+Estado+"',"+
                 "0"+
                 ")";
-
-                //"INSERT INTO cultivos(idSemillas,idUsuario,fechaPlantado,fechaCosechado,cantidad,estado,cosechado) VALUES('SELECT idSemillas FROM semillas WHERE nombreSemilla =Maíz','SELECT idUsuario FROM usuario WHERE nickname = " + Usuario_Cultivo + ";','" + Fecha_Plantado + "','" + Fecha_Cosecha + "','" + Cantidad + "','" + Estado + "','0');";
                 comando.CommandType = CommandType.Text;
                 comando.ExecuteReader();
                 conexion.CerrarConexion();

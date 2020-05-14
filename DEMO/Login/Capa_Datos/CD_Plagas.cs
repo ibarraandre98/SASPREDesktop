@@ -39,8 +39,10 @@ namespace Capa_Datos
         {
                 comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
-                comando.CommandText = "INSERT INTO plagas (nombrePlaga) SELECT '" + Plaga + "' WHERE NOT EXISTS (SELECT nombrePlaga FROM plagas WHERE nombrePlaga = '" + Plaga + "');" +
-                "INSERT INTO historialplagas (idCultivos,idPlagas,fechaprediccion) VALUES((SELECT idCultivos FROM cultivos WHERE idCultivos = "+IDCultivo+"),(SELECT idPlagas FROM plagas WHERE nombrePlaga = '"+Plaga+"'),'"+fecha+"')";
+                comando.CommandText = "INSERT INTO plagas (nombrePlaga) SELECT '" + Plaga + "' WHERE NOT EXISTS " +
+                "(SELECT nombrePlaga FROM plagas WHERE nombrePlaga = '" + Plaga + "');" +
+                "INSERT INTO historialplagas (idCultivos,idPlagas,fechaprediccion) VALUES" +
+                "((SELECT idCultivos FROM cultivos WHERE idCultivos = "+IDCultivo+"),(SELECT idPlagas FROM plagas WHERE nombrePlaga = '"+Plaga+"'),'"+fecha+"')";
                 comando.CommandType = CommandType.Text;
                 comando.ExecuteReader();
                 conexion.CerrarConexion();

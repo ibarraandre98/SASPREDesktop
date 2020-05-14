@@ -37,8 +37,26 @@ namespace Capa_Datos
 
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "INSERT INTO datosatmosfericos (estacion,fechaLocal,direccionViento,direccionRafaga,rapidezViento,rapidezRafaga,temperatura,humedadRelativa,presionAtmosferica,precipitacion)  VALUES('"+
-                Estacion+"','"+Fecha_Local+"' , "+direccionViento+" , "+direccionRafaga+" , "+rapidezViento+" , "+rapidezRafaga+" , "+temperatura+" , "+humedadRelativa+" , "+presionAtmosferica
+            comando.CommandText = "INSERT INTO datosatmosfericos (estacion," +
+                "fechaLocal," +
+                "direccionViento," +
+                "direccionRafaga," +
+                "rapidezViento," +
+                "rapidezRafaga," +
+                "temperatura," +
+                "humedadRelativa," +
+                "presionAtmosferica," +
+                "precipitacion)  " +
+                "VALUES('"+
+                Estacion+"'," +
+                "'"+Fecha_Local+"' , " +
+                ""+direccionViento+" , " +
+                ""+direccionRafaga+" , " +
+                ""+rapidezViento+" , " +
+                ""+rapidezRafaga+" , " +
+                ""+temperatura+" , " +
+                ""+humedadRelativa+" , " +
+                ""+presionAtmosferica
                 +","+precipitacion+");";
 
             comando.CommandType = CommandType.Text;
@@ -51,8 +69,6 @@ namespace Capa_Datos
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "SELECT * FROM datosatmosfericos ORDER BY fechaLocal DESC";
-            //comando.CommandText = "MostrarDatosClimaMes";
-            //comando.CommandType = CommandType.StoredProcedure;
             comando.CommandType = CommandType.Text;
             leer = comando.ExecuteReader();
             tablaDatosClimaMes.Load(leer);
