@@ -50,8 +50,6 @@ namespace Capa_Datos
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "SELECT * FROM datosatmosfericos ORDER BY fechaLocal DESC";
-            //comando.CommandText = "MostrarDatosClimaMes";
-            //comando.CommandType = CommandType.StoredProcedure;
             comando.CommandType = CommandType.Text;
             leer = comando.ExecuteReader();
             tablaDatosClimaMes.Load(leer);

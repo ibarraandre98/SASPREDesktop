@@ -61,8 +61,6 @@ namespace Capa_Datos
                 "'"+Estado+"',"+
                 "0"+
                 ")";
-
-                //"INSERT INTO cultivos(idSemillas,idUsuario,fechaPlantado,fechaCosechado,cantidad,estado,cosechado) VALUES('SELECT idSemillas FROM semillas WHERE nombreSemilla =Maíz','SELECT idUsuario FROM usuario WHERE nickname = " + Usuario_Cultivo + ";','" + Fecha_Plantado + "','" + Fecha_Cosecha + "','" + Cantidad + "','" + Estado + "','0');";
                 comando.CommandType = CommandType.Text;
                 comando.ExecuteReader();
                 conexion.CerrarConexion();

@@ -1125,7 +1125,7 @@ namespace Capa_Presentacion
                 {
                     case 1:
                         // Parcialmente nuboso, posibilidad de tormentas y lluvia | Tormentas
-                        if (texto.Equals("Tormentas") || texto.Equals("Tormentas") || texto.Contains("Lluvia") || texto.Contains("lluvia")) return Vectores.Images[18];
+                        if (texto.Equals("Tormentas") || texto.Equals("Tormentas") || texto.Contains("Lluvia") || texto.Contains("lluvia") || texto.Equals("Tormentas matinales"))  return Vectores.Images[18];
                         else if (texto.Equals("Tormentas en la madrugada") || texto.Equals("Tormentas por la tarde")) return Vectores.Images[18];
 
                         // Algunas nubes | Algunas nubes
@@ -1152,7 +1152,7 @@ namespace Capa_Presentacion
                     case 4:
                     case 5:
                         // Parcialmente nuboso, posibilidad de tormentas y lluvia | Tormentas
-                        if (texto.Equals("Tormentas") || texto.Equals("n240") || texto.Contains("Lluvia") || texto.Contains("lluvia")) return Vectores.Images[20];
+                        if (texto.Equals("Tormentas") || texto.Equals("n240") || texto.Contains("Lluvia") || texto.Contains("lluvia") || texto.Equals("Tormentas matinales")) return Vectores.Images[20];
                         else if (texto.Equals("Tormentas en la madrugada") || texto.Equals("Tormentas por la tarde")) return Vectores.Images[20];
 
                         // Algunas nubes | Algunas nubes

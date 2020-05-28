@@ -46,7 +46,8 @@ namespace Capa_Datos
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "INSERT INTO plagas (nombrePlaga) SELECT '" + Plaga + "' WHERE NOT EXISTS (SELECT nombrePlaga FROM plagas WHERE nombrePlaga = '"+Plaga+"');" +
                 "INSERT INTO insecticidas (nombreInsecticida,precio,descripcion) VALUES('"+Nombre+"',"+Precio+",'"+Descripcion+"');" +
-                "INSERT INTO plagasinsecticidas (idPlagas,idInsecticidas) VALUES((SELECT idPlagas FROM plagas WHERE nombrePlaga = '"+Plaga+"'),(SELECT idInsecticidas FROM insecticidas WHERE nombreInsecticida = '"+Nombre+"'))";
+                "INSERT INTO plagasinsecticidas (idPlagas,idInsecticidas) VALUES((SELECT idPlagas FROM plagas WHERE nombrePlaga = '"+Plaga+"')," +
+                "(SELECT idInsecticidas FROM insecticidas WHERE nombreInsecticida = '"+Nombre+"'))";
             comando.CommandType = CommandType.Text;
             comando.ExecuteReader();
             conexion.CerrarConexion();
@@ -66,7 +67,8 @@ namespace Capa_Datos
         {
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "UPDATE insecticidas SET nombreInsecticida = '"+Nombre+"',precio = "+Precio+",descripcion = '"+Descripcion+"' WHERE idInsecticidas = "+idInsecticida+";" +
+            comando.CommandText = "UPDATE insecticidas SET nombreInsecticida = '"+Nombre+"'," +
+                "precio = "+Precio+",descripcion = '"+Descripcion+"' WHERE idInsecticidas = "+idInsecticida+";" +
                 "INSERT INTO plagas (nombrePlaga) SELECT '" + Plaga + "' WHERE NOT EXISTS (SELECT nombrePlaga FROM plagas WHERE nombrePlaga = '" + Plaga + "');" +
                 "UPDATE plagasinsecticidas SET idPlagas = (SELECT idPlagas FROM plagas WHERE nombrePlaga = '"+Plaga+"') WHERE idInsecticidas = "+idInsecticida+";";
             comando.CommandType = CommandType.Text;
