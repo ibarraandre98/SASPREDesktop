@@ -57,7 +57,7 @@ namespace Capa_Presentacion
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             DataView dv = tablaCosechas.DefaultView;
-            dv.RowFilter = string.Format("Fecha_Plantado = '{0:yyyy-MM-dd}' or Fecha_Cosecha = '{0:yyyy-MM-dd}'", dtpPlantado.Value);
+            dv.RowFilter = string.Format("fechaPlantado = '{0:yyyy-MM-dd}' or fechaCosechado = '{0:yyyy-MM-dd}'", dtpPlantado.Value);
             dgvCultivo.DataSource = dv.ToTable();
 
         }

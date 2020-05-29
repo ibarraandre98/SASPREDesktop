@@ -11,7 +11,7 @@ namespace Capa_Datos
 {
     public class CD_ConexionBD
     {
-        MySqlConnection Conexion = new MySqlConnection("Server=162.241.60.239; Database = saspreco_saspreuniversal; Uid = saspreco_muski; Pwd = muski1234;");
+        MySqlConnection Conexion = new MySqlConnection("Server=162.241.60.239; Database = saspreco_saspreuniversal; Uid = saspreco_muski; Pwd = muski1234; Convert Zero Datetime=True;");
 
         public MySqlConnection AbrirConexion()
         {

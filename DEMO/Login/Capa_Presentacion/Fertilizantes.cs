@@ -28,11 +28,7 @@ namespace Capa_Presentacion
             try
             {
                 MostrarFertilizantes();
-                LlenarComboCultivo();
-                LlenarComboPlaga();
                 loaded = true;
-                comboPlaga.SelectedIndex = 0;
-                comboCultivo.SelectedIndex = 0;
             }
             catch (Exception a)
             {
@@ -56,59 +52,6 @@ namespace Capa_Presentacion
             }
         }
 
-        private void LlenarComboPlaga()
-        {
-            try
-            {
-                DataTable tablaControlPlagas = CN_Fertilizantes.MostrarFertilizantes();
-                foreach (DataRow row in tablaControlPlagas.Rows)
-                {
-                    var valor = row["nombrePlaga"].ToString();
-                    if (!_plagas.Contains(valor))
-                    {
-                        _plagas.Add(valor);
-                    }
-                }
-
-                foreach (var item in _plagas)
-                {
-                    comboPlaga.Items.Add(item.ToString());
-                }
-                comboPlaga.SelectedIndex = 0;
-            }
-            catch (Exception a)
-            {
-
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-        }
-
-        private void LlenarComboCultivo()
-        {
-            try
-            {
-                DataTable tablaControlPlagas = CN_Fertilizantes.MostrarFertilizantes();
-                foreach (DataRow row in tablaControlPlagas.Rows)
-                {
-                    var valor = row["nombreSemilla"].ToString();
-                    if (!_cultivos.Contains(valor))
-                    {
-                        _cultivos.Add(valor);
-                    }
-                }
-
-                foreach (var item in _cultivos)
-                {
-                    comboCultivo.Items.Add(item.ToString());
-                }
-                comboCultivo.SelectedIndex = 0;
-            }
-            catch (Exception a)
-            {
-
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-        }
 
         private void dgvFertilizantes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -126,10 +69,8 @@ namespace Capa_Presentacion
                 else
                 {
                     DataView dv = tablaFertilizantes.DefaultView;
-                    var query = "Plaga like '%{0}%'";
-                    query += " or `Nombre Comercial` like '%{0}%'";
-                    query += " or `Epoca de Control` like '%{0}%'";
-                    query += " or Cultivo like '%{0}%'";
+                    var query = "";
+                    query += "`nombreFertilizante` like '%{0}%'";
                     dv.RowFilter = string.Format(query, txtBuscar.Text);
                     dgvFertilizantes.DataSource = dv.ToTable();
                 }
@@ -183,46 +124,6 @@ namespace Capa_Presentacion
 
         bool loaded = false;
 
-        private void comboPlaga_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                DataView dv = tablaFertilizantes.DefaultView;
-                var query = "nombrePlaga like '%{0}%'";
-                var index = comboPlaga.SelectedIndex;
-                if (index != -1)
-                {
-                    var value = _plagas[index];
-                    dv.RowFilter = string.Format(query, value);
-                    dgvFertilizantes.DataSource = dv.ToTable();
-                }
-            }
-            catch (Exception a)
-            {
-
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-        }
-
-        private void comboCultivo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                DataView dv = tablaFertilizantes.DefaultView;
-                var query = "nombreSemilla like '%{0}%'";
-                var index = comboCultivo.SelectedIndex;
-                if (index != -1)
-                {
-                    var value = _cultivos[index];
-                    dv.RowFilter = string.Format(query, value);
-                    dgvFertilizantes.DataSource = dv.ToTable();
-                }
-            }
-            catch (Exception a)
-            {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {

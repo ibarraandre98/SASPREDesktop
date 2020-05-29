@@ -44,7 +44,7 @@ public class ScrapperClima
     public void obtenerDatosClimaHoy()
     {
         HtmlWeb web = new HtmlWeb();
-        HtmlAgilityPack.HtmlDocument doc = web.Load("https://weather.com/es-MX/tiempo/hoy/l/22.74,-98.96?par=google&temp=c");
+        HtmlAgilityPack.HtmlDocument doc = web.Load("https://weather.com/es-MX/tiempo/hoy/l/826af8893982e0bde426ae46ed5bd5813bb6668f8973bec85b5e9458fff9f9fb");
         var body = doc.DocumentNode.CssSelect("table").First();
 
         foreach (var nodo in body.CssSelect("tr"))
@@ -65,7 +65,7 @@ public class ScrapperClima
 
         //traer sensacion termina
         var body2 = doc.DocumentNode.CssSelect("div").First();
-        foreach (var nodo in body2.CssSelect(".today_nowcard-feels"))
+        foreach (var nodo in body2.CssSelect("c"))
         {
             String aux = "";
             aux = nodo.CssSelect(".deg-feels").First().InnerHtml;
@@ -110,7 +110,7 @@ public class ScrapperClima
     public void obtenerDatosClima5dias()
     {
         HtmlWeb web = new HtmlWeb();
-        HtmlAgilityPack.HtmlDocument doc = web.Load("https://weather.com/es-MX/tiempo/5dias/l/bf33f5f6cf94548d17252c0a66691d38ca21372020aa79528c76ed9eabaf3686");
+        HtmlAgilityPack.HtmlDocument doc = web.Load("https://weather.com/es-MX/tiempo/5dias/l/826af8893982e0bde426ae46ed5bd5813bb6668f8973bec85b5e9458fff9f9fb");
 
         var body = doc.DocumentNode.CssSelect(".twc-table").First();
 

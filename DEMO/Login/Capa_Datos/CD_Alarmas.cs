@@ -69,10 +69,7 @@ namespace Capa_Datos
         {
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "SELECT cultivos.idCultivos," +
-                "semillas.nombreSemilla " +
-                "FROM cultivos " +
-                "INNER JOIN semillas ON cultivos.idSemillas = semillas.idSemillas;";
+            comando.CommandText = "SELECT * FROM semillas";
             comando.CommandType = CommandType.Text;
             leer = comando.ExecuteReader();
             tablaNombresCultivos.Load(leer);

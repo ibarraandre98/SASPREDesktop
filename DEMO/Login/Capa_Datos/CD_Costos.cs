@@ -60,7 +60,7 @@ namespace Capa_Datos
         {
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "SELECT costos.idCostos," +
+            comando.CommandText = "SELECT DISTINCT costos.idCostos," +
                 "semillas.nombreSemilla, " +
                 "costos.precio, " +
                 "costos.descripcion " +

@@ -66,7 +66,7 @@ namespace Capa_Presentacion
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             DataView dv = tablaPlagas.DefaultView;
-            dv.RowFilter = string.Format("FechaEncontrada = '{0:yyyy-MM-dd}'", dateTimePicker1.Value);
+            dv.RowFilter = string.Format("fechaprediccion = '{0:yyyy-MM-dd}'", dateTimePicker1.Value);
             dgvHistorial.DataSource = dv.ToTable();
         }
     }

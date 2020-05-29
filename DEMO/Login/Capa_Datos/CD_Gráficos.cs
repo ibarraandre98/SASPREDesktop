@@ -41,7 +41,7 @@ namespace Capa_Datos
             conexion.CerrarConexion();
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "SELECT DISTINCT MAX(Identificador) AS 'valor' FROM Graficos";
+            comando.CommandText = "SELECT DISTINCT MAX(Identificador) AS 'valor' FROM graficos";
             comando.CommandType = CommandType.Text;
             leer = comando.ExecuteReader();
             int salida = 0 ;
@@ -69,7 +69,7 @@ namespace Capa_Datos
             conexion.CerrarConexion();
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "SELECT DISTINCT Identificador AS 'valor' FROM Graficos";
+            comando.CommandText = "SELECT DISTINCT Identificador AS 'valor' FROM graficos";
             comando.CommandType = CommandType.Text;
             leer = comando.ExecuteReader();
             tablaPoligonoExistentes.Load(leer);

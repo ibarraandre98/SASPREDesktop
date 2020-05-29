@@ -19,20 +19,7 @@ namespace Capa_Datos
         {
                 comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
-                comando.CommandText = "SELECT fertilizantes.idFertilizantes," +
-                "semillas.nombreSemilla," +
-                "plagas.nombrePlaga," +
-                "insecticidas.nombreInsecticida," +
-                "insecticidas.descripcion," +
-                "fertilizantes.nombreFertilizante," +
-                "fertilizantes.dosis," +
-                "fertilizantes.descripcionAplicacion FROM fertilizantes " +
-                "INNER JOIN semillasfertilizantes ON fertilizantes.idFertilizantes = semillasfertilizantes.idFertilizantes " +
-                "INNER JOIN semillas ON semillasfertilizantes.idSemillas = semillas.idSemillas " +
-                "INNER JOIN plagasfertilizantes ON fertilizantes.idFertilizantes = plagasfertilizantes.idFertilizantes " +
-                "INNER JOIN plagas ON plagasfertilizantes.idPlagas = plagas.idPlagas " +
-                "INNER JOIN plagasinsecticidas ON plagas.idPlagas = plagasinsecticidas.idPlagas " +
-                "INNER JOIN insecticidas ON plagasinsecticidas.idInsecticidas = insecticidas.idInsecticidas;";
+            comando.CommandText = "SELECT * FROM fertilizantes"; 
                 comando.CommandType = CommandType.Text;
                 leer = comando.ExecuteReader();
                 tablaCultivos.Load(leer);

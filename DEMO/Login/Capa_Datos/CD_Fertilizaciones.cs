@@ -28,7 +28,7 @@ namespace Capa_Datos
                 "INNER JOIN semillas ON cultivos.idSemillas = semillas.idSemillas " +
                 "INNER JOIN fertilizantes ON fertilizaciones.idFertilizantes = fertilizantes.idFertilizantes " +
                 "INNER JOIN usuario ON fertilizaciones.idUsuario = usuario.idUsuario";
-            comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandType = CommandType.Text;
             leer = comando.ExecuteReader();
             tablaFertilizaciones.Load(leer);
             conexion.CerrarConexion();

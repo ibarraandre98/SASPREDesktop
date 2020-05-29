@@ -20,21 +20,20 @@ namespace Capa_Datos
         {
                 comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
-                //if (cargo == "Admin")
-                //{
-                //    //comando.CommandText = "MostrarCultivos";
-                //    comando.CommandText = "SELECT  cultivos.idCultivos,cultivos.fechaPlantado,cultivos.fechaCosechado,cultivos.cantidad,cultivos.estado,usuario.nombre,semillas.nombreSemilla " +
-                //    "FROM cultivos " +
-                //    "JOIN usuario ON cultivos.idUsuario = usuario.idUsuario "+
-                //    "JOIN semillas ON cultivos.idSemillas = semillas.idSemillas";
-                //}
-                //else
-                //    {
-                    comando.CommandText = "SELECT  cultivos.idCultivos,cultivos.fechaPlantado,cultivos.fechaCosechado,cultivos.cantidad,cultivos.estado,usuario.nombre,semillas.nombreSemilla " +
-                    "FROM cultivos " +
-                    "JOIN usuario ON cultivos.idUsuario = usuario.idUsuario " +
-                    "JOIN semillas ON cultivos.idSemillas = semillas.idSemillas " +
-                    "WHERE cultivos.idUsuario = (SELECT idUsuario FROM usuario WHERE nickname = '" + usuario + "')";
+            //if (cargo == "Admin")
+            //{
+            //    //comando.CommandText = "MostrarCultivos";
+            //    comando.CommandText = "SELECT  cultivos.idCultivos,cultivos.fechaPlantado,cultivos.fechaCosechado,cultivos.cantidad,cultivos.estado,usuario.nombre,semillas.nombreSemilla " +
+            //    "FROM cultivos " +
+            //    "JOIN usuario ON cultivos.idUsuario = usuario.idUsuario "+
+            //    "JOIN semillas ON cultivos.idSemillas = semillas.idSemillas";
+            //}
+            //else
+            //    {
+            comando.CommandText = "SELECT  cultivos.idCultivos,cultivos.fechaPlantado,cultivos.fechaCosechado,cultivos.cantidad,cultivos.estado,usuario.nombre,semillas.nombreSemilla " +
+            "FROM cultivos " +
+            "JOIN usuario ON cultivos.idUsuario = usuario.idUsuario " +
+            "JOIN semillas ON cultivos.idSemillas = semillas.idSemillas ";
                 //}
                 comando.CommandType = CommandType.Text;
                 leer = comando.ExecuteReader();

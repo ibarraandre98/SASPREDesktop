@@ -33,7 +33,7 @@ namespace Capa_Presentacion
         {
             tablaNombresCultivos = _Alarmas.MostrarNombresCultivos();
             txtCultivo.DataSource = tablaNombresCultivos;
-            txtCultivo.ValueMember = "idCultivos";
+            txtCultivo.ValueMember = "idSemillas";
             txtCultivo.DisplayMember = "nombreSemilla";
         }
 
@@ -127,7 +127,7 @@ namespace Capa_Presentacion
             {
                 case "Alta":
                     nombreAlarma = txtNombre.Text;
-                    if (Evaluar(nombreAlarma) == false)
+                    if (Evaluar(nombreAlarma) == true)
                     {
 
                         nombreAlarma = txtNombre.Text;
@@ -151,7 +151,7 @@ namespace Capa_Presentacion
 
                 case "Baja":
                     nombreAlarma = txtNombre.Text;
-                    if (Evaluar(nombreAlarma) == false)
+                    if (Evaluar(nombreAlarma) == true)
                     {
                         id = Convert.ToInt32(txtId.Text);
                         _Alarmas.EliminarAlarma(id);

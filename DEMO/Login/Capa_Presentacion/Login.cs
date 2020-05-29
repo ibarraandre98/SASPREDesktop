@@ -89,7 +89,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error muski1" + a, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return false;
         }
@@ -120,7 +120,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error muski2" + a, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         private void PanelMove_MouseDown(object sender, MouseEventArgs e)
@@ -211,6 +211,7 @@ namespace Capa_Presentacion
                     Reportes r = new Reportes();
                     r.setInformacion(Ds);
                     Menu mn = new Menu();
+
                     mn.Show();
                     Cursor.Current = Cursors.Default;
                     this.Hide();
@@ -223,7 +224,7 @@ namespace Capa_Presentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ha ocurrido un error " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ha ocurrido un error muski5" + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             //} else {
             //    MessageBox.Show("Compruebe su conexión a internet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -287,6 +288,7 @@ namespace Capa_Presentacion
                 //await Task.Run(() => { wc.DownloadFileAsync(new Uri(url), rutadirectorio); });
                 Cursor.Current = Cursors.WaitCursor;
                 await wc.DownloadFileTaskAsync(url, rutadirectorio);
+                
                 Cursor.Current = Cursors.Default;
                 //Thread.Sleep(10000);
             }
@@ -309,7 +311,7 @@ namespace Capa_Presentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error muski3" + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

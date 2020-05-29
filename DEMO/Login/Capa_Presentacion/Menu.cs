@@ -292,9 +292,13 @@ namespace Capa_Presentacion
             {
                 
             }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Reinicie el sistema no ha cargado el internet correctamente", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
             catch (Exception a)
             {
-                MessageBox.Show("Ha ocurrido un error " + a.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ha ocurrido un error" + a, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         private void AgregarDias()

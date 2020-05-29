@@ -52,9 +52,9 @@ namespace Capa_Presentacion
         {
             foreach (DataRow row in tablaCostos.Rows)
             {
-                if (row["nombreCultivoCostos"].ToString().Equals(cbCultivo.Text))
+                if (row["nombreSemilla"].ToString().Equals(cbCultivo.Text))
                 {
-                    precio = Convert.ToDouble( row["precioCultivoXtonelada"].ToString());
+                    precio = Convert.ToDouble( row["precio"].ToString());
                     lbPrecio.Text = " $ " + precio;
                 }
             }
@@ -68,7 +68,7 @@ namespace Capa_Presentacion
 
             foreach (DataRow row in tablaCostos.Rows)
             {
-                cbCultivo.Items.Add(row["nombreCultivoCostos"].ToString());
+                cbCultivo.Items.Add(row["nombreSemilla"].ToString());
             }
 
         }

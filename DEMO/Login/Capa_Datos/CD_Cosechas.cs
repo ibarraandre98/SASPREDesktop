@@ -20,25 +20,25 @@ namespace Capa_Datos
         {
                 comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
-                if (cargo == "Admin")
-                {
+                //if (cargo == "Admin")
+                //{
                     //comando.CommandText = "MostrarCosechas";
                     comando.CommandText = "SELECT cultivos.idCultivos,cultivos.fechaPlantado,cultivos.fechaCosechado,cultivos.cantidad,semillas.nombreSemilla, usuario.nombre FROM cosechas "+
                     "JOIN cultivos ON cosechas.idCultivos = cultivos.idCultivos "+
                     "JOIN semillas ON cultivos.idSemillas = semillas.idSemillas " +
                     "JOIN usuario ON cultivos.idUsuario = usuario.idUsuario ";
-                }
-                else
-                {
-                //Aqui falta  como buscar el usuario y pasarlo a su id y despues buscarlo en la tabla cultivos
+                //}
+                //else
+                //{
+                ////Aqui falta  como buscar el usuario y pasarlo a su id y despues buscarlo en la tabla cultivos
 
-                    comando.CommandText = "SELECT cultivos.idCultivos,usuario.nombre,semillas.nombreSemilla,cultivos.fechaPlantado,cultivos.fechaCosechado,cultivos.cantidad FROM cosechas " +
-                    "JOIN cultivos ON cosechas.idCultivos = cultivos.idCultivos " +
-                    "JOIN semillas ON cultivos.idSemillas = semillas.idSemillas " +
-                    "JOIN usuario ON cultivos.idUsuario = usuario.idUsuario " +
-                    "WHERE cultivos.idUsuario = (SELECT idUsuario FROM usuario WHERE nickname = '" + usuario + "');";
+                //    comando.CommandText = "SELECT cultivos.idCultivos,usuario.nombre,semillas.nombreSemilla,cultivos.fechaPlantado,cultivos.fechaCosechado,cultivos.cantidad FROM cosechas " +
+                //    "JOIN cultivos ON cosechas.idCultivos = cultivos.idCultivos " +
+                //    "JOIN semillas ON cultivos.idSemillas = semillas.idSemillas " +
+                //    "JOIN usuario ON cultivos.idUsuario = usuario.idUsuario " +
+                //    "WHERE cultivos.idUsuario = (SELECT idUsuario FROM usuario WHERE nickname = '" + usuario + "');";
 
-                }
+                //}
                 comando.CommandType = CommandType.Text;
                 leer = comando.ExecuteReader();
                 tablaCosechas.Load(leer);

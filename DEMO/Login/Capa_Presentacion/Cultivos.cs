@@ -174,10 +174,10 @@ namespace Capa_Presentacion
             CN_Cultivos _Cultivos = new CN_Cultivos();
             tablaCultivos = _Cultivos.MostrarCultivos(Program.cargo, Program.nickname);
             dgvCultivo.DataSource = tablaCultivos;
-            if (Program.cargo != "Admin")
-            {
-                dgvCultivo.Columns["Usuario"].Visible = false;
-            }
+            //if (Program.cargo != "Admin")
+            //{
+            //    dgvCultivo.Columns["Usuario"].Visible = false;
+            //}
         }
 
         private void cbPlanta_SelectedIndexChanged(object sender, EventArgs e)
@@ -1035,7 +1035,7 @@ namespace Capa_Presentacion
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             DataView dv = tablaCultivos.DefaultView;
-            dv.RowFilter = string.Format("Fecha_Plantado = '{0:yyyy-MM-dd}' or Fecha_Cosecha = '{0:yyyy-MM-dd}'", dateTimePicker1.Value);
+            dv.RowFilter = string.Format("fechaPlantado = '{0:yyyy-MM-dd}' or fechaCosechado = '{0:yyyy-MM-dd}'", dateTimePicker1.Value);
             dgvCultivo.DataSource = dv.ToTable();
         }
     }

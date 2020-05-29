@@ -18,9 +18,10 @@ namespace Capa_Presentacion
         int id;
         DataTable tablaCostos = new DataTable();
         DataTable tablaCultivo = new DataTable();
+        DataTable tablaNombresCultivos = new DataTable();
 
         private CN_Costos _Costos = new CN_Costos();
-
+        private CN_Alarmas _Alarmas = new CN_Alarmas();
         public Costos()
         {
             InitializeComponent();
@@ -50,7 +51,7 @@ namespace Capa_Presentacion
         private void btnEditar_Click(object sender, EventArgs e)
         {
             cultivo = cbCultivo.Text;
-            if (Evaluar(cultivo) == false)
+            if (Evaluar(cultivo) == true)
             {
 
                 precio = Convert.ToDouble(tbPrecio.Text);
@@ -113,32 +114,19 @@ namespace Capa_Presentacion
             bool ban1 = false;
             MostraCostos();
             tablaCultivo = _Costos.MostrarCultivo();
-            // cbCultivo.SelectedIndex = 0;
-            cbCultivo.Items.Clear();
+            CargarNombresCultivos();
+            //cbCultivo.SelectedIndex = 0;
+            //cbCultivo.Items.Clear();
 
-            foreach (DataRow row in tablaCultivo.Rows)
-            {
-                foreach(var item in cbCultivo.Items)
-                {
-                    if (item.ToString().Equals(row["nombreSemilla"].ToString()))
-                    {
-                        ban1 = true;
-                    }
-                }
-
-                if (ban1 == false)
-                {
-                    cbCultivo.Items.Add(row["nombreSemilla"].ToString());
-                    ban1 = false;
-                }
-                else
-                {
-                    ban1 = false;
-                }
-            }
         }
 
-
+        private void CargarNombresCultivos()
+        {
+            tablaNombresCultivos = _Alarmas.MostrarNombresCultivos();
+            cbCultivo.DataSource = tablaNombresCultivos;
+            cbCultivo.ValueMember = "idSemillas";
+            cbCultivo.DisplayMember = "nombreSemilla";
+        }
 
         private void dgvCultivo_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
