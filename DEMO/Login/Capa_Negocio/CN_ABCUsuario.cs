@@ -14,6 +14,7 @@ namespace Capa_Negocio
     {
         private CD_ABCUsuario _ABCUsuario = new CD_ABCUsuario();
         string key = "mikey";
+        DataTable tablaCargo = new DataTable();
         DataTable tablaUsuarios = new DataTable();
         DataTable tablaEmpresas = new DataTable();
         
@@ -44,6 +45,12 @@ namespace Capa_Negocio
         {
             tablaEmpresas = _ABCUsuario.MostrarEmpresas();
             return tablaEmpresas;
+        }
+
+        public DataTable MostrarCargo()
+        {
+            tablaCargo = _ABCUsuario.MostrarCargo();
+            return tablaCargo;
         }
         public string Encriptar(string texto)
         {

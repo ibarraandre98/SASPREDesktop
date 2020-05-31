@@ -21,7 +21,7 @@ namespace Capa_Datos
             comando.CommandText = "SELECT fertilizaciones.idFertilizaciones, " +
                 "semillas.nombreSemilla," +
                 "fertilizantes.nombreFertilizante, " +
-                "usuario.nickname, " +
+                "usuario.nickname, " + 
                 "fertilizaciones.fecha " +
                 "FROM fertilizaciones " +
                 "INNER JOIN cultivos ON fertilizaciones.idCultivos = cultivos.idCultivos " +

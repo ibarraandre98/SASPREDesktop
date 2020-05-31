@@ -82,20 +82,20 @@ namespace Capa_Datos
             conexion.CerrarConexion();
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "INSERT INTO graficos (Identificador,Latitud,Longitud,Color,NombreDelTerreno,Usuario,Cultivo,FechaPlantado,FechaCosecha,Cantidad,Estado) VALUES (@identificador,@latitud,@longitud,@color,@cultivo,@usuario,@cultivo,@fechaplantado,@fechacosecha,@cantidad,@estado);";
+            comando.CommandText = "INSERT INTO graficos (Identificador,Latitud,Longitud,Color,NombreDelTerreno,Usuario,Cultivo,FechaPlantado,FechaCosecha,Cantidad,Estado) VALUES " +
+                "("+identificador+" ," +
+                "'"+latitud+"' ," +
+                "'"+longitud+"' ," +
+                "'"+color+"' ," +
+                "'"+nombredelterreno+"' ," +
+                "'"+usuario+"' ," +
+                "'"+cultivo+"' ," +
+                "'"+fechaplantado+"' ," +
+                "'"+fechacosecha+"' ," +
+                ""+cantidad+" ," +
+                "'"+estado+"');";
             comando.CommandType = CommandType.Text;
-            comando.Parameters.AddWithValue("@identificador",identificador);
-            comando.Parameters.AddWithValue("@latitud", latitud);
-            comando.Parameters.AddWithValue("@longitud", longitud);
-            comando.Parameters.AddWithValue("@color", color);
-            comando.Parameters.AddWithValue("@nombredelterreno", nombredelterreno);
-            comando.Parameters.AddWithValue("@usuario", usuario);
-            comando.Parameters.AddWithValue("@cultivo", cultivo);
-            comando.Parameters.AddWithValue("@fechaplantado", fechaplantado);
-            comando.Parameters.AddWithValue("@fechacosecha", fechacosecha);
-            comando.Parameters.AddWithValue("@cantidad", cantidad);
-            comando.Parameters.AddWithValue("@estado", estado);
-            comando.ExecuteNonQuery();
+            comando.ExecuteReader();
             comando.Parameters.Clear();
             conexion.CerrarConexion();
         }
@@ -106,11 +106,9 @@ namespace Capa_Datos
             conexion.CerrarConexion();
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "DELETE FROM graficos WHERE Identificador=@identificador;";
+            comando.CommandText = "DELETE FROM graficos WHERE Identificador="+identificador+";";
             comando.CommandType = CommandType.Text;
-            comando.Parameters.AddWithValue("@identificador", identificador);
-            comando.ExecuteNonQuery();
-            comando.Parameters.Clear();
+            comando.ExecuteReader();
             conexion.CerrarConexion();
         }
 
