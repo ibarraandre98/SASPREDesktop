@@ -361,7 +361,6 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(100, 20);
             this.txtId.TabIndex = 168;
-            this.txtId.Visible = false;
             // 
             // Alarmas
             // 

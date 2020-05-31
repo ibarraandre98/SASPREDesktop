@@ -179,9 +179,6 @@
             this.txtCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtCargo.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.txtCargo.FormattingEnabled = true;
-            this.txtCargo.Items.AddRange(new object[] {
-            "Admin",
-            "Estudiante"});
             this.txtCargo.Location = new System.Drawing.Point(352, 160);
             this.txtCargo.Name = "txtCargo";
             this.txtCargo.Size = new System.Drawing.Size(216, 34);

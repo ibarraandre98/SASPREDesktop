@@ -167,7 +167,7 @@ namespace Capa_Presentacion
 
                 case "Cambio":
                     nombreAlarma = txtNombre.Text;
-                    if (Evaluar(nombreAlarma) == true)
+                    if (Evaluar(nombreAlarma) == false)
                     {
                         nombreAlarma = txtNombre.Text;
                         nombrePlanta = txtCultivo.Text;
@@ -177,14 +177,18 @@ namespace Capa_Presentacion
                         descripcion = txtDesc.Text;
                         id = Convert.ToInt32(txtId.Text);
 
+                        MessageBox.Show(id.ToString());
+
                         _Alarmas.ModificarAlarma(nombreAlarma, nombrePlanta, tempMaxAlarma, tempMinAlarma, lapsoDias, descripcion,id);
+
+                        
 
                         alert.Show("Se ha modificado la alarma", Alertype.succes);
                         Limpiar();
                     }
                     else
                     {
-                        alert.Show("No se encontro la alarma", Alertype.warning);
+                        alert.Show("No se modifico la alarma", Alertype.warning);
                         Limpiar();
                     }
                     break;

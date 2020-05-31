@@ -13,6 +13,7 @@ namespace Capa_Datos
     {
         private CD_ConexionBD conexion = new CD_ConexionBD();
         MySqlDataReader leer;
+        DataTable tablaCargo = new DataTable();
         DataTable tablaUsuarios = new DataTable();
         DataTable tablaEmpresas = new DataTable();
 
@@ -107,6 +108,18 @@ namespace Capa_Datos
             tablaEmpresas.Load(leer);
             conexion.CerrarConexion();
             return tablaEmpresas;
+        }
+
+        public DataTable MostrarCargo()
+        {
+            var comando = new MySqlCommand();
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "SELECT idCargo, nombreCargo FROM cargo;";
+            comando.CommandType = CommandType.Text;
+            leer = comando.ExecuteReader();
+            tablaCargo.Load(leer);
+            conexion.CerrarConexion();
+            return tablaCargo;
         }
     }
 }

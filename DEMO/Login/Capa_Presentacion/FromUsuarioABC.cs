@@ -24,6 +24,7 @@ namespace Capa_Presentacion
         {
             Mostrar();
             MostrarEmpresas();
+            MostrarCargo();
             txtCargo.SelectedIndex = 0;
         }
 
@@ -200,6 +201,15 @@ namespace Capa_Presentacion
             empresas.DataSource = tablaEmpresas;
             empresas.DisplayMember = "nombreEmpresa";
             empresas.ValueMember = "idEmpresa";
+        }
+
+        public void MostrarCargo()
+        {
+            DataTable tablaCargos = new DataTable();
+            tablaCargos = _ABCUsuario.MostrarCargo();
+            txtCargo.DataSource = tablaCargos;
+            txtCargo.DisplayMember = "nombreCargo";
+            txtCargo.ValueMember = "idCargo";
         }
 
         private void IsEditar(bool isEditar)
