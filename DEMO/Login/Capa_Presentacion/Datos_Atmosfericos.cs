@@ -449,10 +449,14 @@ namespace Capa_Presentacion
             for (int i = 0; i < filas; i++)
             {
                 Ds.Tables[0].Rows.Add(new object[] { dtgDatosElMante[0,i].Value.ToString(),
-                    dtgDatosElMante[9,i].Value.ToString(),
+                    dtgDatosElMante[1,i].Value.ToString(),
+                    dtgDatosElMante[2,i].Value.ToString(),
+                    dtgDatosElMante[3,i].Value.ToString(),
+                    dtgDatosElMante[4,i].Value.ToString(),
+                    dtgDatosElMante[5,i].Value.ToString(),
+                    dtgDatosElMante[6,i].Value.ToString(),
                     dtgDatosElMante[7,i].Value.ToString(),
-                    dtgDatosElMante[8,i].Value.ToString(),
-                    dtgDatosElMante[5,i].Value.ToString()});
+                    dtgDatosElMante[8,i].Value.ToString()});
                 /* Ds.Tables[0].Rows.Add(new object[] { dtgDatosElMante[0,i].Value.ToString(),
                     dtgDatosElMante[5,i].Value.ToString(),
                     dtgDatosElMante[7,i].Value.ToString(),
