@@ -39,9 +39,8 @@ namespace Capa_Datos
         {
                 var comando = new MySqlCommand();
                 comando.Connection = conexion.AbrirConexion();
-                comando.CommandText = "ObtenerContra";
-                comando.CommandType = CommandType.StoredProcedure;
-                comando.Parameters.AddWithValue("_Correo", correo);
+                comando.CommandText = "SELECT contra FROM usuario WHERE correo = '"+correo+"' LIMIT 1;";
+                comando.CommandType = CommandType.Text;
                 leer = comando.ExecuteReader();
                 tablaUsuarios.Load(leer);
                 conexion.CerrarConexion();
