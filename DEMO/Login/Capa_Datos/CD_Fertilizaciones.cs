@@ -21,7 +21,7 @@ namespace Capa_Datos
             comando.CommandText = "SELECT fertilizaciones.idFertilizaciones, " +
                 "semillas.nombreSemilla," +
                 "fertilizantes.nombreFertilizante, " +
-                "usuario.nickname, " + 
+                "usuario.nickname, " +
                 "fertilizaciones.fecha " +
                 "FROM fertilizaciones " +
                 "INNER JOIN cultivos ON fertilizaciones.idCultivos = cultivos.idCultivos " +
@@ -35,19 +35,32 @@ namespace Capa_Datos
             return tablaFertilizaciones;
         }
 
-        public void AgregarFertilizaciones(String cultivo, String necesitaNPK, String tieneNPK, String diaCalculado)
+        
+
+        public void AgregarFertilizaciones(String idCultivos, String idFertilizaciones, String idUsuario, String fecha)
+        { 
+            comando = new MySqlCommand();
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "INSERT INTO fertilizaciones(idCultivos,idFertilizantes, idUsuario, fecha) VALUES (" +
+                "'" + idCultivos + "'," +
+                "'" + idFertilizaciones + "'," +
+                "'" + idUsuario + "'," +
+                "'" + fecha + "'" +
+                ");";
+            comando.CommandType = CommandType.Text;
+            comando.ExecuteReader();
+            conexion.CerrarConexion();
+        }
+
+        public void EliminarFertilizaciones(int idFertilizacion)
         {
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "AgregarFertilizaciones";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("_cultivo", cultivo);
-            comando.Parameters.AddWithValue("_necesitaNPK", necesitaNPK);
-            comando.Parameters.AddWithValue("_tieneNPK", tieneNPK);
-            comando.Parameters.AddWithValue("_diaCalculado", diaCalculado);
-            comando.ExecuteNonQuery();
-            comando.Parameters.Clear();
+            comando.CommandText = "DELETE FROM fertilizaciones WHERE idFertilizaciones = " + idFertilizacion + ";";
+            comando.CommandType = CommandType.Text;
+            comando.ExecuteReader();    
             conexion.CerrarConexion();
+
         }
     }
 }

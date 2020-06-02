@@ -18,9 +18,14 @@ namespace Capa_Negocio
             return _CD_Fertilizaciones.MostrarFertilizaciones();
         }
 
-        public void AgregarFertilizaciones(String cultivo, String necesitaNPK, String tieneNPK, String diaCalculado)
+        public void AgregarFertilizaciones(String idCultivos, String idFertilizaciones, String idUsuario, String fecha)
         {
-            _CD_Fertilizaciones.AgregarFertilizaciones(cultivo, necesitaNPK, tieneNPK, diaCalculado);
+            _CD_Fertilizaciones.AgregarFertilizaciones(idCultivos, idFertilizaciones, idUsuario, fecha);
+        }
+
+        public void EliminarFertilizaciones(String idFertilizacion)
+        {
+            _CD_Fertilizaciones.EliminarFertilizaciones(Convert.ToInt32(idFertilizacion));
         }
     }
 }

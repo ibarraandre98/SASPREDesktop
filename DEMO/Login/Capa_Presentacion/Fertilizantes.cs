@@ -39,9 +39,10 @@ namespace Capa_Presentacion
 
         public void MostrarFertilizantes()
         {
+            CN_Fertilizantes _CN_Fertilizantes = new CN_Fertilizantes();
             try
             {
-                tablaFertilizantes = CN_Fertilizantes.MostrarFertilizantes();
+                tablaFertilizantes = _CN_Fertilizantes.MostrarFertilizantes();
                 dgvFertilizantes.DataSource = tablaFertilizantes;
 
             }

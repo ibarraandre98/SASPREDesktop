@@ -20,9 +20,9 @@ namespace Capa_Negocio
             return tablaInsecticida;
         }
 
-        public void AgregarInsecticida(String Usuario, String Nombre, String Precio, String Plaga,String Descripcion)
+        public void AgregarInsecticida(String Nombre, String Precio,String Descripcion)
         {
-            _Insecticidas.AgregarInsecticida(Usuario, Nombre,float.Parse(Precio),Convert.ToString(Plaga),Descripcion);
+            _Insecticidas.AgregarInsecticida(Nombre,float.Parse(Precio),Descripcion);
         }
 
         public void EditarInsecticida(String Nombre, String Precio, String Plaga, String idInsecticida, String Descripcion)

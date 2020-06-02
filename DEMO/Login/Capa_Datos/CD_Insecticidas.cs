@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Capa_Datos
 {
@@ -16,28 +17,43 @@ namespace Capa_Datos
         MySqlCommand comando;
         public DataTable MostrarInsecticidas(String cargo, String usuario)
         {
-            comando = new MySqlCommand();
-            comando.Connection = conexion.AbrirConexion();
-            if (cargo == "Admin")
+            try
             {
-                comando.CommandText = "SELECT insecticidas.idInsecticidas," +
-                    "insecticidas.nombreInsecticida," +
-                    "insecticidas.precio," +
-                    "insecticidas.descripcion," +
-                    "plagas.nombrePlaga FROM insecticidas " +
-                    "INNER JOIN plagasinsecticidas ON insecticidas.idInsecticidas = plagasinsecticidas.idInsecticidas " +
-                    "INNER JOIN plagas ON plagasinsecticidas.idPlagas = plagas.idPlagas;";
+                comando = new MySqlCommand();
+                comando.Connection = conexion.AbrirConexion();
+                if (cargo == "Admin")
+                {
+                    comando.CommandText = "SELECT insecticidas.idInsecticidas," +
+                        "insecticidas.nombreInsecticida," +
+                        "insecticidas.precio," +
+                        "insecticidas.descripcion," +
+                        "plagas.nombrePlaga FROM insecticidas " +
+                        "INNER JOIN plagasinsecticidas ON insecticidas.idInsecticidas = plagasinsecticidas.idInsecticidas " +
+                        "INNER JOIN plagas ON plagasinsecticidas.idPlagas = plagas.idPlagas;";
+                }
+                else
+                {
+                    comando.CommandText = "SELECT insecticidas.nombreInsecticida, insecticidas.precio, insecticidas.descripcion, plagas.nombrePlaga, usuario.nickname FROM insecticidas " +
+    "JOIN plagasinsecticidas ON insecticidas.idInsecticidas = plagasinsecticidas.idInsecticidas " +
+    "JOIN plagasfertilizantes ON plagasinsecticidas.idPlagas = plagasfertilizantes.idPlagas " +
+    "JOIN fertilizaciones ON plagasfertilizantes.idFertilizantes = fertilizaciones.idFertilizantes " +
+     "JOIN usuario ON fertilizaciones.idUsuario = usuario.idUsuario " +
+     "JOIN plagas ON plagasinsecticidas.idPlagas = plagas.idPlagas " +
+     "WHERE usuario.idUsuario = '" + usuario + "'; ";
+
+                }
+                comando.CommandType = CommandType.Text;
+                leer = comando.ExecuteReader();
+                tablaInsecticida.Load(leer);
+                conexion.CerrarConexion();
             }
-            else
+            catch (Exception e)
             {
-                comando.CommandText = "MostrarInsecticidasUsuario";
-                comando.Parameters.AddWithValue("_usuario", usuario);
+                MessageBox.Show($"Ha ocurrido un error {e}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
-            comando.CommandType = CommandType.Text;
-            leer = comando.ExecuteReader();
-            tablaInsecticida.Load(leer);
-            conexion.CerrarConexion();
             return tablaInsecticida;
+
         }
 
         public void AgregarInsecticida(String Usuario, String Nombre, float Precio, String Plaga,String Descripcion)

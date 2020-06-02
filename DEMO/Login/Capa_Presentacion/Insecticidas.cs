@@ -33,11 +33,11 @@ namespace Capa_Presentacion
         public void MostrarInsecticidas()
         {
             CN_Insecticidas _Insecticidas = new CN_Insecticidas();
-            tablaInsecticidas = _Insecticidas.MostrarInsecticidas(Program.cargo, Program.nickname);
+            tablaInsecticidas = _Insecticidas.MostrarInsecticidas(Program.cargo, Program.idusuario);
             dataGridView1.DataSource = tablaInsecticidas;
             if (Program.cargo != "Admin")
             {
-                dataGridView1.Columns["UsuarioNombre"].Visible = false;
+                //dataGridView1.Columns["UsuarioNombre"].Visible = false;
             }
         }
         public void limpiar()
@@ -58,7 +58,7 @@ namespace Capa_Presentacion
                 }
                 else
                 {
-                    _Insecticidas.AgregarInsecticida(Program.nickname, nombre.Text, precio.Text, comboBox1.Text,desc.Text);
+                    _Insecticidas.AgregarInsecticida(nombre.Text, precio.Text,desc.Text);
                     MostrarInsecticidas();
                     limpiar();
                     agregar.Enabled = true;
