@@ -643,7 +643,7 @@ namespace Capa_Presentacion
         {
             DataTable tablaInsecticidas = new DataTable();
             CN_Insecticidas _Insecticidas = new CN_Insecticidas();
-            tablaInsecticidas = _Insecticidas.MostrarInsecticidas(Program.cargo, Program.nickname);
+            tablaInsecticidas = _Insecticidas.MostrarInsecticidas();
             alertCalendario obj = new alertCalendario();
             alertInsecticida obj2 = new alertInsecticida();
 

@@ -15,13 +15,12 @@ namespace Capa_Datos
         MySqlDataReader leer;
         DataTable tablaInsecticida = new DataTable();
         MySqlCommand comando;
-        public DataTable MostrarInsecticidas(String cargo, String usuario)
+        public DataTable MostrarInsecticidas()
         {
             try
             {
                 comando = new MySqlCommand();
-                comando.Connection = conexion.AbrirConexion();
-                if (cargo == "Admin")
+                comando.Connection = conexion.AbrirConexion();/*
                 {
                     comando.CommandText = "SELECT insecticidas.idInsecticidas," +
                         "insecticidas.nombreInsecticida," +
@@ -34,14 +33,16 @@ namespace Capa_Datos
                 else
                 {
                     comando.CommandText = "SELECT insecticidas.nombreInsecticida, insecticidas.precio, insecticidas.descripcion, plagas.nombrePlaga, usuario.nickname FROM insecticidas " +
-    "JOIN plagasinsecticidas ON insecticidas.idInsecticidas = plagasinsecticidas.idInsecticidas " +
-    "JOIN plagasfertilizantes ON plagasinsecticidas.idPlagas = plagasfertilizantes.idPlagas " +
-    "JOIN fertilizaciones ON plagasfertilizantes.idFertilizantes = fertilizaciones.idFertilizantes " +
-     "JOIN usuario ON fertilizaciones.idUsuario = usuario.idUsuario " +
-     "JOIN plagas ON plagasinsecticidas.idPlagas = plagas.idPlagas " +
-     "WHERE usuario.idUsuario = '" + usuario + "'; ";
+                    "JOIN plagasinsecticidas ON insecticidas.idInsecticidas = plagasinsecticidas.idInsecticidas " +
+                    "JOIN plagasfertilizantes ON plagasinsecticidas.idPlagas = plagasfertilizantes.idPlagas " +
+                    "JOIN fertilizaciones ON plagasfertilizantes.idFertilizantes = fertilizaciones.idFertilizantes " +
+                    "JOIN usuario ON fertilizaciones.idUsuario = usuario.idUsuario " +
+                    "JOIN plagas ON plagasinsecticidas.idPlagas = plagas.idPlagas " +
+                    "WHERE usuario.idUsuario = '" + usuario + "';";
 
-                }
+                }*/
+
+                comando.CommandText = "SELECT * from insecticidas";
                 comando.CommandType = CommandType.Text;
                 leer = comando.ExecuteReader();
                 tablaInsecticida.Load(leer);
@@ -53,40 +54,40 @@ namespace Capa_Datos
 
             }
             return tablaInsecticida;
-
         }
 
-        public void AgregarInsecticida(String Usuario, String Nombre, float Precio, String Plaga,String Descripcion)
+        public void AgregarInsecticida(String Nombre, String Precio, String Descripcion)
         {
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "INSERT INTO plagas (nombrePlaga) SELECT '" + Plaga + "' WHERE NOT EXISTS (SELECT nombrePlaga FROM plagas WHERE nombrePlaga = '"+Plaga+"');" +
-                "INSERT INTO insecticidas (nombreInsecticida,precio,descripcion) VALUES('"+Nombre+"',"+Precio+",'"+Descripcion+"');" +
-                "INSERT INTO plagasinsecticidas (idPlagas,idInsecticidas) VALUES((SELECT idPlagas FROM plagas WHERE nombrePlaga = '"+Plaga+"')," +
-                "(SELECT idInsecticidas FROM insecticidas WHERE nombreInsecticida = '"+Nombre+"'))";
+            comando.CommandText = "INSERT INTO insecticidas(nombreInsecticida, precio, descripcion) VALUES (" +
+                "'" + Nombre + "', " +
+                "'" + Precio + "', " +
+                "'" + Descripcion + "');";                ;
+
             comando.CommandType = CommandType.Text;
             comando.ExecuteReader();
             conexion.CerrarConexion();
         }
-        public void EliminarInsecticida(int idInsecticida)
+        public void EliminarInsecticida(String idInsecticida)
         {
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "DELETE FROM plagasinsecticidas WHERE idInsecticidas = "+idInsecticida+";" +
-                "DELETE FROM insecticidas WHERE idInsecticidas = "+idInsecticida+";";
+            comando.CommandText = "DELETE FROM insecticidas WHERE idInsecticidas = '" + idInsecticida+ "';";
             comando.CommandType = CommandType.Text;
             comando.ExecuteReader();
             conexion.CerrarConexion();
         }
 
-        public void EditarInsecticida(String Nombre, float Precio, String Plaga, int idInsecticida, String Descripcion)
+        public void EditarInsecticida(String Nombre, String Precio, String idInsecticida, String Descripcion)
         {
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "UPDATE insecticidas SET nombreInsecticida = '"+Nombre+"'," +
-                "precio = "+Precio+",descripcion = '"+Descripcion+"' WHERE idInsecticidas = "+idInsecticida+";" +
-                "INSERT INTO plagas (nombrePlaga) SELECT '" + Plaga + "' WHERE NOT EXISTS (SELECT nombrePlaga FROM plagas WHERE nombrePlaga = '" + Plaga + "');" +
-                "UPDATE plagasinsecticidas SET idPlagas = (SELECT idPlagas FROM plagas WHERE nombrePlaga = '"+Plaga+"') WHERE idInsecticidas = "+idInsecticida+";";
+            comando.CommandText = "UPDATE insecticidas " +
+                "SET nombreInsecticida = '" + Nombre +"', "+
+                "precio = '" + Precio + "', " +
+                "descripcion = '" + Descripcion + "' " +
+                "WHERE idInsecticidas = '" + idInsecticida +"';";
             comando.CommandType = CommandType.Text;
             comando.ExecuteReader();
             conexion.CerrarConexion();
