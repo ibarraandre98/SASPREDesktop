@@ -150,19 +150,12 @@ namespace Capa_Presentacion
                     break;
 
                 case "Baja":
-                    nombreAlarma = txtNombre.Text;
-                    if (Evaluar(nombreAlarma) == true)
-                    {
+                   
                         id = Convert.ToInt32(txtId.Text);
                         _Alarmas.EliminarAlarma(id);
                         alert.Show("Se ha eliminado la alarma", Alertype.succes);
                         Limpiar();
-                    }
-                    else
-                    {
-                        alert.Show("No se encontro la alarma", Alertype.warning);
-                        Limpiar();
-                    }
+                  
                     break;
 
                 case "Cambio":
