@@ -14,25 +14,24 @@ namespace Capa_Negocio
         CD_Insecticidas _Insecticidas = new CD_Insecticidas();
         DataTable tablaInsecticida = new DataTable();
 
-        public DataTable MostrarInsecticidas(String cargo, String usuario)
+        public DataTable MostrarInsecticidas()
         {
-            tablaInsecticida = _Insecticidas.MostrarInsecticidas(cargo, usuario);
-            return tablaInsecticida;
+           return _Insecticidas.MostrarInsecticidas();
         }
 
-        public void AgregarInsecticida(String Usuario, String Nombre, String Precio, String Plaga,String Descripcion)
+        public void AgregarInsecticida(String Nombre, String Precio,String Descripcion)
         {
-            _Insecticidas.AgregarInsecticida(Usuario, Nombre,float.Parse(Precio),Convert.ToString(Plaga),Descripcion);
+            _Insecticidas.AgregarInsecticida(Nombre ,Precio ,Descripcion);
         }
 
-        public void EditarInsecticida(String Nombre, String Precio, String Plaga, String idInsecticida, String Descripcion)
+        public void EditarInsecticida(String Nombre, String Precio, String idInsecticida, String Descripcion)
         {
-            _Insecticidas.EditarInsecticida(Nombre,float.Parse(Precio),Plaga,Convert.ToInt32(idInsecticida), Descripcion);
+            _Insecticidas.EditarInsecticida(Nombre, Precio, idInsecticida, Descripcion);
         }
 
         public void EliminarInsecticida(String idInsecticida)
         {
-            _Insecticidas.EliminarInsecticida(Convert.ToInt32(idInsecticida));
+            _Insecticidas.EliminarInsecticida(idInsecticida);
         }
     }
 }

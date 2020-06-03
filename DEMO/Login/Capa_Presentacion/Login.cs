@@ -202,6 +202,7 @@ namespace Capa_Presentacion
                     Program.nombre = Loguear["Nombre"].ToString();
                     Program.apellidos = Loguear["Apellidos"].ToString();
                     Program.correo = Loguear["Correo"].ToString();
+                    Program.idusuario = Loguear["idUsuario"].ToString();
                     dsUsuario Ds = new dsUsuario();
                     for(int i = 0; i < 3; i++)
                     {

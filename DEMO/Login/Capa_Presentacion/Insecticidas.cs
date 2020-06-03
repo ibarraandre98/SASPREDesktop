@@ -24,7 +24,6 @@ namespace Capa_Presentacion
         private void Insecticidas_Load(object sender, EventArgs e)
         {
             MostrarInsecticidas();
-            comboBox1.SelectedIndex = 0;
             agregar.Enabled = true;
             eliminar.Enabled = false;
             editar.Enabled = false;
@@ -32,12 +31,13 @@ namespace Capa_Presentacion
 
         public void MostrarInsecticidas()
         {
+            try { 
             CN_Insecticidas _Insecticidas = new CN_Insecticidas();
-            tablaInsecticidas = _Insecticidas.MostrarInsecticidas(Program.cargo, Program.nickname);
-            dataGridView1.DataSource = tablaInsecticidas;
-            if (Program.cargo != "Admin")
+                dgvInsecticidas.DataSource = _Insecticidas.MostrarInsecticidas();
+            }
+            catch (Exception a)
             {
-                dataGridView1.Columns["UsuarioNombre"].Visible = false;
+                MessageBox.Show("ADVERTENCIA", "Error al mostrar insecticidas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         public void limpiar()
@@ -45,25 +45,35 @@ namespace Capa_Presentacion
             idInsecticida.Text = "";
             nombre.Text = "";
             precio.Text = "";
-            comboBox1.SelectedIndex = 0;
+            desc.Text = "";
         }
 
         private void agregar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Desea agregar?", "Agregar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (nombre.Text == " " || precio.Text == " ")
+                if (nombre.Text == " " || precio.Text == " " || desc.Text ==" ")
                 {
                     MessageBox.Show("Complete todos los campos");
                 }
                 else
                 {
-                    _Insecticidas.AgregarInsecticida(Program.nickname, nombre.Text, precio.Text, comboBox1.Text,desc.Text);
-                    MostrarInsecticidas();
-                    limpiar();
-                    agregar.Enabled = true;
-                    eliminar.Enabled = false;
-                    editar.Enabled = false;
+                    try
+                    {
+                        _Insecticidas.AgregarInsecticida(nombre.Text, precio.Text, desc.Text);
+                        limpiar();
+                        agregar.Enabled = true;
+                        eliminar.Enabled = false;
+                        editar.Enabled = false;
+                        MessageBox.Show("Agregado con éxito");
+                        MostrarInsecticidas();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Ha ocurrido un error {ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    }
                 }
             }
         }
@@ -91,26 +101,27 @@ namespace Capa_Presentacion
                 }
                 else
                 {
-                    _Insecticidas.EditarInsecticida(nombre.Text, precio.Text, comboBox1.Text, idInsecticida.Text,desc.Text);
+                    try { 
+                    _Insecticidas.EditarInsecticida(nombre.Text, precio.Text, idInsecticida.Text, desc.Text);
                     MostrarInsecticidas();
                     limpiar();
                     agregar.Enabled = true;
                     eliminar.Enabled = false;
                     editar.Enabled = false;
+                    MessageBox.Show("Actualizado con éxito");
                 }
+                    catch (Exception ex)
+                {
+                    MessageBox.Show($"Ha ocurrido un error {ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+            }
             }
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            idInsecticida.Text = dataGridView1.CurrentRow.Cells["idInsecticidas"].Value.ToString();
-            nombre.Text = dataGridView1.CurrentRow.Cells["nombreInsecticida"].Value.ToString();
-            precio.Text = dataGridView1.CurrentRow.Cells["precio"].Value.ToString();
-            comboBox1.Text =dataGridView1.CurrentRow.Cells["nombrePlaga"].Value.ToString();
-            desc.Text = dataGridView1.CurrentRow.Cells["descripcion"].Value.ToString();
-            agregar.Enabled = false;
-            eliminar.Enabled = true;
-            editar.Enabled = true;
+           
         }
 
         private void precio_KeyPress(object sender, KeyPressEventArgs e)
@@ -120,6 +131,17 @@ namespace Capa_Presentacion
             else if (Char.IsSeparator(e.KeyChar)) { e.Handled = false; }
             else { e.Handled = true; 
             }
+        }
+
+        private void dgvFertilizaciones_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            idInsecticida.Text = dgvInsecticidas.CurrentRow.Cells["idInsecticidas"].Value.ToString();
+            nombre.Text = dgvInsecticidas.CurrentRow.Cells["nombreInsecticida"].Value.ToString();
+            precio.Text = dgvInsecticidas.CurrentRow.Cells["precio"].Value.ToString();
+            desc.Text = dgvInsecticidas.CurrentRow.Cells["descripcion"].Value.ToString();
+            agregar.Enabled = false;
+            eliminar.Enabled = true;
+            editar.Enabled = true;
         }
     }
 }

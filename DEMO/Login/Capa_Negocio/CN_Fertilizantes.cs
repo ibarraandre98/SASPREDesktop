@@ -6,7 +6,7 @@ namespace Capa_Negocio
 {
     public class CN_Fertilizantes
     {
-        public static DataTable MostrarFertilizantes()
+        public DataTable MostrarFertilizantes()
         {
             var fertilizantes = new Capa_Datos.CD_Fertilizantes();
             return fertilizantes.MostrarFertilizantes();

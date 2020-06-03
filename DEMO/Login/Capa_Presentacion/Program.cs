@@ -17,6 +17,8 @@ namespace Capa_Presentacion
         public static String nombre = null;
         public static String apellidos = null;
         public static String correo = null;
+        public static String idusuario = null;
+
 
         /// <summary>
         /// Punto de entrada principal para la aplicación.
