@@ -5,6 +5,8 @@ using System.Windows.Forms;
 using System.IO;
 using System.Drawing;
 using System.Net.Mail;
+using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace Capa_Presentacion
 {
@@ -109,6 +111,13 @@ namespace Capa_Presentacion
                     
 
 
+            }
+            catch(MySqlException ex)
+            {
+                if(ex.Number == 1062)
+                {
+                    MessageBox.Show("Ya existe una cuenta con este nombre de usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
             catch (Exception ex)
             {

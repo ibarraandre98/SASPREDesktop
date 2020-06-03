@@ -647,16 +647,16 @@ namespace Capa_Presentacion
             alertCalendario obj = new alertCalendario();
             alertInsecticida obj2 = new alertInsecticida();
 
-            foreach (DataRow row in tablaCultivos.Rows) {
-                if (row["Estado"].ToString() == "Sin estado") {
-                    obj2.ShowDialog();
-                }
-                else
-                {
-                    obj.ShowDialog();
-                }
+            //foreach (DataRow row in tablaCultivos.Rows) {
+            //    if (row["Estado"].ToString() == "Sin estado") {
+            //        obj2.ShowDialog();
+            //    }
+            //    else
+            //    {
+            //        obj.ShowDialog();
+            //    }
                 
-            }
+            //}
         }
         private void CalcularPlagaAutomatico()
         {

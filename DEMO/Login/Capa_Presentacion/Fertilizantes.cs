@@ -133,11 +133,10 @@ namespace Capa_Presentacion
             for (int i = 0; i < filas; i++)
             {
                 Ds.Tables[0].Rows.Add(new object[] {
+                    dgvFertilizantes[0,i].Value.ToString(),
                     dgvFertilizantes[1,i].Value.ToString(),
                     dgvFertilizantes[2,i].Value.ToString(),
-                    dgvFertilizantes[3,i].Value.ToString(),
-                    dgvFertilizantes[6,i].Value.ToString(),
-                dgvFertilizantes[7,i].Value.ToString()});
+                dgvFertilizantes[3,i].Value.ToString()});
             }
             Reportes r = new Reportes();
             r.setData(Ds);
