@@ -50,20 +50,19 @@ namespace Capa_Presentacion
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            
             cultivo = cbCultivo.Text;
-            if (Evaluar(cultivo) == true)
-            {
+            String idCostos = dgvCultivo.CurrentRow.Cells["idCostos"].Value.ToString();
 
-                precio = Convert.ToDouble(tbPrecio.Text);
+
+
+
+            precio = Convert.ToDouble(tbPrecio.Text);
                 descripcio = descripcion.Text;
-                _Costos.ModificarCostos(cultivo, precio, descripcio);
+                _Costos.ModificarCostos(idCostos,cultivo, precio, descripcio);
 
                 alert.Show("Se ha modificado el costo", Alertype.succes);
-            }
-            else
-            {
-                alert.Show("No se encontro el cultivo", Alertype.warning);
-            }
+           
             MostraCostos();
 
         }
@@ -76,7 +75,7 @@ namespace Capa_Presentacion
         private void btnElimiar_Click(object sender, EventArgs e)
         {
             cultivo = cbCultivo.Text;
-            _Costos.ElimiarCostos(cultivo);
+            _Costos.ElimiarCostos(idCostos);
             MostraCostos();
             alert.Show("Se ha eliminado el costo", Alertype.succes);
             tbPrecio.Text = "";
@@ -126,16 +125,20 @@ namespace Capa_Presentacion
             cbCultivo.DataSource = tablaNombresCultivos;
             cbCultivo.ValueMember = "idSemillas";
             cbCultivo.DisplayMember = "nombreSemilla";
+           
+                       
         }
-
+        String idCostos,idSemilla;
         private void dgvCultivo_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+            
 
             cbCultivo.Text = dgvCultivo.CurrentRow.Cells["nombreSemilla"].Value.ToString();
             tbPrecio.Text = dgvCultivo.CurrentRow.Cells["precio"].Value.ToString();
             descripcion.Text = dgvCultivo.CurrentRow.Cells["descripcion"].Value.ToString();
 
-            tbPrecio.Enabled = true;
+            tbPrecio.Enabled = false;
             btnEditar.Enabled = true;
             btnElimiar.Enabled = true;
         }

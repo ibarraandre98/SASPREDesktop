@@ -25,9 +25,9 @@ namespace Capa_Negocio
             _Costos.ELimiarCostos(cultivo);
         }
 
-        public void ModificarCostos(String cultivo, double precio, String descripcion)
+        public void ModificarCostos(String idCostos,String cultivo, double precio, String descripcion)
         {
-            _Costos.ModificarCostos(cultivo, precio, descripcion);
+            _Costos.ModificarCostos(idCostos,cultivo, precio, descripcion);
         }
 
         public DataTable MostrarCostos()

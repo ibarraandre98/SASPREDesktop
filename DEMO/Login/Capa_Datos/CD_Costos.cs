@@ -36,21 +36,23 @@ namespace Capa_Datos
         {
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "DELETE FROM costos WHERE idSemillas = (SELECT idSemillas FROM semillas WHERE nombreSemilla = '" + cultivo + "')";
+            comando.CommandText = "DELETE FROM costos WHERE idCostos ='" + cultivo + "'";
             comando.CommandType = CommandType.Text;
             comando.ExecuteReader();
             conexion.CerrarConexion();
         }
 
         //Modifica una alarma
-        public void ModificarCostos(String cultivo, double precio, String descripcion)
+        public void ModificarCostos(String idCostos, String cultivo, double precio, String descripcion)
         {
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "UPDATE costos SET " +
-                "precio = "+precio+"," +
-                "descripcion = '"+descripcion+"' " +
-                "WHERE idSemillas = (SELECT idSemillas FROM semillas WHERE nombreSemilla = '" + cultivo + "')";
+                "idCostos="+idCostos+","+
+                "idSemillas =(SELECT idSemillas FROM semillas WHERE nombreSemilla = '"+cultivo+"')," +
+                "precio =" +precio+"," +
+                "descripcion ='"+descripcion+"' " +
+                "WHERE idCostos="+idCostos+"";
             comando.CommandType = CommandType.Text;
             comando.ExecuteReader();
             conexion.CerrarConexion();

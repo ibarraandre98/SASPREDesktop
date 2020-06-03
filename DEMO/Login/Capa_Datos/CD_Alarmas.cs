@@ -41,7 +41,7 @@ namespace Capa_Datos
         {
             comando = new MySqlCommand();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "DELETE FROM alarmas WHERE idAlarmas = "+id+";";
+            comando.CommandText = "DELETE FROM alarmas WHERE idAlarmas ="+id;
             comando.CommandType = CommandType.Text;
             comando.ExecuteReader();
             conexion.CerrarConexion();
